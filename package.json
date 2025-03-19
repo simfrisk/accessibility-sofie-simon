@@ -1,0 +1,20 @@
+{
+  "name": "web-accessibility-template",
+  "author": {
+    "name": "Niklas Abrahamsson",
+    "email": "Niklas.Abrahamsson@b3.se"
+  },
+  "version": "1.0.0",
+  "description": "A template for creating web accessible applications",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
