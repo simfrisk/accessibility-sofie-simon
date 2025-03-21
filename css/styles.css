@@ -352,44 +352,6 @@ input[type='radio'] + label {
   border: 0;
 }
 
-/* High contrast mode */
-@media (prefers-contrast: more) {
-  :root {
-    --primary-color: #000000;
-    --accent-color: #0000ee;
-    --focus-outline: 3px solid #000000;
-  }
-
-  header {
-    background: #ffffff;
-    border: 2px solid var(--primary-color);
-  }
-
-  nav a {
-    background-color: transparent;
-    border: 1px solid currentColor;
-  }
-
-  nav a:hover {
-    background-color: var(--primary-color);
-  }
-
-  .radio-option:hover {
-    background-color: #000000;
-    color: #ffffff;
-  }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-  }
-}
-
 /* Basic responsive design */
 @media (max-width: 600px) {
   body {
