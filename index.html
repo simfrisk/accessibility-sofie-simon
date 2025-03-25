@@ -12,8 +12,8 @@
 
   <!-- font awesome icons -->
   <script src="https://kit.fontawesome.com/beb1bc6f21.js" crossorigin="anonymous"></script>
-  <script src="./dist/main.js" defer></script>
   <script src="./js/main.js" defer></script>
+  <script src="./dist/main.js" defer></script>
 </head>
 
 <body>
@@ -54,14 +54,14 @@
     <section id="quiz-container">
 
 
-      <h2 class="title-text">Question 1</h2>
+      <h2 id="question-title" class="title-text">Question 1</h2>
 
 
       <div class="speech-bubble" id="question-container">
 
 
 
-        <h3 class="title-text">Lorem ipsum dolor sit amet consectetur adipisicing elit?</h3>
+        <h3 id="question-text" class="title-text">Lorem ipsum dolor sit amet consectetur adipisicing elit?</h3>
 
         <img src="" alt="Logo" />
 
@@ -70,25 +70,25 @@
       <form>
         <fieldset>
           <label>
-            <input type="radio" name="question1" value="A" />
+            <input id="option-a" type="radio" name="question1" value="A" />
             Option A
           </label>
           <label>
-            <input type="radio" name="question1" value="B" />
+            <input id="option-b" type="radio" name="question1" value="B" />
             Option B
 
           </label>
           <label>
-            <input type="radio" name="question1" value="C" />
+            <input id="option-c" type="radio" name="question1" value="C" />
             Option C
           </label>
           <label>
-            <input type="radio" name="question1" value="D" />
+            <input id="option-d" type="radio" name="question1" value="D" />
             Option D
           </label>
         </fieldset>
         <button>Back</button>
-        <button>Submit</button>
+        <button id="answer-btn">Submit</button>
       </form>
 
     </section>
@@ -98,10 +98,10 @@
     <section id="result-container">
       <div class="speech-bubble" id="answer-container">
 
-        <h2 class="title-text">You got it right!</h2>
+        <h2 id="resault-title" class="title-text">You got it right!</h2>
 
       </div>
-      <p>The correct answer is..</p>
+      <p id="resault-explanation">The correct answer is..</p>
 
     </section>
     <!-- #endregion -->
