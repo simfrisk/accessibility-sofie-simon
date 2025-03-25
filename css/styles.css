@@ -10,12 +10,35 @@ body {
 
 /* Styling for nav in header and footer */
 
+#menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+  display: block;
+  padding: 12px;
+}
+
+#nav-links {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  padding: 10px 0;
+}
+
+#nav-links.active {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
 nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
   justify-items: center;
-  padding: 8px;
 }
 
 ul {
@@ -150,3 +173,19 @@ i {
   border: black solid 2px;
   margin-bottom: 10px;
 } */
+
+/* Desktop  */
+@media screen and (min-width: 768px) {
+  #menu-icon {
+    display: none;
+  }
+
+  #nav-links {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    box-shadow: none;
+    gap: 15px;
+    background-color: #fdeb3f;
+  }
+}
