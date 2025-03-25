@@ -1,12 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
   <title>Title</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <script src="js/main.js" defer></script>
+  <link
+    rel="stylesheet"
+    href="css/styles.css"
+  />
+  <!-- font awesome icons -->
+  <script
+    src="https://kit.fontawesome.com/beb1bc6f21.js"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="js/main.js"
+    defer
+  ></script>
 </head>
 
 <body>
@@ -14,8 +28,8 @@
   <header>
     <nav>
       <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">About</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
       </ul>
     </nav>
   </header>
@@ -24,38 +38,75 @@
 
   <main>
     <!-- #region --- Start page  ----->
-    <section id="start-page" class="">
-      <h1>Web Accessibility Quiz</h1>
+    <section
+      id="start-page"
+      class=""
+    >
 
-      <h2>Description about the quiz</h2>
+      <div
+        class="speech-bubble"
+        id="question-container"
+      >
+        <p class="title-text">Welcome to our</p>
+        <h1 class="title-text">Web Accessibility Quiz</h1>
+      </div>
 
-      <button>Start</button>
+      <p>Kort beskrivning. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa adipisci laborum
+        unde
+        illum ea, dolores facere
+        soluta excepturi mollitia hic nisi, doloremque.</p>
+
+      <button>Start Quiz</button>
+
     </section>
     <!-- #endregion -->
 
     <!-- #region --- Quiz Container  ----->
     <section id="quiz-container">
-      <div class="speech-bubble" id="question-container">
-        <img src="" alt="Logo" />
-        <h2>Question 1</h2>
+
+      <h2 class="title-text">Question 1</h2>
+
+      <div
+        class="speech-bubble"
+        id="question-container"
+      >
+
+
+        <h3 class="title-text">Lorem ipsum dolor sit amet consectetur adipisicing elit?</h3>
       </div>
       <form>
         <fieldset>
           <label>
-            <input type="radio" name="question1" value="1" />
-            Option 1
+            <input
+              type="radio"
+              name="question1"
+              value="A"
+            />
+            Option A
           </label>
           <label>
-            <input type="radio" name="question1" value="2" />
-            Option 2
+            <input
+              type="radio"
+              name="question1"
+              value="B"
+            />
+            Option B
           </label>
           <label>
-            <input type="radio" name="question1" value="3" />
-            Option 3
+            <input
+              type="radio"
+              name="question1"
+              value="C"
+            />
+            Option C
           </label>
           <label>
-            <input type="radio" name="question1" value="4" />
-            Option 4
+            <input
+              type="radio"
+              name="question1"
+              value="D"
+            />
+            Option D
           </label>
         </fieldset>
         <button>Back</button>
@@ -67,23 +118,30 @@
 
     <!-- #region --- Result Container  ----->
     <section id="result-container">
-      <div class="speech-bubble" id="answer-container">
-        <img src="" alt="" />
+      <div
+        class="speech-bubble"
+        id="answer-container"
+      >
+        <h2 class="title-text">You got it right!</h2>
+
+
       </div>
-      <h2>You got it right!</h2>
       <p>The correct answer is..</p>
-      <h2>Not quite there</h2>
-      <p>The correct answer should be..</p>
 
     </section>
     <!-- #endregion -->
 
     <!-- #region --- Quiz Resault ----->
     <section id="quiz-result">
-      <div class="speech-bubble" id="">
-        <img src="" alt="" />
+      <div
+        class="speech-bubble"
+        id=""
+      >
+
+        <h3 class="title-text">You got 10/10!</h3>
 
       </div>
+      <p>Well done! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum modi similique quis.</p>
     </section>
     <!-- #endregion -->
 
@@ -93,9 +151,12 @@
   <footer>
     <nav>
       <ul>
-        <li><a href=""><i></i>Icon</a></li>
-        <li><a href=""><i></i>Icon</a></li>
-        <li><a href=""><i></i>Icon</a></li>
+        <li><a href=""><i class="fa-brands fa-github"></i></a></li>
+
+        <li><a href=""><i class="fa-brands fa-github"></i></a></li>
+
+        <li><a href=""><i class="fa-brands fa-github"></i></a></li>
+
       </ul>
     </nav>
   </footer>
