@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fdeb3f;
+  font-family: 'Futura', sans-serif;
+}
+
+#start-page {
+  border: black solid 2px;
+  margin-bottom: 10px;
+}
+
+#quiz-container {
+  border: black solid 2px;
+  margin-bottom: 10px;
+}
+
+#result-container {
+  border: black solid 2px;
+  margin-bottom: 10px;
+}
+
+#quiz-result {
+  border: black solid 2px;
+  margin-bottom: 10px;
+}
