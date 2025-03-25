@@ -3,9 +3,10 @@
 }
 
 body {
+
+  background-color: var(--primary);
   font-family: 'Futura', Helvetica, sans-serif;
   margin: 0;
-  background-color: #fdeb3f;
 }
 
 /* Styling for nav in header and footer */
