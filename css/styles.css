@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #fdeb3f;
+  background-color: var(--primary);
   font-family: 'Futura', sans-serif;
 }
 
