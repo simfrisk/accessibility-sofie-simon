@@ -1,18 +1,98 @@
+:root {
+  --primary: #fdeb3f;
+  --primary-hover: ;
+  --primary-fixed: ;
+
+  --secondary: #000000;
+  --secondary-hover: ;
+  --secondary-fixed: ;
+
+  --complementary: #FFFFFF;
+  --complementary-hover: ;
+  --complementary-fixed: ;
+
+  --aditional: ;
+  --aditional-hover: ;
+  --aditional-fixed: ;
+
+  --font-primary: #000000;
+  --font-primary-hover: ;
+  --font-primary-fixed: ;
+
+  --font-secondary: ;
+  --font-secondary-hover: ;
+  --font-secondary-fixed: ;
+}
+
+.dark-mode {
+  --primary: #6c2727;
+  --primary-hover: ;
+  --primary-fixed: ;
+
+  --secondary: ;
+  --secondary-hover: ;
+  --secondary-fixed: ;
+
+  --complementary: ;
+  --complementary-hover: ;
+  --complementary-fixed: ;
+
+  --aditional: ;
+  --aditional-hover: ;
+  --aditional-fixed: ;
+
+  --font-primary: ;
+  --font-primary-hover: ;
+  --font-primary-fixed: ;
+
+  --font-secondary: ;
+  --font-secondary-hover: ;
+  --font-secondary-fixed: ;
+
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-
   background-color: var(--primary);
   font-family: 'Futura', Helvetica, sans-serif;
   margin: 0;
 }
 
+/* Skip link styling */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+  background-color: var(--complementary);
+  outline: 4px solid var(--secondary);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.skip-link:hover {
+  border-bottom: none;
+  text-decoration: underline;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+
 /* Styling for nav in header and footer */
 
+nav {
+  padding: 12px;
+}
+
 #menu-icon {
-  font-size: 30px;
+  font-size: 40px;
   cursor: pointer;
   display: block;
   padding: 12px;
@@ -20,42 +100,36 @@ body {
 
 #nav-links {
   display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 50px;
-  left: 0;
   width: 100%;
   background: transparent;
-  padding: 10px 0;
+  font-size: 24px;
 }
 
 #nav-links.active {
   display: flex;
   flex-direction: column;
-  padding: 8px;
-}
-
-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  justify-items: center;
+  padding: 0px 12px;
 }
 
 ul {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
   padding: 0;
+  margin: 0;
 }
 
 li {
   list-style: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 6px;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--secondary);
+}
+
+#nav-links a:hover {
+  border-bottom: 4px solid var(--secondary);
 }
 
 main {
@@ -66,16 +140,21 @@ main {
 
 /* styling for each section */
 section {
-  border: 1px dashed black;
+  border: 1px dashed var(--secondary);
   margin: 8px;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  gap: 16px;
   padding: 24px;
 }
 
 .speech-bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: url("../img/speech-bubble2.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -83,24 +162,42 @@ section {
   width: 100%;
   height: auto;
   min-height: 220px;
-  padding-top: 50px;
+
 }
 
 .title-text {
-  max-width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
-  font-size: 18px;
-  padding: 4px;
+  outline: 1px dashed red;
+  max-width: 180px;
+
 }
 
-h1 {}
+h1,
+h2,
+h3,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+h2,
+h3 {
+  font-size: 16px;
+}
 
 button {
   font-family: 'Futura', Helvetica, sans-serif;
-  border: 2px solid black;
+  border: 2px solid var(--secondary);
   border-radius: 8px;
-  background-color: #FFFFFF;
-  box-shadow: 2px 3px 0px black;
+  background-color: var(--complementary);
+  box-shadow: 2px 3px 0px var(--secondary);
   padding: 8px 12px;
   text-transform: uppercase;
   font-weight: 600;
@@ -110,47 +207,54 @@ button {
 }
 
 button:hover {
-  box-shadow: inset 2px 2px 0px black;
+  box-shadow: none;
   transform: translateY(2px);
 }
 
 button:active {
-  box-shadow: inset 4px 4px 0px black;
-  transform: translateY(3px) scale(0.98);
+  box-shadow: inset 1.5px 2px 0px var(--secondary);
+  transform: translateY(2px) scale(0.98);
 }
 
 /* Quiz questions form layout */
 
 form {
   padding: 8px 16px;
-
 }
 
 fieldset {
   border: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  padding: 8px 16px;
 }
+
+legend {
+  padding: 0;
+}
+
 
 label {
   margin: 8px 0px;
   padding: 8px;
-  background-color: #FFFFFF;
-  box-shadow: 2px 3px 0px black;
-  border: 2px solid black;
+  background-color: var(--complementary);
+  box-shadow: 2px 3px 0px var(--secondary);
+  border: 2px solid var(--secondary);
   border-radius: 4px;
   transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
 
 label:hover {
-  box-shadow: inset 2px 2px 0px black;
+  box-shadow: none;
   transform: translateY(2px);
 }
 
 label:has(:checked) {
-  box-shadow: inset 4px 4px 0px black;
-  transform: translateY(3px) scale(0.98);
+  box-shadow: inset 2px 3px 0px var(--secondary);
+  transform: translateY(2px) scale(0.98);
   font-weight: bold;
 }
 
@@ -164,25 +268,10 @@ i {
   color: #000000;
 }
 
-/* #start-page {
-  border: rgb(255, 0, 0) solid 2px;
-  margin-bottom: 10px;
+footer {
+  flex-direction: row;
+  justify-items: center;
 }
-
-#quiz-container {
-  border: black solid 2px;
-  margin-bottom: 10px;
-}
-
-#result-container {
-  border: black solid 2px;
-  margin-bottom: 10px;
-}
-
-#quiz-result {
-  border: black solid 2px;
-  margin-bottom: 10px;
-} */
 
 /* Desktop  */
 @media screen and (min-width: 768px) {
@@ -193,9 +282,7 @@ i {
   #nav-links {
     display: flex;
     flex-direction: row;
-    position: static;
-    box-shadow: none;
-    gap: 15px;
-    background-color: var(--primary);
+    justify-content: center;
   }
+
 }
