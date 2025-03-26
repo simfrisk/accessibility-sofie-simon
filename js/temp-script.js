@@ -4,8 +4,8 @@ const optionA = document.querySelector("#option-a")
 const optionB = document.querySelector("#option-b")
 const optionC = document.querySelector("#option-c")
 const optionD = document.querySelector("#option-d")
-const resultTitle = document.querySelector("#resault-title")
-const resultExplanation = document.querySelector("#resault-explanation")
+const resultTitle = document.querySelector("#result-title")
+const resultExplanation = document.querySelector("#result-explanation")
 const submitAnswerBtn = document.querySelector("#answer-btn")
 const nextQuestionBtn = document.querySelector("#next-question-btn")
 
@@ -14,23 +14,23 @@ let currentStep = 1
 const loadNextQuestion = () => {
   // if current step = lenght of array
   nextStep()
-  questionTitle.innerHTML = questions.questions
-  questionText.innerHTML =
-    optionA.innerHTML = `A: ${questions.options[0]}`
+  questionTitle.innerHTML = questions.questionsTitle
+  questionText.innerHTML = questions.questionsText
+  optionA.innerHTML = `A: ${questions.options[0]}`
   optionB.innerHTML = `B: ${questions.options[0]}`
   optionC.innerHTML = `C: ${questions.options[0]}`
   optionD.innerHTML = `D: ${questions.options[0]}`
   // else
-  // Show resault slide
+  // Show result slide
 }
 
 
 const loadNextAnswer = () => {
   // Next Slide
   // If correct ++ score
-  // If incorrect -- score
-  resaultTitle.innerHTML = (questions.resaultTitle)
-  resaultExplanation.innerHTML = (questions.resaultExplanation)
+  // If incorrect dont add score
+  resultTitle.innerHTML = (questions.resultTitle)
+  resultExplanation.innerHTML = (questions.resaultExplanation)
   //Startover
   //Set user score === 0
   //Set current step === 0
