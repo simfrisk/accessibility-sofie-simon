@@ -6,8 +6,10 @@ interface Question {
   questionText: string,
   options: string[],
   correctAnswer: string,
-  resultTitle: string,
-  resultExplanation: string
+  resultTitleWin: string,
+  resultExplanationWin: string
+  resultTitleLose: string,
+  resultExplanationLose: string
 }
 //#endregion
 
@@ -26,7 +28,8 @@ const resultExplanation = document.querySelector("#result-explanation") as HTMLP
 const submitAnswerBtn = document.querySelector("#answer-btn") as HTMLElement
 const nextQuestionBtn = document.querySelector("#next-question-btn") as HTMLElement
 
-let currentStep: number = 0
+let currentStep: number = -1
+let currentQuestion = null
 
 //#endregion
 
@@ -39,8 +42,10 @@ const questions: Question[] = [
     questionText: "What is a screen reader?",
     options: ["A car", "A digital text reader", "A cat", "A fruite"],
     correctAnswer: "A digital text reader",
-    resultTitle: "answerTitle",
-    resultExplanation: "answerExplanation"
+    resultTitleWin: "Congratulations",
+    resultExplanationWin: "You got it right!",
+    resultTitleLose: "Oh no!",
+    resultExplanationLose: "You got it wrong"
   },
   {
     id: "question2",
@@ -49,8 +54,10 @@ const questions: Question[] = [
     currentStep: 2,
     options: ["option A", "option B", "option C", "option D"],
     correctAnswer: "option 1",
-    resultTitle: "answerTitle",
-    resultExplanation: "answerExplanation"
+    resultTitleWin: "answerTitle",
+    resultExplanationWin: "answerExplanation",
+    resultTitleLose: "Oh no!",
+    resultExplanationLose: "You got it wrong"
   },
   {
     id: "question3",
@@ -59,8 +66,10 @@ const questions: Question[] = [
     questionText: "What is ...3",
     options: ["option A", "option B", "option C", "option D"],
     correctAnswer: "option 1",
-    resultTitle: "answerTitle",
-    resultExplanation: "answerExplanation"
+    resultTitleWin: "answerTitle",
+    resultExplanationWin: "answerExplanation",
+    resultTitleLose: "Oh no!",
+    resultExplanationLose: "You got it wrong"
   }
 ]
 
@@ -80,7 +89,8 @@ const burgerMenu = (): void => {
 const loadNextQuestion = () => {
   console.log("testing")
   // nextStep()
-  const currentQuestion = questions[currentStep]
+  currentStep++
+  currentQuestion = questions[currentStep]
   questionTitle.innerHTML = (currentQuestion.questionTitle)
   questionText.innerHTML = (currentQuestion.questionText)
   optionA.innerHTML = (`A: ${currentQuestion.options[0]}`)
@@ -96,5 +106,6 @@ const loadNextQuestion = () => {
 //#region --- Event listeners -----
 menuIcon.addEventListener("click", burgerMenu)
 startQuizBtn.addEventListener("click", loadNextQuestion)
+nextQuestionBtn.addEventListener("click", loadNextQuestion)
 
 //#endregion

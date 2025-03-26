@@ -14,7 +14,8 @@ const resultTitle = document.querySelector("#result-title");
 const resultExplanation = document.querySelector("#result-explanation");
 const submitAnswerBtn = document.querySelector("#answer-btn");
 const nextQuestionBtn = document.querySelector("#next-question-btn");
-let currentStep = 0;
+let currentStep = -1;
+let currentQuestion = null;
 //#endregion
 //#region --- Object -----
 const questions = [
@@ -25,8 +26,10 @@ const questions = [
         questionText: "What is a screen reader?",
         options: ["A car", "A digital text reader", "A cat", "A fruite"],
         correctAnswer: "A digital text reader",
-        resultTitle: "answerTitle",
-        resultExplanation: "answerExplanation"
+        resultTitleWin: "Congratulations",
+        resultExplanationWin: "You got it right!",
+        resultTitleLose: "Oh no!",
+        resultExplanationLose: "You got it wrong"
     },
     {
         id: "question2",
@@ -35,8 +38,10 @@ const questions = [
         currentStep: 2,
         options: ["option A", "option B", "option C", "option D"],
         correctAnswer: "option 1",
-        resultTitle: "answerTitle",
-        resultExplanation: "answerExplanation"
+        resultTitleWin: "answerTitle",
+        resultExplanationWin: "answerExplanation",
+        resultTitleLose: "Oh no!",
+        resultExplanationLose: "You got it wrong"
     },
     {
         id: "question3",
@@ -45,8 +50,10 @@ const questions = [
         questionText: "What is ...3",
         options: ["option A", "option B", "option C", "option D"],
         correctAnswer: "option 1",
-        resultTitle: "answerTitle",
-        resultExplanation: "answerExplanation"
+        resultTitleWin: "answerTitle",
+        resultExplanationWin: "answerExplanation",
+        resultTitleLose: "Oh no!",
+        resultExplanationLose: "You got it wrong"
     }
 ];
 //#endregion
@@ -62,7 +69,8 @@ const burgerMenu = () => {
 const loadNextQuestion = () => {
     console.log("testing");
     // nextStep()
-    const currentQuestion = questions[currentStep];
+    currentStep++;
+    currentQuestion = questions[currentStep];
     questionTitle.innerHTML = (currentQuestion.questionTitle);
     questionText.innerHTML = (currentQuestion.questionText);
     optionA.innerHTML = (`A: ${currentQuestion.options[0]}`);
@@ -76,4 +84,5 @@ const loadNextQuestion = () => {
 //#region --- Event listeners -----
 menuIcon.addEventListener("click", burgerMenu);
 startQuizBtn.addEventListener("click", loadNextQuestion);
+nextQuestionBtn.addEventListener("click", loadNextQuestion);
 //#endregion

@@ -10,7 +10,7 @@
   <!-- font awesome icons -->
   <script src="https://kit.fontawesome.com/beb1bc6f21.js" crossorigin="anonymous"></script>
   <script src="./dist/main.js" defer></script>
-  <!-- <script src="./dist/main.js" defer></script> -->
+  <script src="./js/temp-script.js" defer></script>
 </head>
 
 <body>
@@ -63,21 +63,21 @@
       </div>
       <form>
         <fieldset>
-          <label id="option-a">
+          <label id="option-a" class="options">
             <input type="radio" name="question1" value="A" />
 
             Option A
           </label>
-          <label id="option-b">
+          <label id="option-b" class="options">
             <input type="radio" name="question1" value="B" />
             Option B
 
           </label>
-          <label id="option-c">
+          <label id="option-c" class="options">
             <input type="radio" name="question1" value="C" />
             Option C
           </label>
-          <label id="option-d">
+          <label id="option-d" class="options">
             <input type="radio" name="question1" value="D" />
             Option D
           </label>
@@ -92,13 +92,13 @@
     <!-- #region --- Result Container  ----->
     <section id="result-container">
       <div class="speech-bubble" id="answer-container">
-        <h2 id="result-title" class="title-text">Congratulations</h2>
-        <p id="result-explanation" class="title-text">You got it right!</p>
+        <h2 id="result-title" class="title-text"></h2>
+        <p id="result-explanation" class="title-text"></p>
 
       </div>
       <p>The correct answer is..</p>
       <button>Back</button>
-      <button>Next question</button>
+      <button id="next-question-btn">Next question</button>
     </section>
     <!-- #endregion -->
 
