@@ -1,32 +1,4 @@
-const startQuizBtn = document.querySelector("#start-quiz-btn")
-const questionTitle = document.querySelector("#question-title")
-const questionText = document.querySelector("#question-text")
-const optionA = document.querySelector("#option-a")
-const optionB = document.querySelector("#option-b")
-const optionC = document.querySelector("#option-c")
-const optionD = document.querySelector("#option-d")
-const resultTitle = document.querySelector("#result-title")
-const resultExplanation = document.querySelector("#result-explanation")
-const submitAnswerBtn = document.querySelector("#answer-btn")
-const nextQuestionBtn = document.querySelector("#next-question-btn")
 
-let currentStep = 0
-
-const loadNextQuestion = () => {
-  console.log("testing")
-  // if current step = lenght of array
-  // nextStep()
-
-  const currentQuestion = questions[currentStep]
-  questionTitle.innerHTML = (currentQuestion.questionTitle)
-  questionText.innerHTML = (currentQuestion.questionText)
-  optionA.innerHTML = (`A: ${currentQuestion.options[0]}`)
-  optionB.innerHTML = (`B: ${currentQuestion.options[1]}`)
-  optionC.innerHTML = (`C: ${currentQuestion.options[2]}`)
-  optionD.innerHTML = (`D: ${currentQuestion.options[3]}`)
-  // else
-  // Show result slide
-}
 
 //LoadNextAnser
 // const loadNextAnswer = () => {
@@ -51,10 +23,6 @@ const loadNextQuestion = () => {
 
 // const nextStep = () => {
 //   // Add the next object in the array
-//   // Clear Option A
-//   // Clear Option B
-//   // Clear Option C
-//   // Clear Option D
 //   // Next Slide
 // }
 
@@ -69,7 +37,6 @@ const loadNextQuestion = () => {
 
 
 //eventlisteners
-startQuizBtn.addEventListener("click", loadNextQuestion)
 // nextQuestionBtn.addEventListener("click", loadNextQuestion)
 // showAnswerBtn.addEventListener("click", loadNextAnswer)
 // goBackBtn.addEventListener("click", loadPrevoius)
