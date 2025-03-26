@@ -1,9 +1,13 @@
 //#region --- Interface ----- 
-interface questions {
+interface Question {
   id: string,
-  question: string,
+  currentStep: number,
+  questionTitle: string,
+  questionText: string,
   options: string[],
-  correctAnswer: string
+  correctAnswer: string,
+  resultTitle: string,
+  resultExplanation: string
 }
 //#endregion
 
@@ -14,24 +18,36 @@ const menuIcon = document.querySelector("#menu-icon") as HTMLElement
 //#endregion
 
 //#region --- Object -----
-const questions = [
+const questions: Question[] = [
   {
     id: "question1",
-    question: "What is ...",
-    options: ["option A", "option B", "option C", "option D"],
-    correctAnswer: "option 1"
+    currentStep: 1,
+    questionTitle: "Question 1",
+    questionText: "What is a screen reader?",
+    options: ["A car", "A digital text reader", "A cat", "A fruite"],
+    correctAnswer: "A digital text reader",
+    resultTitle: "answerTitle",
+    resultExplanation: "answerExplanation"
   },
   {
     id: "question2",
-    question: "What is ...",
+    questionTitle: "Question 2",
+    questionText: "What is ...2",
+    currentStep: 2,
     options: ["option A", "option B", "option C", "option D"],
-    correctAnswer: "option 1"
+    correctAnswer: "option 1",
+    resultTitle: "answerTitle",
+    resultExplanation: "answerExplanation"
   },
   {
     id: "question3",
-    question: "What is ...",
+    currentStep: 3,
+    questionTitle: "Question 3",
+    questionText: "What is ...3",
     options: ["option A", "option B", "option C", "option D"],
-    correctAnswer: "option 1"
+    correctAnswer: "option 1",
+    resultTitle: "answerTitle",
+    resultExplanation: "answerExplanation"
   }
 ]
 
