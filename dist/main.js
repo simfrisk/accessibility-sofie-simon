@@ -8,21 +8,33 @@ const menuIcon = document.querySelector("#menu-icon");
 const questions = [
     {
         id: "question1",
-        question: "What is ...",
+        currentStep: 1,
+        questionTitle: "Question 1",
+        questionText: "What is ...",
         options: ["option A", "option B", "option C", "option D"],
-        correctAnswer: "option 1"
+        correctAnswer: "option 1",
+        resultTitle: "answerTitle",
+        resultExplanation: "answerExplanation"
     },
     {
         id: "question2",
-        question: "What is ...",
+        questionTitle: "Question 1",
+        questionText: "What is ...",
+        currentStep: 2,
         options: ["option A", "option B", "option C", "option D"],
-        correctAnswer: "option 1"
+        correctAnswer: "option 1",
+        resultTitle: "answerTitle",
+        resultExplanation: "answerExplanation"
     },
     {
         id: "question3",
-        question: "What is ...",
+        currentStep: 3,
+        questionTitle: "Question 1",
+        questionText: "What is ...",
         options: ["option A", "option B", "option C", "option D"],
-        correctAnswer: "option 1"
+        correctAnswer: "option 1",
+        resultTitle: "answerTitle",
+        resultExplanation: "answerExplanation"
     }
 ];
 //#endregion
