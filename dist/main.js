@@ -9,29 +9,32 @@ const questions = [
     {
         id: "question1",
         currentStep: 1,
-        question: "What is ...",
+        questionTitle: "Question 1",
+        questionText: "What is ...",
         options: ["option A", "option B", "option C", "option D"],
         correctAnswer: "option 1",
-        resaultTitle: "answerTitle",
-        resaultExplanation: "answerExplanation"
+        resultTitle: "answerTitle",
+        resultExplanation: "answerExplanation"
     },
     {
         id: "question2",
-        question: "What is ...",
+        questionTitle: "Question 1",
+        questionText: "What is ...",
         currentStep: 2,
         options: ["option A", "option B", "option C", "option D"],
         correctAnswer: "option 1",
-        resaultTitle: "answerTitle",
-        resaultExplanation: "answerExplanation"
+        resultTitle: "answerTitle",
+        resultExplanation: "answerExplanation"
     },
     {
         id: "question3",
         currentStep: 3,
-        question: "What is ...",
+        questionTitle: "Question 1",
+        questionText: "What is ...",
         options: ["option A", "option B", "option C", "option D"],
         correctAnswer: "option 1",
-        resaultTitle: "answerTitle",
-        resaultExplanation: "answerExplanation"
+        resultTitle: "answerTitle",
+        resultExplanation: "answerExplanation"
     }
 ];
 //#endregion

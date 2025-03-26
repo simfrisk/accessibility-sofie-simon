@@ -4,24 +4,26 @@ const optionA = document.querySelector("#option-a")
 const optionB = document.querySelector("#option-b")
 const optionC = document.querySelector("#option-c")
 const optionD = document.querySelector("#option-d")
-const resaultTitle = document.querySelector("#resault-title")
-const resaultExplanation = document.querySelector("#resault-explanation")
+const resultTitle = document.querySelector("#resault-title")
+const resultExplanation = document.querySelector("#resault-explanation")
 const submitAnswerBtn = document.querySelector("#answer-btn")
 const nextQuestionBtn = document.querySelector("#next-question-btn")
 
 let currentStep = 1
 
-
 const loadNextQuestion = () => {
   // if current step = lenght of array
   nextStep()
-  optionA.innerHTML = `A: ${questions[0].question}`
-  optionB.innerHTML = `B: ${questions[1].question}`
-  optionC.innerHTML = `C: ${questions[2].question}`
-  optionD.innerHTML = `D: ${questions[3].question}`
+  questionTitle.innerHTML = questions.questions
+  questionText.innerHTML =
+    optionA.innerHTML = `A: ${questions.options[0]}`
+  optionB.innerHTML = `B: ${questions.options[0]}`
+  optionC.innerHTML = `C: ${questions.options[0]}`
+  optionD.innerHTML = `D: ${questions.options[0]}`
   // else
   // Show resault slide
 }
+
 
 const loadNextAnswer = () => {
   // Next Slide
@@ -48,3 +50,5 @@ const nextStep = () => {
 
 //eventlisteners
 nextQuestionBtn.addEventListener("click", loadNextQuestion())
+
+loadNextQuestion()

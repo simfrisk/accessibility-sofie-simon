@@ -1,12 +1,13 @@
 //#region --- Interface ----- 
-interface questions {
+interface Question {
   id: string,
   currentStep: number,
-  question: string,
+  questionTitle: string,
+  questionText: string,
   options: string[],
   correctAnswer: string,
-  resaultTitle: string,
-  resaultExplanation: string
+  resultTitle: string,
+  resultExplanation: string
 }
 //#endregion
 
@@ -17,33 +18,36 @@ const menuIcon = document.querySelector("#menu-icon") as HTMLElement
 //#endregion
 
 //#region --- Object -----
-const questions = [
+const questions: Question[] = [
   {
     id: "question1",
     currentStep: 1,
-    question: "What is ...",
+    questionTitle: "Question 1",
+    questionText: "What is ...",
     options: ["option A", "option B", "option C", "option D"],
     correctAnswer: "option 1",
-    resaultTitle: "answerTitle",
-    resaultExplanation: "answerExplanation"
+    resultTitle: "answerTitle",
+    resultExplanation: "answerExplanation"
   },
   {
     id: "question2",
-    question: "What is ...",
+    questionTitle: "Question 1",
+    questionText: "What is ...",
     currentStep: 2,
     options: ["option A", "option B", "option C", "option D"],
     correctAnswer: "option 1",
-    resaultTitle: "answerTitle",
-    resaultExplanation: "answerExplanation"
+    resultTitle: "answerTitle",
+    resultExplanation: "answerExplanation"
   },
   {
     id: "question3",
     currentStep: 3,
-    question: "What is ...",
+    questionTitle: "Question 1",
+    questionText: "What is ...",
     options: ["option A", "option B", "option C", "option D"],
     correctAnswer: "option 1",
-    resaultTitle: "answerTitle",
-    resaultExplanation: "answerExplanation"
+    resultTitle: "answerTitle",
+    resultExplanation: "answerExplanation"
   }
 ]
 
