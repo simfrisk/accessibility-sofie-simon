@@ -1,3 +1,56 @@
+:root {
+  --primary: #fdeb3f;
+  --primary-hover: ;
+  --primary-fixed: ;
+
+  --secondary: ;
+  --secondary-hover: ;
+  --secondary-fixed: ;
+
+  --complementary: ;
+  --complementary-hover: ;
+  --complementary-fixed: ;
+
+  --aditional: ;
+  --aditional-hover: ;
+  --aditional-fixed: ;
+
+  --font-primary: ;
+  --font-primary-hover: ;
+  --font-primary-fixed: ;
+
+  --font-secondary: ;
+  --font-secondary-hover: ;
+  --font-secondary-fixed: ;
+}
+
+.dark-mode {
+  --primary: #6c2727;
+  --primary-hover: ;
+  --primary-fixed: ;
+
+  --secondary: ;
+  --secondary-hover: ;
+  --secondary-fixed: ;
+
+  --complementary: ;
+  --complementary-hover: ;
+  --complementary-fixed: ;
+
+  --aditional: ;
+  --aditional-hover: ;
+  --aditional-fixed: ;
+
+  --font-primary: ;
+  --font-primary-hover: ;
+  --font-primary-fixed: ;
+
+  --font-secondary: ;
+  --font-secondary-hover: ;
+  --font-secondary-fixed: ;
+
+}
+
 * {
   box-sizing: border-box;
 }
@@ -5,7 +58,7 @@
 body {
   font-family: 'Futura', Helvetica, sans-serif;
   margin: 0;
-  background-color: #fdeb3f;
+  background-color: var(--primary);
 }
 
 /* Styling for nav in header and footer */
@@ -105,13 +158,18 @@ button {
   font-weight: 600;
   letter-spacing: 0.5px;
   margin: 8px;
+  transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
 
 button:hover {
-  border: 2px dashed black;
+  box-shadow: inset 2px 2px 0px black;
+  transform: translateY(2px);
 }
 
-button::after {}
+button:active {
+  box-shadow: inset 4px 4px 0px black;
+  transform: translateY(3px) scale(0.98);
+}
 
 /* Quiz questions form layout */
 
@@ -134,14 +192,18 @@ label {
   box-shadow: 2px 3px 0px black;
   border: 2px solid black;
   border-radius: 4px;
+  transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
 
 label:hover {
-  border: 2px dashed black;
+  box-shadow: inset 2px 2px 0px black;
+  transform: translateY(2px);
 }
 
 label:has(:checked) {
-  border: 2px dashed black;
+  box-shadow: inset 4px 4px 0px black;
+  transform: translateY(3px) scale(0.98);
+  font-weight: bold;
 }
 
 label input {
@@ -186,6 +248,6 @@ i {
     position: static;
     box-shadow: none;
     gap: 15px;
-    background-color: #fdeb3f;
+    background-color: var(--primary);
   }
 }
