@@ -14,7 +14,7 @@ interface Question {
 //#region --- DOM Elements ----- 
 const navLinks = document.querySelector("#nav-links") as HTMLElement
 const menuIcon = document.querySelector("#menu-icon") as HTMLElement
-const startQuizBtn = document.querySelector("#start-quiz-btn") as HTMLButtonElement
+const startQuizBtn = document.querySelector("#start-quiz-btn") as HTMLElement
 const questionTitle = document.querySelector("#question-title") as HTMLElement
 const questionText = document.querySelector("#question-text") as HTMLParagraphElement
 const optionA = document.querySelector("#option-a") as HTMLLabelElement
@@ -23,8 +23,8 @@ const optionC = document.querySelector("#option-c") as HTMLLabelElement
 const optionD = document.querySelector("#option-d") as HTMLLabelElement
 const resultTitle = document.querySelector("#result-title") as HTMLElement
 const resultExplanation = document.querySelector("#result-explanation") as HTMLParagraphElement
-const submitAnswerBtn = document.querySelector("#answer-btn") as HTMLButtonElement
-const nextQuestionBtn = document.querySelector("#next-question-btn") as HTMLButtonElement
+const submitAnswerBtn = document.querySelector("#answer-btn") as HTMLElement
+const nextQuestionBtn = document.querySelector("#next-question-btn") as HTMLElement
 
 let currentStep: number = 0
 
