@@ -31,24 +31,45 @@ const loadNextAnswer = () => {
   // If incorrect dont add score
   resultTitle.innerHTML = (questions.resultTitle)
   resultExplanation.innerHTML = (questions.resaultExplanation)
-  //Startover
-  //Set user score === 0
-  //Set current step === 0
-}
-
-const nextStep = () => {
-  // Add the next object in the array
-  // Clear Option A
-  // Clear Option B
-  // Clear Option C
-  // Clear Option D
-  // Next Slide
-
 
 }
+
+// const loadPrevoius = () => {
+//   //Startover
+//   //Set user score === 0
+//   //Set current step === 0
+// }
+
+// const startOver = () => {
+//   //Startover
+//   //Set user score === 0
+//   //Set current step === 0
+// }
+
+// const nextStep = () => {
+//   // Add the next object in the array
+//   // Clear Option A
+//   // Clear Option B
+//   // Clear Option C
+//   // Clear Option D
+//   // Next Slide
+// }
+
+// const score = () => {
+//   // Add the next object in the array
+//   // Clear Option A
+//   // Clear Option B
+//   // Clear Option C
+//   // Clear Option D
+//   // Next Slide
+// }
 
 
 //eventlisteners
+// startQuizBtn.addEventListener("click", loadNextQuestion())
 nextQuestionBtn.addEventListener("click", loadNextQuestion())
+// showAnswerBtn.addEventListener("click", loadNextAnswer())
+// goBackBtn.addEventListener("click", loadPrevoius())
+// restartQuizBtn.addEventListener("click", startOver())
 
-loadNextQuestion()
+

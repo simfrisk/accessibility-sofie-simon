@@ -18,7 +18,7 @@ const questions = [
     },
     {
         id: "question2",
-        questionTitle: "Question 1",
+        questionTitle: "Question 2",
         questionText: "What is ...",
         currentStep: 2,
         options: ["option A", "option B", "option C", "option D"],
@@ -29,7 +29,7 @@ const questions = [
     {
         id: "question3",
         currentStep: 3,
-        questionTitle: "Question 1",
+        questionTitle: "Question 3",
         questionText: "What is ...",
         options: ["option A", "option B", "option C", "option D"],
         correctAnswer: "option 1",
