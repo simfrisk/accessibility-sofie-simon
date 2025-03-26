@@ -14,6 +14,19 @@ interface Question {
 //#region --- DOM Elements ----- 
 const navLinks = document.querySelector("#nav-links") as HTMLElement
 const menuIcon = document.querySelector("#menu-icon") as HTMLElement
+const startQuizBtn = document.querySelector("#start-quiz-btn") as HTMLElement
+const questionTitle = document.querySelector("#question-title") as HTMLElement
+const questionText = document.querySelector("#question-text") as HTMLParagraphElement
+const optionA = document.querySelector("#option-a") as HTMLLabelElement
+const optionB = document.querySelector("#option-b") as HTMLLabelElement
+const optionC = document.querySelector("#option-c") as HTMLLabelElement
+const optionD = document.querySelector("#option-d") as HTMLLabelElement
+const resultTitle = document.querySelector("#result-title") as HTMLElement
+const resultExplanation = document.querySelector("#result-explanation") as HTMLParagraphElement
+const submitAnswerBtn = document.querySelector("#answer-btn") as HTMLElement
+const nextQuestionBtn = document.querySelector("#next-question-btn") as HTMLElement
+
+let currentStep: number = 0
 
 //#endregion
 
@@ -63,9 +76,25 @@ const burgerMenu = (): void => {
 }
 //#endregion
 
+//#region --- Load Next Question -----
+const loadNextQuestion = () => {
+  console.log("testing")
+  // nextStep()
+  const currentQuestion = questions[currentStep]
+  questionTitle.innerHTML = (currentQuestion.questionTitle)
+  questionText.innerHTML = (currentQuestion.questionText)
+  optionA.innerHTML = (`A: ${currentQuestion.options[0]}`)
+  optionB.innerHTML = (`B: ${currentQuestion.options[1]}`)
+  optionC.innerHTML = (`C: ${currentQuestion.options[2]}`)
+  optionD.innerHTML = (`D: ${currentQuestion.options[3]}`)
+  // else
+  // Show result slide
+}
+
 //#endregion
 
 //#region --- Event listeners -----
 menuIcon.addEventListener("click", burgerMenu)
+startQuizBtn.addEventListener("click", loadNextQuestion)
 
 //#endregion
