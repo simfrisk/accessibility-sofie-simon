@@ -116,12 +116,20 @@ const loadNextQuestion = () => {
   // nextStep()
   currentStep++
   if (currentStep >= questions.length) {
-
     quizResultTitle.innerHTML = "Quiz is over"
     quizResultText.innerHTML = "You'r score is..."
+    resultContainer.style.zIndex = ("0")
+    quizResult.style.zIndex = ("1")
     quizResult.style.display = ("block")
-    quizResult.style.transform = ("translateY(0dvh)")
-    resultContainer.style.display = ("none")
+    // quizContainer.style.display = ("block")
+    requestAnimationFrame(() => {
+      quizResult.style.transform = ("translateY(0dvh)")
+    });
+    setTimeout(() => {
+      resultContainer.style.display = ("none")
+      resultContainer.style.transform = ("translateY(100dvh)")
+    }, 50
+    )
 
   } else {
     currentQuestion = questions[currentStep]
@@ -132,10 +140,17 @@ const loadNextQuestion = () => {
     optionC.innerHTML = (currentQuestion.options[2])
     optionD.innerHTML = (currentQuestion.options[3])
 
+    resultContainer.style.zIndex = ("0")
+    quizContainer.style.zIndex = ("1")
     quizContainer.style.display = ("block")
-    quizContainer.style.transform = ("translateY(0dvh)")
-    startPage.style.display = ("none")
-    resultContainer.style.display = ("none")
+    requestAnimationFrame(() => {
+      quizContainer.style.transform = ("translateY(0dvh)")
+    });
+    setTimeout(() => {
+      startPage.style.display = ("none")
+      resultContainer.style.display = ("none")
+      resultContainer.style.transform = ("translateY(100dvh)")
+    }, 500)
   }
 }
 
@@ -162,14 +177,25 @@ const loadNextAnswer = (event: Event): void => {
     nextQuestionBtn.innerHTML = "test"
     console.log("Button text changed to 'test'");
   }
+
+  quizContainer.style.zIndex = ("0")
+  resultContainer.style.zIndex = ("1")
   resultContainer.style.display = "block";
-  resultContainer.style.transform = "translateY(0dvh)";
-  quizContainer.style.display = "none";
+  // quizContainer.style.display = ("block")
+  requestAnimationFrame(() => {
+    resultContainer.style.transform = "translateY(0dvh)";
+  });
+  setTimeout(() => {
+    quizContainer.style.display = "none";
+    quizContainer.style.transform = ("translateY(100dvh")
+  }, 500
+  )
 }
 //#endregion
 
 //#region --- Start over ----
 const startAgain = (): void => {
+  startPage.style.zIndex = ("0")
   startPage.style.display = ("block")
   startPage.style.transform = ("translateY(0dvh)")
   quizResult.style.display = ("none")

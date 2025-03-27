@@ -157,7 +157,7 @@ main {
   padding: 0 5%;
   width: 100dvw;
   height: 100dvh;
-  transition: transform 1s ease;
+  transition: transform .6s ease;
 }
 
 .front {
