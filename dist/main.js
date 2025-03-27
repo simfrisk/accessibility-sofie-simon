@@ -6,10 +6,11 @@ const menuIcon = document.querySelector("#menu-icon");
 const startQuizBtn = document.querySelector("#start-quiz-btn");
 const questionTitle = document.querySelector("#question-title");
 const questionText = document.querySelector("#question-text");
-const optionA = document.querySelector("#option-a");
-const optionB = document.querySelector("#option-b");
-const optionC = document.querySelector("#option-c");
-const optionD = document.querySelector("#option-d");
+// const optionA2 = document.querySelector('label[for="question1"]')
+const optionA = document.querySelector('label[for="option-a"]');
+const optionB = document.querySelector('label[for="option-b"]');
+const optionC = document.querySelector('label[for="option-c"]');
+const optionD = document.querySelector('label[for="option-d"]');
 const resultTitle = document.querySelector("#result-title");
 const resultExplanation = document.querySelector("#result-explanation");
 const submitAnswerBtn = document.querySelector("#answer-btn");

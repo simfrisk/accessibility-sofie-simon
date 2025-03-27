@@ -19,10 +19,11 @@ const menuIcon = document.querySelector("#menu-icon") as HTMLElement
 const startQuizBtn = document.querySelector("#start-quiz-btn") as HTMLElement
 const questionTitle = document.querySelector("#question-title") as HTMLElement
 const questionText = document.querySelector("#question-text") as HTMLParagraphElement
-const optionA = document.querySelector("#option-a") as HTMLLabelElement
-const optionB = document.querySelector("#option-b") as HTMLLabelElement
-const optionC = document.querySelector("#option-c") as HTMLLabelElement
-const optionD = document.querySelector("#option-d") as HTMLLabelElement
+// const optionA2 = document.querySelector('label[for="question1"]')
+const optionA = document.querySelector('label[for="option-a"]') as HTMLLabelElement
+const optionB = document.querySelector('label[for="option-b"]') as HTMLLabelElement
+const optionC = document.querySelector('label[for="option-c"]') as HTMLLabelElement
+const optionD = document.querySelector('label[for="option-d"]') as HTMLLabelElement
 const resultTitle = document.querySelector("#result-title") as HTMLElement
 const resultExplanation = document.querySelector("#result-explanation") as HTMLParagraphElement
 const submitAnswerBtn = document.querySelector("#answer-btn") as HTMLElement

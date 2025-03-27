@@ -186,7 +186,40 @@ fieldset {
   padding: 8px 16px;
 }
 
-label {
+.radio-button-group {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.options {
+  cursor: pointer;
+  user-select: none;
+  /* Sofies changes */
+  margin: 8px 0px;
+  padding: 8px;
+  background-color: #FFFFFF;
+  box-shadow: 2px 3px 0px black;
+  border: 2px solid black;
+  border-radius: 4px;
+  transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
+}
+
+input[type="radio"]:checked+.options {
+  box-shadow: inset 4px 4px 0px black;
+  transform: translateY(3px) scale(0.98);
+  font-weight: bold;
+}
+
+.options:hover {
+  box-shadow: inset 2px 2px 0px black;
+  transform: translateY(2px);
+}
+
+/* label {
   margin: 8px 0px;
   padding: 8px;
   background-color: #FFFFFF;
@@ -209,13 +242,15 @@ label:has(:checked) {
 
 label input {
   display: none;
-}
+} */
 
 /* styling of icons */
 i {
   font-size: 24px;
   color: #000000;
 }
+
+
 
 /* #start-page {
   border: rgb(255, 0, 0) solid 2px;

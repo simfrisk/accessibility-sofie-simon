@@ -22,7 +22,7 @@
 // }
 
 // Select all elements with the class "options"
-const options = document.querySelectorAll(".options");
+const options = document.querySelectorAll('input[name="question1"]')
 
 // Loop through each element and add a change event listener
 options.forEach(button => {
