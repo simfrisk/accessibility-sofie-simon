@@ -1,39 +1,38 @@
 
-// const loadNextAnswer = () => {
 
 
+const userChoiseIdentifier = () => {
+  const options = document.querySelectorAll('input[name="question1"]')
+  options.forEach(button => {
+    button.addEventListener("change", (event) => {
+      userChoice = event.target.value
+      console.log(`User selected: ${userChoice} and correct is ${currentQuestion.correctAnswer}`)
+    })
+  })
+}
 
-//! Next Slide
-//! If correct ++ score
-//! If incorrect dont add score
-//! Save answer picked
-// event.preventDefault()
-// if (optionB === selected) {
-//   console.log("Answer")
-//   resultTitleWin.innerHTML = (currentQuestion.resultTitleWin)
-//   resultExplanationWin.innerHTML = (currentQuestion.resultExplanationWin)
-// } else if (optionA || optionC || optionD === selected) {
-//   resultTitleLose.innerHTML = a(currentQuestion.resultTitle)
-//   resultExplanationLose.innerHTML = (currentQuestion.resultExplanation)
-// } else {
-//   prompt("no choide was clicked")
+userChoiseIdentifier()
+
+// const loadNextAnswer = (event) => {
+//   if (event) event.preventDefault()
+
+//   if (userChoice === currentQuestion.correctAnswer) {
+//     console.log("You are correct!");
+//     resultTitle.innerText = currentQuestion.resultTitleWin;
+//     resultExplanation.innerText = currentQuestion.resultExplanationWin
+
+//   } else if (userChoice === "") {
+//     alert("Please select an answer.")
+
+//   } else {
+//     console.log("Sorry, wrong answer.")
+//     resultTitle.innerText = currentQuestion.resultTitleLose;
+//     resultExplanation.innerText = currentQuestion.resultExplanationLose
+//   }
 // }
 
-// }
+// submitAnswerBtn.addEventListener("click", loadNextAnswer)
 
-// Select all elements with the class "options"
-const options = document.querySelectorAll('input[name="question1"]')
-
-// Loop through each element and add a change event listener
-options.forEach(button => {
-  button.addEventListener("change", (event) => {
-    // Get the value of the changed element
-    let userChoice = event.target.value;
-
-    // Log the user choice to the console
-    console.log(userChoice);
-  });
-});
 
 // const loadPrevoius = () => {
 //   //Startover
@@ -63,11 +62,10 @@ options.forEach(button => {
 
 
 //eventlisteners
-// submitAnswerBtn.addEventListener("click", loadNextAnswer)
+
 
 // goBackBtn.addEventListener("click", loadPrevoius)
 // restartQuizBtn.addEventListener("click", startOver)
-// const selectedOption = document.querySelector(`input[name="question1"]:checked`)
 
 // console.log(selectedOption)
 

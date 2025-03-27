@@ -16,6 +16,7 @@ const resultExplanation = document.querySelector("#result-explanation");
 const submitAnswerBtn = document.querySelector("#answer-btn");
 const nextQuestionBtn = document.querySelector("#next-question-btn");
 let currentStep = -1;
+let userChoice = "";
 let currentQuestion = null;
 //#endregion
 //#region --- Object -----
@@ -26,7 +27,7 @@ const questions = [
         questionTitle: "Question 1",
         questionText: "What is a screen reader?",
         options: ["A car", "A digital text reader", "A cat", "A fruite"],
-        correctAnswer: "A digital text reader",
+        correctAnswer: "B",
         resultTitleWin: "Congratulations",
         resultExplanationWin: "You got it right!",
         resultTitleLose: "Oh no!",
@@ -59,6 +60,17 @@ const questions = [
 ];
 //#endregion
 //#region --- Functions -----
+//User Choise
+const userChoiseIdentifier = () => {
+    const options = document.querySelectorAll('input[name="question1"]');
+    options.forEach(button => {
+        button.addEventListener("change", (event) => {
+            userChoice = event.target.value;
+            console.log(`User selected: ${userChoice} and correct is ${currentQuestion.correctAnswer}`);
+        });
+    });
+};
+userChoiseIdentifier();
 //#region --- Burger Menu -----
 const burgerMenu = () => {
     navLinks.classList.toggle("active");
@@ -82,8 +94,27 @@ const loadNextQuestion = () => {
     // Show result slide
 };
 //#endregion
+//Load Answer
+const loadNextAnswer = (event) => {
+    if (event)
+        event.preventDefault();
+    if (userChoice === currentQuestion.correctAnswer) {
+        console.log("You are correct!");
+        resultTitle.innerText = currentQuestion.resultTitleWin;
+        resultExplanation.innerText = currentQuestion.resultExplanationWin;
+    }
+    else if (userChoice === "") {
+        alert("Please select an answer.");
+    }
+    else {
+        console.log("Sorry, wrong answer.");
+        resultTitle.innerText = currentQuestion.resultTitleLose;
+        resultExplanation.innerText = currentQuestion.resultExplanationLose;
+    }
+};
 //#region --- Event listeners -----
 menuIcon.addEventListener("click", burgerMenu);
 startQuizBtn.addEventListener("click", loadNextQuestion);
 nextQuestionBtn.addEventListener("click", loadNextQuestion);
+submitAnswerBtn.addEventListener("click", loadNextAnswer);
 //#endregion
