@@ -40,6 +40,7 @@ const startAgainBtn = document.querySelector("#start-again-btn") as HTMLButtonEl
 let currentStep: number = -1
 let userChoice: string = ""
 let currentQuestion: any = null
+let score: number = 0
 
 //#endregion
 
@@ -117,7 +118,7 @@ const loadNextQuestion = () => {
   currentStep++
   if (currentStep >= questions.length) {
     quizResultTitle.innerHTML = "Quiz is over"
-    quizResultText.innerHTML = "You'r score is..."
+    quizResultText.innerHTML = `Your score is: ${score} / ${questions.length}`
     resultContainer.style.zIndex = ("0")
     quizResult.style.zIndex = ("1")
     quizResult.style.display = ("block")
@@ -165,6 +166,8 @@ const loadNextAnswer = (event: Event): void => {
       console.log("You are correct!");
       resultTitle.innerHTML = currentQuestion.resultTitleWin;
       resultExplanation.innerHTML = currentQuestion.resultExplanationWin;
+      score++
+      console.log(score)
     } else if (userChoice === "") {
       alert("Please select an answer.");
     } else {
@@ -200,6 +203,7 @@ const startAgain = (): void => {
   startPage.style.transform = ("translateY(0dvh)")
   quizResult.style.display = ("none")
   currentStep = -1
+  score = 0
 
 }
 

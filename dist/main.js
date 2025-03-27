@@ -25,6 +25,7 @@ const startAgainBtn = document.querySelector("#start-again-btn");
 let currentStep = -1;
 let userChoice = "";
 let currentQuestion = null;
+let score = 0;
 //#endregion
 //#region --- Object -----
 const questions = [
@@ -93,9 +94,9 @@ const loadNextQuestion = () => {
     currentStep++;
     if (currentStep >= questions.length) {
         quizResultTitle.innerHTML = "Quiz is over";
-        quizResultText.innerHTML = "You'r score is...";
-        resultContainer.style.zIndex = ("1");
-        quizResult.style.zIndex = ("0");
+        quizResultText.innerHTML = `Your score is: ${score} / ${questions.length}`;
+        resultContainer.style.zIndex = ("0");
+        quizResult.style.zIndex = ("1");
         quizResult.style.display = ("block");
         // quizContainer.style.display = ("block")
         requestAnimationFrame(() => {
@@ -104,7 +105,7 @@ const loadNextQuestion = () => {
         setTimeout(() => {
             resultContainer.style.display = ("none");
             resultContainer.style.transform = ("translateY(100dvh)");
-        }, 500);
+        }, 50);
     }
     else {
         currentQuestion = questions[currentStep];
@@ -115,7 +116,6 @@ const loadNextQuestion = () => {
         optionC.innerHTML = (currentQuestion.options[2]);
         optionD.innerHTML = (currentQuestion.options[3]);
         resultContainer.style.zIndex = ("0");
-        startPage.style.zIndex = ("0");
         quizContainer.style.zIndex = ("1");
         quizContainer.style.display = ("block");
         requestAnimationFrame(() => {
@@ -125,7 +125,6 @@ const loadNextQuestion = () => {
             startPage.style.display = ("none");
             resultContainer.style.display = ("none");
             resultContainer.style.transform = ("translateY(100dvh)");
-            startPage.style.transform = ("translateY(100dvh)");
         }, 500);
     }
 };
@@ -139,6 +138,8 @@ const loadNextAnswer = (event) => {
             console.log("You are correct!");
             resultTitle.innerHTML = currentQuestion.resultTitleWin;
             resultExplanation.innerHTML = currentQuestion.resultExplanationWin;
+            score++;
+            console.log(score);
         }
         else if (userChoice === "") {
             alert("Please select an answer.");
@@ -168,17 +169,12 @@ const loadNextAnswer = (event) => {
 //#endregion
 //#region --- Start over ----
 const startAgain = () => {
-    currentStep = -1;
-    startPage.style.zIndex = ("1");
+    startPage.style.zIndex = ("0");
     startPage.style.display = ("block");
-    requestAnimationFrame(() => {
-        startPage.style.transform = ("translateY(0dvh)");
-    });
-    setTimeout(() => {
-        quizResult.style.display = ("none");
-        quizResult.style.transform = ("translateY(100dvh");
-    }, 500);
-
+    startPage.style.transform = ("translateY(0dvh)");
+    quizResult.style.display = ("none");
+    currentStep = -1;
+    score = 0;
 };
 //#endregion
 //#region --- Event listeners -----
