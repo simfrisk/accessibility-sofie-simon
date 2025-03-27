@@ -154,7 +154,8 @@ main {
 .card {
   background-color: var(--primary);
   position: absolute;
-  width: 80dvw;
+  padding: 0 5%;
+  width: 100dvw;
   height: 100dvh;
   transition: transform 1s ease;
 }
