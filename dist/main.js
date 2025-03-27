@@ -18,6 +18,10 @@ const nextQuestionBtn = document.querySelector("#next-question-btn");
 const startPage = document.querySelector("#start-page");
 const quizContainer = document.querySelector("#quiz-container");
 const resultContainer = document.querySelector("#result-container");
+const quizResult = document.querySelector("#quiz-result");
+const quizResultTitle = document.querySelector("#quiz-result-title");
+const quizResultText = document.querySelector("#quiz-result-text");
+const startAgainBtn = document.querySelector("#start-again-btn");
 let currentStep = -1;
 let userChoice = "";
 let currentQuestion = null;
@@ -84,46 +88,65 @@ const burgerMenu = () => {
 //#endregion
 //#region --- Load Next Question -----
 const loadNextQuestion = () => {
-    console.log("testing");
+    userChoice = "";
     // nextStep()
     currentStep++;
-    //! If last question go to resaults
-    currentQuestion = questions[currentStep];
-    questionTitle.innerHTML = (currentQuestion.questionTitle);
-    questionText.innerHTML = (currentQuestion.questionText);
-    optionA.innerHTML = (currentQuestion.options[0]);
-    optionB.innerHTML = (currentQuestion.options[1]);
-    optionC.innerHTML = (currentQuestion.options[2]);
-    optionD.innerHTML = (currentQuestion.options[3]);
-    quizContainer.style.display = ("block");
-    quizContainer.style.transform = ("translateY(0dvh)");
-    startPage.style.display = ("none");
-    resultContainer.style.display = ("none");
-    // else
-    // Show result slide
+    if (currentStep >= questions.length) {
+        quizResultTitle.innerHTML = "Quiz is over";
+        quizResultText.innerHTML = "You'r score is...";
+        quizResult.style.display = ("block");
+        quizResult.style.transform = ("translateY(0dvh)");
+        resultContainer.style.display = ("none");
+    }
+    else {
+        currentQuestion = questions[currentStep];
+        questionTitle.innerHTML = (currentQuestion.questionTitle);
+        questionText.innerHTML = (currentQuestion.questionText);
+        optionA.innerHTML = (currentQuestion.options[0]);
+        optionB.innerHTML = (currentQuestion.options[1]);
+        optionC.innerHTML = (currentQuestion.options[2]);
+        optionD.innerHTML = (currentQuestion.options[3]);
+        quizContainer.style.display = ("block");
+        quizContainer.style.transform = ("translateY(0dvh)");
+        startPage.style.display = ("none");
+        resultContainer.style.display = ("none");
+    }
 };
 //#endregion
 //#region --- Load answer -----
 const loadNextAnswer = (event) => {
     if (event)
         event.preventDefault();
-    if (userChoice === currentQuestion.correctAnswer) {
-        console.log("You are correct!");
-        resultTitle.innerText = currentQuestion.resultTitleWin;
-        resultExplanation.innerText = currentQuestion.resultExplanationWin;
-        //! Add + 1 to score
-    }
-    else if (userChoice === "") {
-        alert("Please select an answer.");
+    if (currentStep < questions.length) {
+        if (userChoice === currentQuestion.correctAnswer) {
+            console.log("You are correct!");
+            resultTitle.innerHTML = currentQuestion.resultTitleWin;
+            resultExplanation.innerHTML = currentQuestion.resultExplanationWin;
+        }
+        else if (userChoice === "") {
+            alert("Please select an answer.");
+        }
+        else {
+            console.log("Sorry, wrong answer.");
+            resultTitle.innerHTML = currentQuestion.resultTitleLose;
+            resultExplanation.innerHTML = currentQuestion.resultExplanationLose;
+        }
     }
     else {
-        console.log("Sorry, wrong answer.");
-        resultTitle.innerText = currentQuestion.resultTitleLose;
-        resultExplanation.innerText = currentQuestion.resultExplanationLose;
+        nextQuestionBtn.innerHTML = "test";
+        console.log("Button text changed to 'test'");
     }
-    resultContainer.style.display = ("block");
-    resultContainer.style.transform = ("translateY(0dvh)");
-    quizContainer.style.display = ("none");
+    resultContainer.style.display = "block";
+    resultContainer.style.transform = "translateY(0dvh)";
+    quizContainer.style.display = "none";
+};
+//#endregion
+//#region --- Start over ----
+const startAgain = () => {
+    startPage.style.display = ("block");
+    startPage.style.transform = ("translateY(0dvh)");
+    quizResult.style.display = ("none");
+    currentStep = -1;
 };
 //#endregion
 //#region --- Event listeners -----
@@ -131,5 +154,6 @@ menuIcon.addEventListener("click", burgerMenu);
 startQuizBtn.addEventListener("click", loadNextQuestion);
 submitAnswerBtn.addEventListener("click", loadNextAnswer);
 nextQuestionBtn.addEventListener("click", loadNextQuestion);
+startAgainBtn.addEventListener("click", startAgain);
 //#endregion
 //#endregion
