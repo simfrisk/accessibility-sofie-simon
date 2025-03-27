@@ -6,8 +6,10 @@ interface Question {
   questionText: string,
   options: string[],
   correctAnswer: string,
-  resultTitle: string,
-  resultExplanation: string
+  resultTitleWin: string,
+  resultExplanationWin: string
+  resultTitleLose: string,
+  resultExplanationLose: string
 }
 //#endregion
 
@@ -17,16 +19,19 @@ const menuIcon = document.querySelector("#menu-icon") as HTMLElement
 const startQuizBtn = document.querySelector("#start-quiz-btn") as HTMLElement
 const questionTitle = document.querySelector("#question-title") as HTMLElement
 const questionText = document.querySelector("#question-text") as HTMLParagraphElement
-const optionA = document.querySelector("#option-a") as HTMLLabelElement
-const optionB = document.querySelector("#option-b") as HTMLLabelElement
-const optionC = document.querySelector("#option-c") as HTMLLabelElement
-const optionD = document.querySelector("#option-d") as HTMLLabelElement
+// const optionA2 = document.querySelector('label[for="question1"]')
+const optionA = document.querySelector('label[for="option-a"]') as HTMLLabelElement
+const optionB = document.querySelector('label[for="option-b"]') as HTMLLabelElement
+const optionC = document.querySelector('label[for="option-c"]') as HTMLLabelElement
+const optionD = document.querySelector('label[for="option-d"]') as HTMLLabelElement
 const resultTitle = document.querySelector("#result-title") as HTMLElement
 const resultExplanation = document.querySelector("#result-explanation") as HTMLParagraphElement
 const submitAnswerBtn = document.querySelector("#answer-btn") as HTMLElement
 const nextQuestionBtn = document.querySelector("#next-question-btn") as HTMLElement
 
-let currentStep: number = 0
+let currentStep: number = -1
+let userChoice: string = ""
+let currentQuestion: any = null
 
 //#endregion
 
@@ -38,9 +43,11 @@ const questions: Question[] = [
     questionTitle: "Question 1",
     questionText: "What is a screen reader?",
     options: ["A car", "A digital text reader", "A cat", "A fruite"],
-    correctAnswer: "A digital text reader",
-    resultTitle: "answerTitle",
-    resultExplanation: "answerExplanation"
+    correctAnswer: "B",
+    resultTitleWin: "Congratulations",
+    resultExplanationWin: "You got it right!",
+    resultTitleLose: "Oh no!",
+    resultExplanationLose: "You got it wrong"
   },
   {
     id: "question2",
@@ -49,8 +56,10 @@ const questions: Question[] = [
     currentStep: 2,
     options: ["option A", "option B", "option C", "option D"],
     correctAnswer: "option 1",
-    resultTitle: "answerTitle",
-    resultExplanation: "answerExplanation"
+    resultTitleWin: "answerTitle",
+    resultExplanationWin: "answerExplanation",
+    resultTitleLose: "Oh no!",
+    resultExplanationLose: "You got it wrong"
   },
   {
     id: "question3",
@@ -59,14 +68,29 @@ const questions: Question[] = [
     questionText: "What is ...3",
     options: ["option A", "option B", "option C", "option D"],
     correctAnswer: "option 1",
-    resultTitle: "answerTitle",
-    resultExplanation: "answerExplanation"
+    resultTitleWin: "answerTitle",
+    resultExplanationWin: "answerExplanation",
+    resultTitleLose: "Oh no!",
+    resultExplanationLose: "You got it wrong"
   }
 ]
 
 //#endregion
 
 //#region --- Functions -----
+
+//User Choise
+const userChoiseIdentifier = (): void => {
+  const options = document.querySelectorAll('input[name="question1"]') as NodeListOf<HTMLInputElement>
+  options.forEach(button => {
+    button.addEventListener("change", (event) => {
+      userChoice = (event.target as HTMLInputElement).value;
+      console.log(`User selected: ${userChoice} and correct is ${currentQuestion.correctAnswer}`)
+    })
+  })
+}
+
+userChoiseIdentifier()
 
 //#region --- Burger Menu -----
 const burgerMenu = (): void => {
@@ -80,7 +104,8 @@ const burgerMenu = (): void => {
 const loadNextQuestion = () => {
   console.log("testing")
   // nextStep()
-  const currentQuestion = questions[currentStep]
+  currentStep++
+  currentQuestion = questions[currentStep]
   questionTitle.innerHTML = (currentQuestion.questionTitle)
   questionText.innerHTML = (currentQuestion.questionText)
   optionA.innerHTML = (`A: ${currentQuestion.options[0]}`)
@@ -93,8 +118,28 @@ const loadNextQuestion = () => {
 
 //#endregion
 
+//Load Answer
+const loadNextAnswer = (event: Event): void => {
+  if (event) event.preventDefault()
+
+  if (userChoice === currentQuestion.correctAnswer) {
+    console.log("You are correct!");
+    resultTitle.innerText = currentQuestion.resultTitleWin;
+    resultExplanation.innerText = currentQuestion.resultExplanationWin
+
+  } else if (userChoice === "") {
+    alert("Please select an answer.")
+
+  } else {
+    console.log("Sorry, wrong answer.")
+    resultTitle.innerText = currentQuestion.resultTitleLose;
+    resultExplanation.innerText = currentQuestion.resultExplanationLose
+  }
+}
+
 //#region --- Event listeners -----
 menuIcon.addEventListener("click", burgerMenu)
 startQuizBtn.addEventListener("click", loadNextQuestion)
-
+nextQuestionBtn.addEventListener("click", loadNextQuestion)
+submitAnswerBtn.addEventListener("click", loadNextAnswer)
 //#endregion

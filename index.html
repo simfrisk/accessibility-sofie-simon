@@ -3,44 +3,24 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Web Accessibility Quiz</title>
-  <link
-    rel="stylesheet"
-    href="css/color-palette.css"
-  />
-  <link
-    rel="stylesheet"
-    href="css/styles.css"
-  />
+  <link rel="stylesheet" href="css/color-palette.css" />
+  <link rel="stylesheet" href="css/styles.css" />
   <!-- font awesome icons -->
   <script src="https://kit.fontawesome.com/beb1bc6f21.js" crossorigin="anonymous"></script>
   <script src="./dist/main.js" defer></script>
-  <!-- <script src="./dist/main.js" defer></script> -->
-
+  <script src="./js/temp-script.js" defer></script>
 </head>
 
 <body>
 
-  <a
-    href="#main-content"
-    class="skip-link"
-  >Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- #region --- Header  ----->
   <header>
-    <div
-      id="menu-icon"
-      class="fas fa-bars"
-    ></div>
-    <nav
-      role="navigation"
-      aria-label="Main Menu"
-      id="nav-links"
-    >
+    <div id="menu-icon" class="fas fa-bars"></div>
+    <nav role="navigation" aria-label="Main Menu" id="nav-links">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -52,15 +32,9 @@
 
   <main id="main-content">
     <!-- #region --- Start page  ----->
-    <section
-      id="start-page"
-      class=""
-    >
+    <section id="start-page" class="">
       <p>Welcome to our</p>
-      <div
-        class="speech-bubble"
-        id="question-container"
-      >
+      <div class="speech-bubble" id="question-container">
         <div class="title-text">
 
           <h1>Web Accessibility Quiz</h1>
@@ -72,77 +46,43 @@
         illum ea, dolores facere
         soluta excepturi mollitia hic nisi, doloremque.</p>
 
-      <button
-        type="button"
-        id="start-quiz-btn"
-      >Start Quiz</button>
+      <button type="button" id="start-quiz-btn">Start Quiz</button>
 
     </section>
     <!-- #endregion -->
 
     <!-- #region --- Quiz Container  ----->
     <section id="quiz-container">
-      <h2
-        id="question-title"
-        class=""
-      >Question 1</h2>
+      <h2 id="question-title" class="">Question 1</h2>
 
-      <div
-        class="speech-bubble"
-        id="question-container"
-      >
+      <div class="speech-bubble" id="question-container">
         <div class="title-text">
-          <h3
-            id="question-text"
-            class="title-text"
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit?</h3>
+          <h3 id="question-text" class="title-text">Lorem ipsum dolor sit amet consectetur adipisicing elit?</h3>
         </div>
       </div>
 
       <form>
         <fieldset>
-          <legend>Legend text</legend>
-          <label id="option-a">
-            <input
-              type="radio"
-              name="question1"
-              value="A"
-            />
 
-            Option A
-          </label>
-          <label id="option-b">
-            <input
-              type="radio"
-              name="question1"
-              value="B"
-            />
-            Option B
+          <!-- Lable fix -->
+          <div class="radio-button-group">
+            <legend>Ledgend text</legend>
+            <input id="option-a" name="question1" type="radio" value="A">
+            <label for="option-a" class="options">Option A</label>
 
-          </label>
-          <label id="option-c">
-            <input
-              type="radio"
-              name="question1"
-              value="C"
-            />
-            Option C
-          </label>
-          <label id="option-d">
-            <input
-              type="radio"
-              name="question1"
-              value="D"
-            />
-            Option D
-          </label>
+            <input id="option-b" name="question1" type="radio" value="B">
+            <label for="option-b" class="options">Option B</label>
+
+            <input id="option-c" name="question1" type="radio" value="C">
+            <label for="option-c" class="options">Option C</label>
+
+            <input id="option-d" name="question1" type="radio" value="D">
+            <label for="option-d" class="options">Option D</label>
+          </div>
 
         </fieldset>
         <button type="button">Back</button>
-        <button
-          type="button"
-          id="answer-btn"
-        >Submit</button>
+        <button type="button" id="answer-btn">Submit</button>
       </form>
 
     </section>
@@ -152,23 +92,25 @@
     <section id="result-container">
       <div class="speech-bubble" id="answer-container">
         <div class="title-text">
-        <h2 id="result-title" class="">Congratulations</h2>
-        <p id="result-explanation" class="">You got it right!</p>
-      </div>
+          <h2 id="result-title" class="">Congratulations</h2>
+          <p id="result-explanation" class="">You got it right!</p>
+        </div>
+        <h2 id="result-title" class="title-text"></h2>
+        <p id="result-explanation" class="title-text"></p>
+
       </div>
       <p>The correct answer is..</p>
       <button type="button">Next question</button>
       <button type="button">Back</button>
 
+      <button>Back</button>
+      <button id="next-question-btn">Next question</button>
     </section>
     <!-- #endregion -->
 
     <!-- #region --- Quiz Result ----->
     <section id="quiz-result">
-      <div
-        class="speech-bubble"
-        id=""
-      >
+      <div class="speech-bubble" id="">
         <div class="title-text">
           <h3 class="">Well done!</h3>
           <p class="">You got 10/10!</p>
@@ -183,13 +125,9 @@
   </main>
 
   <footer role="contentinfo">
-    <nav
-      role="navigation"
-      aria-label="Footer menu"
-    >
+    <nav role="navigation" aria-label="Footer menu">
       <p>Project by: Simon & Sofie <a href="https://github.com/simfrisk/accessibility-sofie-simon"><i
-            class="fa-brands fa-github"
-          ></i></a></p>
+            class="fa-brands fa-github"></i></a></p>
     </nav>
   </footer>
 
