@@ -1,7 +1,17 @@
 // Reaults varible
 
 
+// const nextCard = () => {
+//   // Start page
+//   // Question 1 quiz-container
+//   // Answer 1 result-container
+//   // Question 2
+//   // Answer 2
+//   // Question 3
+//   // Answer 3
+//   // Resaults quiz-result
 
+// }
 
 
 

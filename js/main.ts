@@ -28,6 +28,9 @@ const resultTitle = document.querySelector("#result-title") as HTMLElement
 const resultExplanation = document.querySelector("#result-explanation") as HTMLParagraphElement
 const submitAnswerBtn = document.querySelector("#answer-btn") as HTMLElement
 const nextQuestionBtn = document.querySelector("#next-question-btn") as HTMLElement
+const startPage = document.querySelector("#start-page") as HTMLElement
+const quizContainer = document.querySelector("#quiz-container") as HTMLElement
+const resultContainer = document.querySelector("#result-container") as HTMLElement
 
 let currentStep: number = -1
 let userChoice: string = ""
@@ -115,6 +118,14 @@ const loadNextQuestion = () => {
   optionB.innerHTML = (currentQuestion.options[1])
   optionC.innerHTML = (currentQuestion.options[2])
   optionD.innerHTML = (currentQuestion.options[3])
+
+  quizContainer.style.display = ("block")
+  quizContainer.style.transform = ("translateY(0dvh)")
+  startPage.style.display = ("none")
+  resultContainer.style.display = ("none")
+
+
+
   // else
   // Show result slide
 }
@@ -139,6 +150,10 @@ const loadNextAnswer = (event: Event): void => {
     resultTitle.innerText = currentQuestion.resultTitleLose;
     resultExplanation.innerText = currentQuestion.resultExplanationLose
   }
+
+  resultContainer.style.display = ("block")
+  resultContainer.style.transform = ("translateY(0dvh)")
+  quizContainer.style.display = ("none")
 }
 //#endregion
 
