@@ -52,12 +52,12 @@ const questions: Question[] = [
   {
     id: "question2",
     questionTitle: "Question 2",
-    questionText: "What is ...2",
+    questionText: "What is an alt text? A description of..",
     currentStep: 2,
-    options: ["option A", "option B", "option C", "option D"],
-    correctAnswer: "option 1",
-    resultTitleWin: "answerTitle",
-    resultExplanationWin: "answerExplanation",
+    options: ["an image", "a div element", "a header", "a link"],
+    correctAnswer: "A",
+    resultTitleWin: "Congratulations",
+    resultExplanationWin: "You got it right!",
     resultTitleLose: "Oh no!",
     resultExplanationLose: "You got it wrong"
   },
@@ -65,11 +65,11 @@ const questions: Question[] = [
     id: "question3",
     currentStep: 3,
     questionTitle: "Question 3",
-    questionText: "What is ...3",
-    options: ["option A", "option B", "option C", "option D"],
-    correctAnswer: "option 1",
-    resultTitleWin: "answerTitle",
-    resultExplanationWin: "answerExplanation",
+    questionText: "What is the purpose of a 'skip to content' link?",
+    options: ["to skip advertisements", "to skip the navigation", "to skip to all images", "to skip the footer"],
+    correctAnswer: "B",
+    resultTitleWin: "Congratulations",
+    resultExplanationWin: "You got it right!",
     resultTitleLose: "Oh no!",
     resultExplanationLose: "You got it wrong"
   }
@@ -79,7 +79,7 @@ const questions: Question[] = [
 
 //#region --- Functions -----
 
-//User Choise
+//#region --- User Idetifier -----
 const userChoiseIdentifier = (): void => {
   const options = document.querySelectorAll('input[name="question1"]') as NodeListOf<HTMLInputElement>
   options.forEach(button => {
@@ -91,6 +91,8 @@ const userChoiseIdentifier = (): void => {
 }
 
 userChoiseIdentifier()
+
+//#endregion
 
 //#region --- Burger Menu -----
 const burgerMenu = (): void => {
@@ -105,27 +107,29 @@ const loadNextQuestion = () => {
   console.log("testing")
   // nextStep()
   currentStep++
+  //! If last question go to resaults
   currentQuestion = questions[currentStep]
   questionTitle.innerHTML = (currentQuestion.questionTitle)
   questionText.innerHTML = (currentQuestion.questionText)
-  optionA.innerHTML = (`A: ${currentQuestion.options[0]}`)
-  optionB.innerHTML = (`B: ${currentQuestion.options[1]}`)
-  optionC.innerHTML = (`C: ${currentQuestion.options[2]}`)
-  optionD.innerHTML = (`D: ${currentQuestion.options[3]}`)
+  optionA.innerHTML = (currentQuestion.options[0])
+  optionB.innerHTML = (currentQuestion.options[1])
+  optionC.innerHTML = (currentQuestion.options[2])
+  optionD.innerHTML = (currentQuestion.options[3])
   // else
   // Show result slide
 }
 
 //#endregion
 
-//Load Answer
+//#region --- Load answer -----
 const loadNextAnswer = (event: Event): void => {
   if (event) event.preventDefault()
 
   if (userChoice === currentQuestion.correctAnswer) {
-    console.log("You are correct!");
-    resultTitle.innerText = currentQuestion.resultTitleWin;
+    console.log("You are correct!")
+    resultTitle.innerText = currentQuestion.resultTitleWin
     resultExplanation.innerText = currentQuestion.resultExplanationWin
+    //! Add + 1 to score
 
   } else if (userChoice === "") {
     alert("Please select an answer.")
@@ -136,10 +140,14 @@ const loadNextAnswer = (event: Event): void => {
     resultExplanation.innerText = currentQuestion.resultExplanationLose
   }
 }
+//#endregion
 
 //#region --- Event listeners -----
 menuIcon.addEventListener("click", burgerMenu)
 startQuizBtn.addEventListener("click", loadNextQuestion)
-nextQuestionBtn.addEventListener("click", loadNextQuestion)
 submitAnswerBtn.addEventListener("click", loadNextAnswer)
+nextQuestionBtn.addEventListener("click", loadNextQuestion)
+//#endregion
+
+
 //#endregion
