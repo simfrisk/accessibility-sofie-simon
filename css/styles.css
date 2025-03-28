@@ -148,7 +148,7 @@ main {
 
 .hide {
   display: none;
-  transform: translateY(100dvh);
+  transform: translateX(100dvh);
   /* transition: transform 1s ease; */
 
 }

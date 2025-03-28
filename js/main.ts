@@ -124,11 +124,11 @@ const loadNextQuestion = () => {
     quizResult.style.display = ("block")
     // quizContainer.style.display = ("block")
     requestAnimationFrame(() => {
-      quizResult.style.transform = ("translateY(0dvh)")
+      quizResult.style.transform = ("translateX(0dvh)")
     });
     setTimeout(() => {
       resultContainer.style.display = ("none")
-      resultContainer.style.transform = ("translateY(100dvh)")
+      resultContainer.style.transform = ("translateX(100dvh)")
     }, 50
     )
 
@@ -145,12 +145,12 @@ const loadNextQuestion = () => {
     quizContainer.style.zIndex = ("1")
     quizContainer.style.display = ("block")
     requestAnimationFrame(() => {
-      quizContainer.style.transform = ("translateY(0dvh)")
+      quizContainer.style.transform = ("translateX(0dvh)")
     });
     setTimeout(() => {
       startPage.style.display = ("none")
       resultContainer.style.display = ("none")
-      resultContainer.style.transform = ("translateY(100dvh)")
+      resultContainer.style.transform = ("translateX(100dvh)")
     }, 500)
   }
 }
@@ -186,11 +186,11 @@ const loadNextAnswer = (event: Event): void => {
   resultContainer.style.display = "block";
   // quizContainer.style.display = ("block")
   requestAnimationFrame(() => {
-    resultContainer.style.transform = "translateY(0dvh)";
+    resultContainer.style.transform = "translateX(0dvh)";
   });
   setTimeout(() => {
     quizContainer.style.display = "none";
-    quizContainer.style.transform = ("translateY(100dvh")
+    quizContainer.style.transform = ("translateX(100dvh")
   }, 500
   )
 }
@@ -200,7 +200,7 @@ const loadNextAnswer = (event: Event): void => {
 const startAgain = (): void => {
   startPage.style.zIndex = ("0")
   startPage.style.display = ("block")
-  startPage.style.transform = ("translateY(0dvh)")
+  startPage.style.transform = ("translateX(0dvh)")
   quizResult.style.display = ("none")
   currentStep = -1
   score = 0
