@@ -154,7 +154,7 @@ main {
 .card {
   background-color: var(--primary);
   position: absolute;
-  padding: 0 5%;
+  padding: 16px;
   width: 100dvw;
   height: 100dvh;
   transition: transform .6s ease;
@@ -166,28 +166,25 @@ main {
 
 /* styling for each section */
 section {
-  border: 1px dashed var(--secondary);
-
+  border: 4px solid var(--secondary);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
-  gap: 16px;
-  padding: 24px;
+  gap: 12px;
+
 }
 
 .speech-bubble {
   display: flex;
   justify-content: center;
-  align-items: center;
   background-image: url("../img/speech-bubble2.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
   height: auto;
-  min-height: 220px;
+  min-height: 250px;
 
 }
 
@@ -214,11 +211,12 @@ h1 {
 
 h2,
 h3 {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 button {
   font-family: 'Futura', Helvetica, sans-serif;
+  font-size: 16px;
   border: 2px solid var(--secondary);
   border-radius: 8px;
   background-color: var(--complementary);
@@ -244,7 +242,7 @@ button:active {
 /* Quiz questions form layout */
 
 form {
-  padding: 8px 16px;
+  padding: 8px 24px;
 }
 
 fieldset {
@@ -253,13 +251,12 @@ fieldset {
   padding: 0;
   margin: 0;
   min-width: 0;
-  padding: 8px 16px;
 }
 
 .radio-button-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2px;
 }
 
 input[type="radio"] {
