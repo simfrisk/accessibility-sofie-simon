@@ -89,12 +89,16 @@ body {
 /* Styling for nav in header and footer */
 
 header {
+  margin: 5px;
   position: fixed;
   z-index: 10;
+  background-color: var(--primary);
+
 }
 
 nav {
   padding: 12px;
+
 }
 
 #menu-icon {
@@ -139,9 +143,7 @@ a {
 }
 
 main {
-
   margin: 0 auto;
-
 }
 
 .hide {
@@ -169,10 +171,9 @@ section {
   border: 4px solid var(--secondary);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   text-align: center;
   gap: 12px;
-
 }
 
 .speech-bubble {
@@ -192,8 +193,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  outline: 1px dashed red;
-  max-width: 180px;
+  max-width: 200px;
 
 }
 
@@ -311,6 +311,12 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
+  }
+
+  .card {
+
+    width: 50dvw;
+
   }
 
 }
