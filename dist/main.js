@@ -22,6 +22,7 @@ const quizResult = document.querySelector("#quiz-result");
 const quizResultTitle = document.querySelector("#quiz-result-title");
 const quizResultText = document.querySelector("#quiz-result-text");
 const startAgainBtn = document.querySelector("#start-again-btn");
+const radioButtonCheck = document.querySelectorAll('input[name="question1"]');
 let currentStep = -1;
 let userChoice = "";
 let currentQuestion = null;
@@ -90,8 +91,10 @@ const burgerMenu = () => {
 //#region --- Load Next Question -----
 const loadNextQuestion = () => {
     userChoice = "";
-    // nextStep()
     currentStep++;
+    radioButtonCheck.forEach((radio) => {
+        radio.checked = false;
+    });
     if (currentStep >= questions.length) {
         quizResultTitle.innerHTML = "Quiz is over";
         quizResultText.innerHTML = `Your score is: ${score} / ${questions.length}`;

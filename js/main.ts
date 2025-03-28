@@ -35,6 +35,7 @@ const quizResult = document.querySelector("#quiz-result") as HTMLElement
 const quizResultTitle = document.querySelector("#quiz-result-title") as HTMLElement
 const quizResultText = document.querySelector("#quiz-result-text") as HTMLParagraphElement
 const startAgainBtn = document.querySelector("#start-again-btn") as HTMLButtonElement
+const radioButtonCheck = document.querySelectorAll('input[name="question1"]') as NodeListOf<HTMLInputElement>
 
 
 let currentStep: number = -1
@@ -114,8 +115,12 @@ const burgerMenu = (): void => {
 //#region --- Load Next Question -----
 const loadNextQuestion = () => {
   userChoice = ""
-  // nextStep()
   currentStep++
+  radioButtonCheck.forEach((radio): void => {
+    radio.checked = false
+  }
+  )
+
   if (currentStep >= questions.length) {
     quizResultTitle.innerHTML = "Quiz is over"
     quizResultText.innerHTML = `Your score is: ${score} / ${questions.length}`
