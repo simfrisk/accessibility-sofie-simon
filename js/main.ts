@@ -94,7 +94,7 @@ const userChoiseIdentifier = (): void => {
   const options = document.querySelectorAll('input[name="question1"]') as NodeListOf<HTMLInputElement>
   options.forEach(button => {
     button.addEventListener("change", (event) => {
-      userChoice = (event.target as HTMLInputElement).value;
+      userChoice = (event.target as HTMLInputElement).value
       console.log(`User selected: ${userChoice} and correct is ${currentQuestion.correctAnswer}`)
     })
   })
@@ -126,14 +126,14 @@ const loadNextQuestion = () => {
     quizResultText.innerHTML = `Your score is: ${score} / ${questions.length}`
     resultContainer.style.zIndex = ("0")
     quizResult.style.zIndex = ("1")
-    quizResult.style.display = ("block")
-    // quizContainer.style.display = ("block")
+    quizResult.classList.remove("hide")
+    // quizContainer.classList.remove("hide")
     requestAnimationFrame(() => {
-      quizResult.style.transform = ("translateY(0dvh)")
-    });
+      quizResult.classList.remove("offset")
+    })
     setTimeout(() => {
-      resultContainer.style.display = ("none")
-      resultContainer.style.transform = ("translateY(100dvh)")
+      resultContainer.classList.add("hide")
+      resultContainer.classList.add("offset")
     }, 50
     )
 
@@ -148,14 +148,14 @@ const loadNextQuestion = () => {
 
     resultContainer.style.zIndex = ("0")
     quizContainer.style.zIndex = ("1")
-    quizContainer.style.display = ("block")
+    quizContainer.classList.remove("hide")
     requestAnimationFrame(() => {
-      quizContainer.style.transform = ("translateY(0dvh)")
-    });
+      quizContainer.classList.remove("offset")
+    })
     setTimeout(() => {
-      startPage.style.display = ("none")
-      resultContainer.style.display = ("none")
-      resultContainer.style.transform = ("translateY(100dvh)")
+      startPage.classList.add("hide")
+      resultContainer.classList.add("hide")
+      resultContainer.classList.add("offset")
     }, 500)
   }
 }
@@ -168,34 +168,34 @@ const loadNextAnswer = (event: Event): void => {
 
   if (currentStep < questions.length) {
     if (userChoice === currentQuestion.correctAnswer) {
-      console.log("You are correct!");
-      resultTitle.innerHTML = currentQuestion.resultTitleWin;
-      resultExplanation.innerHTML = currentQuestion.resultExplanationWin;
+      console.log("You are correct!")
+      resultTitle.innerHTML = currentQuestion.resultTitleWin
+      resultExplanation.innerHTML = currentQuestion.resultExplanationWin
       score++
       console.log(score)
     } else if (userChoice === "") {
-      alert("Please select an answer.");
+      alert("Please select an answer.")
     } else {
-      console.log("Sorry, wrong answer.");
-      resultTitle.innerHTML = currentQuestion.resultTitleLose;
-      resultExplanation.innerHTML = currentQuestion.resultExplanationLose;
+      console.log("Sorry, wrong answer.")
+      resultTitle.innerHTML = currentQuestion.resultTitleLose
+      resultExplanation.innerHTML = currentQuestion.resultExplanationLose
     }
 
   } else {
     nextQuestionBtn.innerHTML = "test"
-    console.log("Button text changed to 'test'");
+    console.log("Button text changed to 'test'")
   }
 
   quizContainer.style.zIndex = ("0")
   resultContainer.style.zIndex = ("1")
-  resultContainer.style.display = "block";
-  // quizContainer.style.display = ("block")
+  resultContainer.classList.remove("hide")
+  // quizContainer.classList.remove("hide")
   requestAnimationFrame(() => {
-    resultContainer.style.transform = "translateY(0dvh)";
-  });
+    resultContainer.classList.remove("offset")
+  })
   setTimeout(() => {
-    quizContainer.style.display = "none";
-    quizContainer.style.transform = ("translateY(100dvh")
+    quizContainer.classList.add("hide")
+    quizContainer.classList.add("offset")
   }, 500
   )
 }
@@ -204,9 +204,9 @@ const loadNextAnswer = (event: Event): void => {
 //#region --- Start over ----
 const startAgain = (): void => {
   startPage.style.zIndex = ("0")
-  startPage.style.display = ("block")
-  startPage.style.transform = ("translateY(0dvh)")
-  quizResult.style.display = ("none")
+  startPage.classList.remove("hide")
+  startPage.classList.remove("offset")
+  quizResult.classList.add("hide")
   currentStep = -1
   score = 0
 

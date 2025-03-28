@@ -148,9 +148,12 @@ main {
 
 .hide {
   display: none;
-  transform: translateY(100dvh);
   /* transition: transform 1s ease; */
 
+}
+
+.offset {
+  transform: translateY(100dvh);
 }
 
 .card {
@@ -161,6 +164,8 @@ main {
   height: 100dvh;
   transition: transform .6s ease;
 }
+
+
 
 .front {
   z-index: 0;
