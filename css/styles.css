@@ -184,6 +184,7 @@ section {
   gap: 18px;
   padding: 16px;
   height: 100vh;
+  overflow: scroll;
 }
 
 .speech-bubble {
@@ -334,5 +335,6 @@ footer {
     transform: translateX(0dvh);
   }
 
-
 }
+
+@media screen and (max-width: 360px) {}

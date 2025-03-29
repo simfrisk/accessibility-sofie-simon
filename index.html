@@ -16,15 +16,15 @@
 
 <body>
 
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a tabindex="1" href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- #region --- Header  ----->
   <header>
     <div id="menu-icon" class="fas fa-bars"></div>
     <nav role="navigation" aria-label="Main Menu" id="nav-links">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.html" tabindex="2">Home</a></li>
+        <li><a href="about.html" tabindex="3">About</a></li>
       </ul>
     </nav>
   </header>
@@ -37,28 +37,28 @@
       <div class="speech-bubble" id="question-container">
         <div class="title-text">
 
-          <h1>Web Accessibility Quiz</h1>
+          <h1 tabindex="4">Web Accessibility Quiz</h1>
         </div>
       </div>
 
-      <p>Kort beskrivning. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa adipisci laborum
+      <p tabindex="5">Kort beskrivning. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa adipisci laborum
         unde
         illum ea, dolores facere
         soluta excepturi mollitia hic nisi, doloremque.</p>
 
 
-      <button type="button" id="start-quiz-btn">Start Quiz</button>
+      <button tabindex="6" type="button" id="start-quiz-btn">Start Quiz</button>
 
     </section>
     <!-- #endregion -->
 
     <!-- #region --- Quiz Container  ----->
     <section id="quiz-container" class="card hide offset">
-      <h2 id="question-title" class=""></h2>
+      <h2 tabindex="6" id="question-title" class=""></h2>
 
       <div class="speech-bubble" id="question-container">
         <div class="title-text">
-          <h3 id="question-text" class="title-text"></h3>
+          <h3 tabindex="7" id="question-text" class="title-text"></h3>
         </div>
       </div>
 
@@ -67,23 +67,23 @@
 
           <!-- Lable fix -->
           <div class="radio-button-group">
-            <legend>Ledgend text</legend>
+            <legend tabindex="8">Ledgend text</legend>
             <input class="" id="option-a" name="question1" type="radio" value="A">
-            <label for="option-a" class="options"></label>
+            <label tabindex="9" for="option-a" class="options"></label>
 
             <input id="option-b" name="question1" type="radio" value="B">
-            <label for="option-b" class="options"></label>
+            <label tabindex="10" for="option-b" class="options"></label>
 
             <input id="option-c" name="question1" type="radio" value="C">
-            <label for="option-c" class="options"></label>
+            <label tabindex="11" for="option-c" class="options"></label>
 
             <input id="option-d" name="question1" type="radio" value="D">
-            <label for="option-d" class="options"></label>
+            <label tabindex="12" for="option-d" class="options"></label>
           </div>
 
         </fieldset>
         <!-- <button class="back-btn" type="button">Back</button> -->
-        <button type="submit" id="answer-btn">Submit</button>
+        <button tabindex="13" type="submit" id="answer-btn">Submit</button>
       </form>
 
     </section>
@@ -93,8 +93,8 @@
     <section id="result-container" class="card hide offset">
       <div class="speech-bubble" id="answer-container">
         <div class="title-text">
-          <h2 id="result-title" class=""></h2>
-          <p id="result-explanation" class=""></p>
+          <h2 id="result-title" tabindex="14" class=""></h2>
+          <p id="result-explanation" tabindex="15" class=""></p>
         </div>
       </div>
       <!-- <button class="back-btn" type="button">Back</button> -->
@@ -107,12 +107,12 @@
     <section id="quiz-result" class="card hide offset">
       <div class="speech-bubble" id="">
         <div class="title-text">
-          <h3 id="quiz-result-title" class=""></h3>
-          <p id="quiz-result-text" class=""></p>
+          <h3 id="quiz-result-title" class="" tabindex="16"></h3>
+          <p id="quiz-result-text" class="" tabindex="17"></p>
         </div>
       </div>
 
-      <button id="start-again-btn" type="button">Start again</button>
+      <button id="start-again-btn" tabindex="18" type="button">Start again</button>
     </section>
     <!-- #endregion -->
 

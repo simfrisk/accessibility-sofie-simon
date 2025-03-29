@@ -75,7 +75,6 @@ const loadNextQuestion = () => {
     resultContainer.style.zIndex = ("0")
     quizResult.style.zIndex = ("1")
     quizResult.classList.remove("hide")
-    quizContainer.classList.remove("hide")
     requestAnimationFrame(() => {
       quizResult.classList.remove("offset")
     })
@@ -163,6 +162,17 @@ const startAgain = (): void => {
 
 //#endregion
 
+//#region --- Keyboard Navigation ----
+
+// const enterKeySelect = () => {
+//   radioButtonCheck.forEach(btn () => {
+
+//   })
+// }
+
+
+//#endregion
+
 
 //#endregion
 
@@ -172,7 +182,7 @@ startQuizBtn.addEventListener("click", loadNextQuestion)
 submitAnswerBtn.addEventListener("click", loadNextAnswer)
 nextQuestionBtn.addEventListener("click", loadNextQuestion)
 startAgainBtn.addEventListener("click", startAgain)
+// document.addEventListener("DOMContentLoaded", enterKeySelect)
+
 
 //#endregion
-
-console.log(questions.length)
