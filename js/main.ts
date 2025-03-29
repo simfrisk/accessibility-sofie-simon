@@ -87,7 +87,7 @@ const loadNextQuestion = () => {
     resultContainer.style.zIndex = ("0")
     quizResult.style.zIndex = ("1")
     quizResult.classList.remove("hide")
-    // quizContainer.classList.remove("hide")
+    quizContainer.classList.remove("hide")
     requestAnimationFrame(() => {
       quizResult.classList.remove("offset")
     })
@@ -116,7 +116,7 @@ const loadNextQuestion = () => {
       startPage.classList.add("hide")
       resultContainer.classList.add("hide")
       resultContainer.classList.add("offset")
-    }, 500)
+    }, 50)
   }
 }
 
@@ -149,7 +149,7 @@ const loadNextAnswer = (event: Event): void => {
   quizContainer.style.zIndex = ("0")
   resultContainer.style.zIndex = ("1")
   resultContainer.classList.remove("hide")
-  // quizContainer.classList.remove("hide")
+  quizContainer.classList.remove("hide")
   requestAnimationFrame(() => {
     resultContainer.classList.remove("offset")
   })
