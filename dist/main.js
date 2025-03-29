@@ -141,10 +141,22 @@ const startAgain = () => {
 };
 //#endregion
 //#region --- Keyboard Navigation ----
-// const enterKeySelect = () => {
-//   radioButtonCheck.forEach(btn () => {
-//   })
-// }
+const handleKeyEvent = (event, button) => {
+    if (event.key === "Enter" || ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"].includes(event.key)) {
+        if (document.activeElement !== button) {
+            event.preventDefault();
+            button.focus();
+        }
+        else if (event.key === "Enter") {
+            button.click();
+        }
+    }
+};
+const enterKeySelect = (event) => {
+    handleKeyEvent(event, startQuizBtn);
+    handleKeyEvent(event, nextQuestionBtn);
+    handleKeyEvent(event, startAgainBtn);
+};
 //#endregion
 //#endregion
 //#region --- Event listeners -----
@@ -153,5 +165,5 @@ startQuizBtn.addEventListener("click", loadNextQuestion);
 submitAnswerBtn.addEventListener("click", loadNextAnswer);
 nextQuestionBtn.addEventListener("click", loadNextQuestion);
 startAgainBtn.addEventListener("click", startAgain);
-// document.addEventListener("DOMContentLoaded", enterKeySelect)
+document.addEventListener("keydown", enterKeySelect);
 //#endregion

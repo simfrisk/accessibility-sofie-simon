@@ -164,11 +164,24 @@ const startAgain = (): void => {
 
 //#region --- Keyboard Navigation ----
 
-// const enterKeySelect = () => {
-//   radioButtonCheck.forEach(btn () => {
 
-//   })
-// }
+const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
+  if (event.key === "Enter" || ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"].includes(event.key)) {
+    if (document.activeElement !== button) {
+      event.preventDefault();
+      button.focus();
+    } else if (event.key === "Enter") {
+      button.click();
+    }
+  }
+};
+
+const enterKeySelect = (event: KeyboardEvent): void => {
+  handleKeyEvent(event, startQuizBtn);
+  handleKeyEvent(event, nextQuestionBtn);
+  handleKeyEvent(event, startAgainBtn);
+};
+
 
 
 //#endregion
@@ -182,7 +195,7 @@ startQuizBtn.addEventListener("click", loadNextQuestion)
 submitAnswerBtn.addEventListener("click", loadNextAnswer)
 nextQuestionBtn.addEventListener("click", loadNextQuestion)
 startAgainBtn.addEventListener("click", startAgain)
-// document.addEventListener("DOMContentLoaded", enterKeySelect)
+document.addEventListener("keydown", enterKeySelect);
 
 
 //#endregion
