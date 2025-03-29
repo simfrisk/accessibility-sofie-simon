@@ -158,6 +158,19 @@ const enterKeySelect = (event) => {
     handleKeyEvent(event, startAgainBtn);
 };
 //#endregion
+//#region
+const theBody = document.querySelector("body");
+const darkmodetoggle = document.querySelector("#dark-mode-icon");
+const darkmode = () => {
+    console.log("pressed");
+    if (theBody.classList.contains("dark-mode")) {
+        theBody.classList.remove("dark-mode");
+    }
+    else {
+        theBody.classList.add("dark-mode");
+    }
+};
+//#endrigion
 //#endregion
 //#region --- Event listeners -----
 menuIcon.addEventListener("click", burgerMenu);
@@ -165,5 +178,6 @@ startQuizBtn.addEventListener("click", loadNextQuestion);
 submitAnswerBtn.addEventListener("click", loadNextAnswer);
 nextQuestionBtn.addEventListener("click", loadNextQuestion);
 startAgainBtn.addEventListener("click", startAgain);
-document.addEventListener("keydown", enterKeySelect);
+// document.addEventListener("keydown", enterKeySelect);
+darkmodetoggle.addEventListener("click", darkmode);
 //#endregion

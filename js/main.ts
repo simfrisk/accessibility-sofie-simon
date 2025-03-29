@@ -64,10 +64,9 @@ const loadNextQuestion = () => {
   currentStep++
   radioButtonCheck.forEach((radio): void => {
     radio.checked = false
-  }
-  )
+  });
 
-  console.log(currentStep)
+  console.log(currentStep);
 
   if (currentStep >= questions.length) {
     quizResultTitle.innerHTML = "Quiz is over"
@@ -81,11 +80,7 @@ const loadNextQuestion = () => {
     setTimeout(() => {
       resultContainer.classList.add("hide")
       resultContainer.classList.add("offset")
-    }, 500
-
-
-    )
-
+    }, 500);
   } else {
     currentQuestion = questions[currentStep]
     questionTitle.innerHTML = (`Question ${currentStep + 1}/${questions.length}`)
@@ -110,7 +105,6 @@ const loadNextQuestion = () => {
     if (currentStep % questions.length === questions.length - 1) {
       nextQuestionBtn.innerHTML = "SEE RESULTS"
     }
-
   }
 }
 
@@ -186,6 +180,21 @@ const enterKeySelect = (event: KeyboardEvent): void => {
 
 //#endregion
 
+//#region
+
+const theBody = document.querySelector("body") as HTMLBodyElement
+const darkmodetoggle = document.querySelector("#dark-mode-icon") as HTMLButtonElement
+
+const darkmode = () => {
+  console.log("pressed")
+  if (theBody.classList.contains("dark-mode")) {
+    theBody.classList.remove("dark-mode")
+  } else {
+    theBody.classList.add("dark-mode")
+  }
+}
+
+//#endrigion
 
 //#endregion
 
@@ -195,7 +204,9 @@ startQuizBtn.addEventListener("click", loadNextQuestion)
 submitAnswerBtn.addEventListener("click", loadNextAnswer)
 nextQuestionBtn.addEventListener("click", loadNextQuestion)
 startAgainBtn.addEventListener("click", startAgain)
-document.addEventListener("keydown", enterKeySelect);
+// document.addEventListener("keydown", enterKeySelect);
+darkmodetoggle.addEventListener("click", darkmode)
+
 
 
 //#endregion

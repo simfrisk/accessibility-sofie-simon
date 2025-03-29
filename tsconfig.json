@@ -2,7 +2,11 @@
   "compilerOptions": {
     "target": "ES6",
     "outDir": "./dist",
-    "strict": true
+    "strict": true,
+    "lib": [
+      "es2016",
+      "dom"
+    ] // <-- Add this line
   },
   "include": [
     "**/*.ts"

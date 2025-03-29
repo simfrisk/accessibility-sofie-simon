@@ -14,7 +14,7 @@
   <!-- <script src="./js/temp-script.js" defer></script> -->
 </head>
 
-<body>
+<body id="body">
 
   <a tabindex="1" href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -27,6 +27,7 @@
         <li><a href="about.html" tabindex="3">About</a></li>
       </ul>
     </nav>
+    <button id="dark-mode-icon" class="dark-mode-icon" type="button">dark</button>
   </header>
 
   <!-- #endregion -->
@@ -37,7 +38,7 @@
       <div class="speech-bubble" id="question-container">
         <div class="title-text">
 
-          <h1 tabindex="4">Web Accessibility Quiz</h1>
+          <h1 class="bubble-text" tabindex="4">Web Accessibility Quiz</h1>
         </div>
       </div>
 
@@ -58,7 +59,7 @@
 
       <div class="speech-bubble" id="question-container">
         <div class="title-text">
-          <h3 tabindex="7" id="question-text" class="title-text"></h3>
+          <h3 tabindex="7" id="question-text" class="title-text bubble-text"></h3>
         </div>
       </div>
 
@@ -93,8 +94,8 @@
     <section id="result-container" class="card hide offset">
       <div class="speech-bubble" id="answer-container">
         <div class="title-text">
-          <h2 id="result-title" tabindex="14" class=""></h2>
-          <p id="result-explanation" tabindex="15" class=""></p>
+          <h2 id="result-title" tabindex="14" class="bubble-text"></h2>
+          <p id="result-explanation" tabindex="15" class="bubble-text"></p>
         </div>
       </div>
       <!-- <button class="back-btn" type="button">Back</button> -->
@@ -107,8 +108,8 @@
     <section id="quiz-result" class="card hide offset">
       <div class="speech-bubble" id="">
         <div class="title-text">
-          <h3 id="quiz-result-title" class="" tabindex="16"></h3>
-          <p id="quiz-result-text" class="" tabindex="17"></p>
+          <h3 id="quiz-result-title" class="bubble-text" tabindex="16"></h3>
+          <p id="quiz-result-text" class="bubble-text" tabindex="17"></p>
         </div>
       </div>
 
