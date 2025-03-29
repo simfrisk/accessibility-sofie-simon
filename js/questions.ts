@@ -4,37 +4,37 @@ const questions: Question[] = [
     id: "question1",
     currentStep: 1,
     questionTitle: "Question 1",
-    questionText: "What is a screen reader?",
-    options: ["A car", "A digital text reader", "A cat", "A fruite"],
-    correctAnswer: "B",
-    resultTitleWin: "Congratulations",
-    resultExplanationWin: "You got it right!",
+    questionText: "Which of the following is NOT a principle of the WCAG?",
+    options: ["Perceivable", "Operable", "Flexible", "Robust"],
+    correctAnswer: "C",
+    resultTitleWin: "Congratulations!",
+    resultExplanationWin: "This is correct. Perceivable, Operable, Understandable and Robust are the four main principles. Well done!",
     resultTitleLose: "Oh no!",
-    resultExplanationLose: "You got it wrong"
+    resultExplanationLose: "You got it wrong. Perceivable, Operable, Understandable and Robust are the four main principles."
   },
   {
     id: "question2",
     questionTitle: "Question 2",
-    questionText: "What is an alt text? A description of..",
+    questionText: "What does ARIA stand for?",
     currentStep: 2,
-    options: ["an image", "a div element", "a header", "a link"],
+    options: ["Accessible Rich Internet Applications", "Advanced Responsive Internet Accessibility", "Automated Resource Integration API", "Assistive Rendering & Interaction Attributes"],
     correctAnswer: "A",
-    resultTitleWin: "Congratulations",
-    resultExplanationWin: "You got it right!",
-    resultTitleLose: "Oh no!",
-    resultExplanationLose: "You got it wrong"
+    resultTitleWin: "Yay!",
+    resultExplanationWin: "You got it right. Accessible Rich Internet Applications is correct. Well done!",
+    resultTitleLose: "Not quite!",
+    resultExplanationLose: "The correct answer is Accessible Rich Internet Applications. Now you know!"
   },
   {
     id: "question3",
     currentStep: 3,
     questionTitle: "Question 3",
     questionText: "What is the purpose of a 'skip to content' link?",
-    options: ["to skip advertisements", "to skip the navigation", "to skip to all images", "to skip the footer"],
+    options: ["To skip advertisements", "To skip the navigation", "To skip all images", "To skip to the footer"],
     correctAnswer: "B",
-    resultTitleWin: "Congratulations",
-    resultExplanationWin: "You got it right!",
+    resultTitleWin: "Well done!",
+    resultExplanationWin: "That is the right choice. When you press a 'skip to content' link you want the user to skip the navigation.",
     resultTitleLose: "Oh no!",
-    resultExplanationLose: "You got it wrong"
+    resultExplanationLose: "This is incorrect. When you press a 'skip to content' link you want the user to skip the navigation."
   }
 ]
 

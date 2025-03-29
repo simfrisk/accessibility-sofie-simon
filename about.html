@@ -18,6 +18,10 @@
     crossorigin="anonymous"
   ></script>
   <script
+    src="./dist/about.js"
+    defer
+  ></script>
+  <script
     src="./dist/main.js"
     defer
   ></script>
@@ -53,18 +57,30 @@
 
   <main id="main-content">
     <section
-      id="start-page"
+      id="about"
       class=""
     >
-      <div
-        class="speech-bubble"
-        id="question-container"
-      >
-        <h1 class="title-text">About us</h1>
-      </div>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus molestiae aliquam a eveniet est, voluptate
-        aliquid nesciunt non eaque, expedita deleniti, dignissimos adipisci illo quibusdam voluptas ad earum aut
-        sapiente!</p>
+      <h1>About Web Accessibility</h1>
+      <h2>Why is Web Accessibility so important?</h2>
+      <p>Web accessibility ensures that everyone, including people with disabilities, can use websites. It improves
+        usability, expands audience reach, and helps meet legal standards. An accessible web benefits everyone by making
+        online content more inclusive and user-friendly.</p>
+      <h3>Web Content Accessibility Guidelines (WCAG)</h3>
+      <p>WCAG are guidelines to make web content accessible to people with disabilities. They focus on four principles:
+        Perceivable, Operable, Understandable, and Robust (POUR).</p>
+      <h3>The purpose of ARIA labels</h3>
+      <p>ARIA (Accessible Rich Internet Applications) labels provide extra accessibility information for screen readers,
+        helping users with disabilities navigate and interact with web content.</p>
+
+      <h2>What makes this Quiz accessible?</h2>
+      <ol>
+        <li>A 'Skip to Content' link allows users to bypass navigation and jump straight to the quiz.</li>
+        <li>The quiz is fully keyboard-accessible, so users can navigate and select answers without a mouse.</li>
+        <li>A clean and simple layout ensures an easy-to-read experience with minimal distractions.</li>
+        <li>ARIA labels</li>
+        <li>Sematic HTML</li>
+      </ol>
+
     </section>
 
   </main>
