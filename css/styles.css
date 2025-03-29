@@ -321,9 +321,15 @@ footer {
   }
 
   .card {
+    width: 100dvw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-    width: 50dvw;
 
+  .offset {
+    transform: translateX(0dvh);
   }
 
 }

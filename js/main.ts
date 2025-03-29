@@ -116,7 +116,7 @@ const loadNextQuestion = () => {
       startPage.classList.add("hide")
       resultContainer.classList.add("hide")
       resultContainer.classList.add("offset")
-    }, 50)
+    }, 500)
   }
 }
 
