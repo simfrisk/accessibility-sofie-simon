@@ -153,16 +153,17 @@ main {
 }
 
 .offset {
-  transform: translateY(100dvh);
+  transform: translateX(100dvh);
 }
 
 .card {
+  justify-content: center;
   background-color: var(--primary);
   position: absolute;
   padding: 16px;
   width: 100dvw;
   height: 100dvh;
-  transition: transform .6s ease;
+  transition: transform .7s ease-in-out;
 }
 
 
@@ -320,9 +321,15 @@ footer {
   }
 
   .card {
+    width: 100dvw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-    width: 50dvw;
 
+  .offset {
+    transform: translateX(0dvh);
   }
 
 }
