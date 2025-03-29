@@ -71,7 +71,7 @@ const loadNextQuestion = () => {
         setTimeout(() => {
             resultContainer.classList.add("hide");
             resultContainer.classList.add("offset");
-        }, 50);
+        }, 500);
     }
     else {
         currentQuestion = questions[currentStep];
@@ -93,7 +93,7 @@ const loadNextQuestion = () => {
             resultContainer.classList.add("offset");
         }, 500);
         if (currentStep % questions.length === questions.length - 1) {
-            submitAnswerBtn.innerHTML = "SEE RESULTS";
+            nextQuestionBtn.innerHTML = "SEE RESULTS";
         }
     }
 };
@@ -132,7 +132,7 @@ const loadNextAnswer = (event) => {
 //#endregion
 //#region --- Start over ----
 const startAgain = () => {
-    submitAnswerBtn.innerHTML = "SUBMIT";
+    nextQuestionBtn.innerHTML = "NEXT QUESTION";
     startPage.style.zIndex = ("0");
     startPage.classList.remove("hide");
     startPage.classList.remove("offset");

@@ -82,7 +82,9 @@ const loadNextQuestion = () => {
     setTimeout(() => {
       resultContainer.classList.add("hide")
       resultContainer.classList.add("offset")
-    }, 50
+    }, 500
+
+
     )
 
   } else {
@@ -107,8 +109,9 @@ const loadNextQuestion = () => {
     }, 500)
 
     if (currentStep % questions.length === questions.length - 1) {
-      submitAnswerBtn.innerHTML = "SEE RESULTS"
+      nextQuestionBtn.innerHTML = "SEE RESULTS"
     }
+
   }
 }
 
@@ -149,7 +152,7 @@ const loadNextAnswer = (event: Event): void => {
 
 //#region --- Start over ----
 const startAgain = (): void => {
-  submitAnswerBtn.innerHTML = "SUBMIT"
+  nextQuestionBtn.innerHTML = "NEXT QUESTION"
   startPage.style.zIndex = ("0")
   startPage.classList.remove("hide")
   startPage.classList.remove("offset")
