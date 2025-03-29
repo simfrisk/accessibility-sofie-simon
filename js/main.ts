@@ -35,6 +35,8 @@ const quizResult = document.querySelector("#quiz-result") as HTMLElement
 const quizResultTitle = document.querySelector("#quiz-result-title") as HTMLElement
 const quizResultText = document.querySelector("#quiz-result-text") as HTMLParagraphElement
 const startAgainBtn = document.querySelector("#start-again-btn") as HTMLButtonElement
+const selectionForm = document.querySelector("#selection-from") as HTMLFormElement
+const radioButtonGroup = document.querySelector(".radio-button-group") as HTMLDivElement
 const radioButtonCheck = document.querySelectorAll('input[name="question1"]') as NodeListOf<HTMLInputElement>
 
 
@@ -42,48 +44,6 @@ let currentStep: number = -1
 let userChoice: string = ""
 let currentQuestion: any = null
 let score: number = 0
-
-//#endregion
-
-//#region --- Object -----
-const questions: Question[] = [
-  {
-    id: "question1",
-    currentStep: 1,
-    questionTitle: "Question 1",
-    questionText: "What is a screen reader?",
-    options: ["A car", "A digital text reader", "A cat", "A fruite"],
-    correctAnswer: "B",
-    resultTitleWin: "Congratulations",
-    resultExplanationWin: "You got it right!",
-    resultTitleLose: "Oh no!",
-    resultExplanationLose: "You got it wrong"
-  },
-  {
-    id: "question2",
-    questionTitle: "Question 2",
-    questionText: "What is an alt text? A description of..",
-    currentStep: 2,
-    options: ["an image", "a div element", "a header", "a link"],
-    correctAnswer: "A",
-    resultTitleWin: "Congratulations",
-    resultExplanationWin: "You got it right!",
-    resultTitleLose: "Oh no!",
-    resultExplanationLose: "You got it wrong"
-  },
-  {
-    id: "question3",
-    currentStep: 3,
-    questionTitle: "Question 3",
-    questionText: "What is the purpose of a 'skip to content' link?",
-    options: ["to skip advertisements", "to skip the navigation", "to skip to all images", "to skip the footer"],
-    correctAnswer: "B",
-    resultTitleWin: "Congratulations",
-    resultExplanationWin: "You got it right!",
-    resultTitleLose: "Oh no!",
-    resultExplanationLose: "You got it wrong"
-  }
-]
 
 //#endregion
 
@@ -214,6 +174,10 @@ const startAgain = (): void => {
 
 //#endregion
 
+
+
+//#endregion
+
 //#region --- Event listeners -----
 menuIcon.addEventListener("click", burgerMenu)
 startQuizBtn.addEventListener("click", loadNextQuestion)
@@ -222,5 +186,3 @@ nextQuestionBtn.addEventListener("click", loadNextQuestion)
 startAgainBtn.addEventListener("click", startAgain)
 //#endregion
 
-
-//#endregion

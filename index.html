@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="css/styles.css" />
   <!-- font awesome icons -->
   <script src="https://kit.fontawesome.com/beb1bc6f21.js" crossorigin="anonymous"></script>
+  <script src="./dist/questions.js" defer></script>
   <script src="./dist/main.js" defer></script>
-  <script src="./js/temp-script.js" defer></script>
+  <!-- <script src="./js/temp-script.js" defer></script> -->
 </head>
 
 <body>
@@ -52,7 +53,7 @@
     <!-- #endregion -->
 
     <!-- #region --- Quiz Container  ----->
-    <section id="quiz-container" class="card hide offset">
+    <section id="quiz-container" class="card hide">
       <h2 id="question-title" class=""></h2>
 
       <div class="speech-bubble" id="question-container">
@@ -61,7 +62,7 @@
         </div>
       </div>
 
-      <form>
+      <form id="Selection-form”">
         <fieldset>
 
           <!-- Lable fix -->
@@ -82,14 +83,14 @@
 
         </fieldset>
         <button type="button">Back</button>
-        <button type="button" id="answer-btn">Submit</button>
+        <button type="submit" id="answer-btn">Submit</button>
       </form>
 
     </section>
     <!-- #endregion -->
 
     <!-- #region --- Result Container  ----->
-    <section id="result-container" class="card hide offset">
+    <section id="result-container" class="card hide">
       <div class="speech-bubble" id="answer-container">
         <div class="title-text">
           <h2 id="result-title" class=""></h2>
@@ -103,7 +104,7 @@
     <!-- #endregion -->
 
     <!-- #region --- Quiz Result ----->
-    <section id="quiz-result" class="card hide offset">
+    <section id="quiz-result" class="card hide">
       <div class="speech-bubble" id="">
         <div class="title-text">
           <h3 id="quiz-result-title" class=""></h3>

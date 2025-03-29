@@ -22,51 +22,13 @@ const quizResult = document.querySelector("#quiz-result");
 const quizResultTitle = document.querySelector("#quiz-result-title");
 const quizResultText = document.querySelector("#quiz-result-text");
 const startAgainBtn = document.querySelector("#start-again-btn");
+const selectionForm = document.querySelector("#selection-from");
+const radioButtonGroup = document.querySelector(".radio-button-group");
 const radioButtonCheck = document.querySelectorAll('input[name="question1"]');
 let currentStep = -1;
 let userChoice = "";
 let currentQuestion = null;
 let score = 0;
-//#endregion
-//#region --- Object -----
-const questions = [
-    {
-        id: "question1",
-        currentStep: 1,
-        questionTitle: "Question 1",
-        questionText: "What is a screen reader?",
-        options: ["A car", "A digital text reader", "A cat", "A fruite"],
-        correctAnswer: "B",
-        resultTitleWin: "Congratulations",
-        resultExplanationWin: "You got it right!",
-        resultTitleLose: "Oh no!",
-        resultExplanationLose: "You got it wrong"
-    },
-    {
-        id: "question2",
-        questionTitle: "Question 2",
-        questionText: "What is an alt text? A description of..",
-        currentStep: 2,
-        options: ["an image", "a div element", "a header", "a link"],
-        correctAnswer: "A",
-        resultTitleWin: "Congratulations",
-        resultExplanationWin: "You got it right!",
-        resultTitleLose: "Oh no!",
-        resultExplanationLose: "You got it wrong"
-    },
-    {
-        id: "question3",
-        currentStep: 3,
-        questionTitle: "Question 3",
-        questionText: "What is the purpose of a 'skip to content' link?",
-        options: ["to skip advertisements", "to skip the navigation", "to skip to all images", "to skip the footer"],
-        correctAnswer: "B",
-        resultTitleWin: "Congratulations",
-        resultExplanationWin: "You got it right!",
-        resultTitleLose: "Oh no!",
-        resultExplanationLose: "You got it wrong"
-    }
-];
 //#endregion
 //#region --- Functions -----
 //#region --- User Idetifier -----
@@ -100,14 +62,14 @@ const loadNextQuestion = () => {
         quizResultText.innerHTML = `Your score is: ${score} / ${questions.length}`;
         resultContainer.style.zIndex = ("0");
         quizResult.style.zIndex = ("1");
-        quizResult.style.display = ("block");
-        // quizContainer.style.display = ("block")
+        quizResult.classList.remove("hide");
+        // quizContainer.classList.remove("hide")
         requestAnimationFrame(() => {
-            quizResult.style.transform = ("translateY(0dvh)");
+            quizResult.classList.remove("offset");
         });
         setTimeout(() => {
-            resultContainer.style.display = ("none");
-            resultContainer.style.transform = ("translateY(100dvh)");
+            resultContainer.classList.add("hide");
+            resultContainer.classList.add("offset");
         }, 50);
     }
     else {
@@ -120,14 +82,14 @@ const loadNextQuestion = () => {
         optionD.innerHTML = (currentQuestion.options[3]);
         resultContainer.style.zIndex = ("0");
         quizContainer.style.zIndex = ("1");
-        quizContainer.style.display = ("block");
+        quizContainer.classList.remove("hide");
         requestAnimationFrame(() => {
-            quizContainer.style.transform = ("translateY(0dvh)");
+            quizContainer.classList.remove("offset");
         });
         setTimeout(() => {
-            startPage.style.display = ("none");
-            resultContainer.style.display = ("none");
-            resultContainer.style.transform = ("translateY(100dvh)");
+            startPage.classList.add("hide");
+            resultContainer.classList.add("hide");
+            resultContainer.classList.add("offset");
         }, 500);
     }
 };
@@ -159,26 +121,27 @@ const loadNextAnswer = (event) => {
     }
     quizContainer.style.zIndex = ("0");
     resultContainer.style.zIndex = ("1");
-    resultContainer.style.display = "block";
-    // quizContainer.style.display = ("block")
+    resultContainer.classList.remove("hide");
+    // quizContainer.classList.remove("hide")
     requestAnimationFrame(() => {
-        resultContainer.style.transform = "translateY(0dvh)";
+        resultContainer.classList.remove("offset");
     });
     setTimeout(() => {
-        quizContainer.style.display = "none";
-        quizContainer.style.transform = ("translateY(100dvh");
+        quizContainer.classList.add("hide");
+        quizContainer.classList.add("offset");
     }, 500);
 };
 //#endregion
 //#region --- Start over ----
 const startAgain = () => {
     startPage.style.zIndex = ("0");
-    startPage.style.display = ("block");
-    startPage.style.transform = ("translateY(0dvh)");
-    quizResult.style.display = ("none");
+    startPage.classList.remove("hide");
+    startPage.classList.remove("offset");
+    quizResult.classList.add("hide");
     currentStep = -1;
     score = 0;
 };
+//#endregion
 //#endregion
 //#region --- Event listeners -----
 menuIcon.addEventListener("click", burgerMenu);
@@ -186,5 +149,4 @@ startQuizBtn.addEventListener("click", loadNextQuestion);
 submitAnswerBtn.addEventListener("click", loadNextAnswer);
 nextQuestionBtn.addEventListener("click", loadNextQuestion);
 startAgainBtn.addEventListener("click", startAgain);
-//#endregion
 //#endregion
