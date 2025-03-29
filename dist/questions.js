@@ -16,7 +16,7 @@ const questions = [
     },
     {
         id: "question2",
-        questionText: "What does ARIA stand for?",
+        questionText: "What is an alt text? A description of..",
         questionTitle: "Question ",
         currentStep: 2,
         options: ["Accessible Rich Internet Applications", "Advanced Responsive Internet Accessibility", "Automated Resource Integration API", "Assistive Rendering & Interaction Attributes"],

@@ -29,7 +29,6 @@ const questions: Question[] = [
   },
   {
     id: "question2",
-    questionTitle: "Question 2",
     questionText: "What is an alt text? A description of..",
     questionTitle: "Question ",
     currentStep: 2,
