@@ -1,9 +1,24 @@
+//#region --- Interface ----- 
+interface Question {
+  id: string,
+  currentStep: number,
+  questionTitle: string,
+  questionText: string,
+  options: string[],
+  correctAnswer: string,
+  resultTitleWin: string,
+  resultExplanationWin: string
+  resultTitleLose: string,
+  resultExplanationLose: string
+}
+//#endregion
+
 //#region --- Object -----
 const questions: Question[] = [
   {
     id: "question1",
     currentStep: 1,
-    questionTitle: "Question 1",
+    questionTitle: "Question ",
     questionText: "Which of the following is NOT a principle of the WCAG?",
     options: ["Perceivable", "Operable", "Flexible", "Robust"],
     correctAnswer: "C",
@@ -15,7 +30,8 @@ const questions: Question[] = [
   {
     id: "question2",
     questionTitle: "Question 2",
-    questionText: "What does ARIA stand for?",
+    questionText: "What is an alt text? A description of..",
+    questionTitle: "Question ",
     currentStep: 2,
     options: ["Accessible Rich Internet Applications", "Advanced Responsive Internet Accessibility", "Automated Resource Integration API", "Assistive Rendering & Interaction Attributes"],
     correctAnswer: "A",
@@ -27,7 +43,7 @@ const questions: Question[] = [
   {
     id: "question3",
     currentStep: 3,
-    questionTitle: "Question 3",
+    questionTitle: "Question ",
     questionText: "What is the purpose of a 'skip to content' link?",
     options: ["To skip advertisements", "To skip the navigation", "To skip all images", "To skip to the footer"],
     correctAnswer: "B",
