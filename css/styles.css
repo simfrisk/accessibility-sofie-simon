@@ -17,7 +17,7 @@
 
   --font-primary: #000000;
   --font-primary-hover: ;
-  --font-primary-fixed: ;
+  --font-primary-fixed: #000000;
 
   --font-secondary: ;
   --font-secondary-hover: ;
@@ -25,29 +25,23 @@
 }
 
 .dark-mode {
-  --primary: #6c2727;
+  --primary: #511f1f;
   --primary-hover: ;
-  --primary-fixed: ;
 
-  --secondary: ;
+  --secondary: #000000;
   --secondary-hover: ;
-  --secondary-fixed: ;
 
-  --complementary: ;
+  --complementary: #FFFFFF;
   --complementary-hover: ;
-  --complementary-fixed: ;
 
   --aditional: ;
   --aditional-hover: ;
-  --aditional-fixed: ;
 
-  --font-primary: ;
+  --font-primary: #d2d2d2;
   --font-primary-hover: ;
-  --font-primary-fixed: ;
 
   --font-secondary: ;
   --font-secondary-hover: ;
-  --font-secondary-fixed: ;
 
 }
 
@@ -59,6 +53,7 @@
 body {
   background-color: var(--primary);
   font-family: 'Futura', Helvetica, sans-serif;
+  color: var(--font-primary);
   margin: 0;
 }
 
@@ -137,7 +132,7 @@ li {
 
 a {
   text-decoration: none;
-  color: var(--secondary);
+  color: var(--font-primary);
 }
 
 #nav-links a:hover {
@@ -212,15 +207,25 @@ h3,
 p {
   padding: 0;
   margin: 0;
+
+}
+
+p {
+  color: var(--font-primary);
 }
 
 h1 {
   font-size: 22px;
+  color: var(--font-primary-fixed);
 }
 
 h2,
 h3 {
   font-size: 18px;
+}
+
+.bubble-text {
+  color: var(--font-primary-fixed);
 }
 
 button {
@@ -279,6 +284,7 @@ input[type="radio"] {
   /* Sofies changes */
   margin: 8px 0px;
   padding: 8px;
+  color: var(--font-primary-fixed);
   background-color: #FFFFFF;
   box-shadow: 2px 3px 0px black;
   border: 2px solid black;
