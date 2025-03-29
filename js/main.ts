@@ -1,18 +1,3 @@
-//#region --- Interface ----- 
-interface Question {
-  id: string,
-  currentStep: number,
-  questionTitle: string,
-  questionText: string,
-  options: string[],
-  correctAnswer: string,
-  resultTitleWin: string,
-  resultExplanationWin: string
-  resultTitleLose: string,
-  resultExplanationLose: string
-}
-//#endregion
-
 //#region --- DOM Elements ----- 
 const navLinks = document.querySelector("#nav-links") as HTMLElement
 const menuIcon = document.querySelector("#menu-icon") as HTMLElement
@@ -38,6 +23,7 @@ const startAgainBtn = document.querySelector("#start-again-btn") as HTMLButtonEl
 const selectionForm = document.querySelector("#selection-from") as HTMLFormElement
 const radioButtonGroup = document.querySelector(".radio-button-group") as HTMLDivElement
 const radioButtonCheck = document.querySelectorAll('input[name="question1"]') as NodeListOf<HTMLInputElement>
+const backBtn = document.querySelector("#back-btn") as HTMLButtonElement
 
 
 let currentStep: number = -1
@@ -81,6 +67,8 @@ const loadNextQuestion = () => {
   }
   )
 
+  console.log(currentStep)
+
   if (currentStep >= questions.length) {
     quizResultTitle.innerHTML = "Quiz is over"
     quizResultText.innerHTML = `Your score is: ${score} / ${questions.length}`
@@ -99,7 +87,7 @@ const loadNextQuestion = () => {
 
   } else {
     currentQuestion = questions[currentStep]
-    questionTitle.innerHTML = (currentQuestion.questionTitle)
+    questionTitle.innerHTML = (`Question ${currentStep + 1}/${questions.length}`)
     questionText.innerHTML = (currentQuestion.questionText)
     optionA.innerHTML = (currentQuestion.options[0])
     optionB.innerHTML = (currentQuestion.options[1])
@@ -117,6 +105,10 @@ const loadNextQuestion = () => {
       resultContainer.classList.add("hide")
       resultContainer.classList.add("offset")
     }, 500)
+
+    if (currentStep % questions.length === questions.length - 1) {
+      submitAnswerBtn.innerHTML = "SEE RESULTS"
+    }
   }
 }
 
@@ -126,24 +118,18 @@ const loadNextQuestion = () => {
 const loadNextAnswer = (event: Event): void => {
   if (event) event.preventDefault()
 
-  if (currentStep < questions.length) {
-    if (userChoice === currentQuestion.correctAnswer) {
-      console.log("You are correct!")
-      resultTitle.innerHTML = currentQuestion.resultTitleWin
-      resultExplanation.innerHTML = currentQuestion.resultExplanationWin
-      score++
-      console.log(score)
-    } else if (userChoice === "") {
-      alert("Please select an answer.")
-    } else {
-      console.log("Sorry, wrong answer.")
-      resultTitle.innerHTML = currentQuestion.resultTitleLose
-      resultExplanation.innerHTML = currentQuestion.resultExplanationLose
-    }
-
+  if (userChoice === currentQuestion.correctAnswer) {
+    console.log("You are correct!")
+    resultTitle.innerHTML = currentQuestion.resultTitleWin
+    resultExplanation.innerHTML = currentQuestion.resultExplanationWin
+    score++
+    console.log(score)
+  } else if (userChoice === "") {
+    alert("Please select an answer.")
   } else {
-    nextQuestionBtn.innerHTML = "test"
-    console.log("Button text changed to 'test'")
+    console.log("Sorry, wrong answer.")
+    resultTitle.innerHTML = currentQuestion.resultTitleLose
+    resultExplanation.innerHTML = currentQuestion.resultExplanationLose
   }
 
   quizContainer.style.zIndex = ("0")
@@ -163,17 +149,16 @@ const loadNextAnswer = (event: Event): void => {
 
 //#region --- Start over ----
 const startAgain = (): void => {
+  submitAnswerBtn.innerHTML = "SUBMIT"
   startPage.style.zIndex = ("0")
   startPage.classList.remove("hide")
   startPage.classList.remove("offset")
   quizResult.classList.add("hide")
   currentStep = -1
   score = 0
-
 }
 
 //#endregion
-
 
 
 //#endregion
@@ -184,5 +169,7 @@ startQuizBtn.addEventListener("click", loadNextQuestion)
 submitAnswerBtn.addEventListener("click", loadNextAnswer)
 nextQuestionBtn.addEventListener("click", loadNextQuestion)
 startAgainBtn.addEventListener("click", startAgain)
+
 //#endregion
 
+console.log(questions.length)
