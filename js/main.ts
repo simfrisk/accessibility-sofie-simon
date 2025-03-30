@@ -80,7 +80,7 @@ const loadNextQuestion = () => {
     setTimeout(() => {
       resultContainer.classList.add("hide")
       resultContainer.classList.add("offset")
-    }, 500);
+    }, 800);
   } else {
     currentQuestion = questions[currentStep]
     questionTitle.innerHTML = (`Question ${currentStep + 1}/${questions.length}`)
@@ -100,11 +100,9 @@ const loadNextQuestion = () => {
       startPage.classList.add("hide")
       resultContainer.classList.add("hide")
       resultContainer.classList.add("offset")
-    }, 500)
+      startPage.classList.add("offset")
+    }, 800)
 
-    if (currentStep % questions.length === questions.length - 1) {
-      nextQuestionBtn.innerHTML = "SEE RESULTS"
-    }
   }
 }
 
@@ -138,21 +136,35 @@ const loadNextAnswer = (event: Event): void => {
   setTimeout(() => {
     quizContainer.classList.add("hide")
     quizContainer.classList.add("offset")
-  }, 500
+  }, 800
   )
+
+  if (currentStep % questions.length === questions.length - 1) {
+    nextQuestionBtn.innerHTML = "SEE RESULTS"
+  }
 }
 //#endregion
 
 //#region --- Start over ----
 const startAgain = (): void => {
   nextQuestionBtn.innerHTML = "NEXT QUESTION"
-  startPage.style.zIndex = ("0")
+  startPage.style.zIndex = ("1")
+  quizResult.style.zIndex = ("0")
   startPage.classList.remove("hide")
-  startPage.classList.remove("offset")
-  quizResult.classList.add("hide")
+  requestAnimationFrame(() => {
+    startPage.classList.remove("offset")
+  })
+  setTimeout(() => {
+    quizResult.classList.add("hide")
+    quizResult.classList.add("offset")
+  }, 800
+  )
   currentStep = -1
   score = 0
 }
+
+
+
 
 //#endregion
 
@@ -180,7 +192,7 @@ const enterKeySelect = (event: KeyboardEvent): void => {
 
 //#endregion
 
-//#region
+//#region --- Dark mode ----
 
 const theBody = document.querySelector("body") as HTMLBodyElement
 const darkmodetoggle = document.querySelector("#dark-mode-icon") as HTMLButtonElement

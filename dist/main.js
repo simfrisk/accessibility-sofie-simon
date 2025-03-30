@@ -70,7 +70,7 @@ const loadNextQuestion = () => {
         setTimeout(() => {
             resultContainer.classList.add("hide");
             resultContainer.classList.add("offset");
-        }, 500);
+        }, 800);
     }
     else {
         currentQuestion = questions[currentStep];
@@ -90,10 +90,8 @@ const loadNextQuestion = () => {
             startPage.classList.add("hide");
             resultContainer.classList.add("hide");
             resultContainer.classList.add("offset");
-        }, 500);
-        if (currentStep % questions.length === questions.length - 1) {
-            nextQuestionBtn.innerHTML = "SEE RESULTS";
-        }
+            startPage.classList.add("offset");
+        }, 800);
     }
 };
 //#endregion
@@ -126,16 +124,25 @@ const loadNextAnswer = (event) => {
     setTimeout(() => {
         quizContainer.classList.add("hide");
         quizContainer.classList.add("offset");
-    }, 500);
+    }, 800);
+    if (currentStep % questions.length === questions.length - 1) {
+        nextQuestionBtn.innerHTML = "SEE RESULTS";
+    }
 };
 //#endregion
 //#region --- Start over ----
 const startAgain = () => {
     nextQuestionBtn.innerHTML = "NEXT QUESTION";
-    startPage.style.zIndex = ("0");
+    startPage.style.zIndex = ("1");
+    quizResult.style.zIndex = ("0");
     startPage.classList.remove("hide");
-    startPage.classList.remove("offset");
-    quizResult.classList.add("hide");
+    requestAnimationFrame(() => {
+        startPage.classList.remove("offset");
+    });
+    setTimeout(() => {
+        quizResult.classList.add("hide");
+        quizResult.classList.add("offset");
+    }, 800);
     currentStep = -1;
     score = 0;
 };
@@ -158,7 +165,7 @@ const enterKeySelect = (event) => {
     handleKeyEvent(event, startAgainBtn);
 };
 //#endregion
-//#region
+//#region --- Dark mode ----
 const theBody = document.querySelector("body");
 const darkmodetoggle = document.querySelector("#dark-mode-icon");
 const darkmode = () => {
