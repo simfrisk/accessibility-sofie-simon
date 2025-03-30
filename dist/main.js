@@ -110,28 +110,28 @@ const startAgain = () => {
 //#endregion
 //#region --- Keyboard Navigation ----
 const handleKeyEvent = (event, button) => {
-    if (event.key === "Home") {
-        const home = document.querySelector('[tabindex="1"]');
-        if (home) {
-            home.focus();
-        }
-    }
-    else if (event.key === "End") {
-        const focusableElements = Array.from(document.querySelectorAll('[tabindex]:not([tabindex="-1"])'))
-            .filter(el => el.offsetWidth > 0 && el.offsetHeight > 0);
-        const lastElement = focusableElements[focusableElements.length - 1];
-        if (lastElement) {
-            lastElement.focus();
-        }
-    }
-    else if (event.key === "Enter" || ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"].includes(event.key)) {
-        if (document.activeElement !== button) {
-            event.preventDefault();
-            button.focus();
-        }
-        else if (event.key === "Enter") {
-            button.click();
-        }
+    switch (event.key) {
+        case "Home":
+            const home = document.querySelector('[tabindex="1"]');
+            if (home) {
+                home.focus();
+            }
+            break;
+        case "End":
+            const focusableElements = Array.from(document.querySelectorAll('[tabindex]:not([tabindex="-1"])'))
+                .filter(el => el.offsetWidth > 0 && el.offsetHeight > 0);
+            const lastElement = focusableElements[focusableElements.length - 1];
+            if (lastElement) {
+                lastElement.focus();
+            }
+        case "Enter" || ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"].includes(event.key):
+            if (document.activeElement !== button) {
+                event.preventDefault();
+                button.focus();
+            }
+            else if (event.key === "Enter") {
+                button.click();
+            }
     }
 };
 const enterKeySelect = (event) => {
