@@ -117,9 +117,10 @@ const loadNextAnswer = (event: Event): void => {
 //#region --- Start over ----
 const startAgain = (): void => {
   nextQuestionBtn.innerHTML = "NEXT QUESTION"
-  transition(quizResult, startPage, null)
   currentStep = -1
   score = 0
+  transition(quizResult, startPage, null)
+
 }
 
 //#endregion

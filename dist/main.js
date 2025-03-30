@@ -103,9 +103,9 @@ const loadNextAnswer = (event) => {
 //#region --- Start over ----
 const startAgain = () => {
     nextQuestionBtn.innerHTML = "NEXT QUESTION";
-    transition(quizResult, startPage, null);
     currentStep = -1;
     score = 0;
+    transition(quizResult, startPage, null);
 };
 //#endregion
 //#region --- Keyboard Navigation ----
