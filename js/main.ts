@@ -196,12 +196,19 @@ const transition = (
 const theBody = document.querySelector("body") as HTMLBodyElement
 const darkmodetoggle = document.querySelector("#dark-mode-icon") as HTMLButtonElement
 
+
+if (localStorage.getItem("dark-mode") === "enabled") {
+  theBody.classList.add("dark-mode");
+}
+
 const darkmode = () => {
   console.log("pressed")
   if (theBody.classList.contains("dark-mode")) {
     theBody.classList.remove("dark-mode")
+    localStorage.setItem("dark-mode", "disabled")
   } else {
     theBody.classList.add("dark-mode")
+    localStorage.setItem("dark-mode", "enabled")
   }
 }
 

@@ -160,13 +160,18 @@ const transition = (hideElement, showElement, hideElementExtra) => {
 //#region --- Dark mode ----
 const theBody = document.querySelector("body");
 const darkmodetoggle = document.querySelector("#dark-mode-icon");
+if (localStorage.getItem("dark-mode") === "enabled") {
+    theBody.classList.add("dark-mode");
+}
 const darkmode = () => {
     console.log("pressed");
     if (theBody.classList.contains("dark-mode")) {
         theBody.classList.remove("dark-mode");
+        localStorage.setItem("dark-mode", "disabled");
     }
     else {
         theBody.classList.add("dark-mode");
+        localStorage.setItem("dark-mode", "enabled");
     }
 };
 //#endrigion
