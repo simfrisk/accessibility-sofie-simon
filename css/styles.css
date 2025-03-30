@@ -87,13 +87,10 @@ header {
   margin: 5px;
   position: fixed;
   z-index: 10;
-
 }
 
 nav {
   padding: 12px;
-
-
 }
 
 #menu-icon {
@@ -101,7 +98,6 @@ nav {
   cursor: pointer;
   display: block;
   padding: 12px;
-
 }
 
 #nav-links {
@@ -125,7 +121,6 @@ ul {
 }
 
 li {
-
   font-weight: bold;
   padding: 6px;
 }
@@ -146,7 +141,6 @@ main {
 .hide {
   display: none;
   /* transition: transform 1s ease; */
-
 }
 
 .offset {
@@ -179,7 +173,7 @@ section {
   gap: 18px;
   padding: 16px;
   height: 100vh;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .speech-bubble {
