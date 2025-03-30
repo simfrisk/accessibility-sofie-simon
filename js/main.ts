@@ -117,23 +117,10 @@ const loadNextAnswer = (event: Event): void => {
 //#region --- Start over ----
 const startAgain = (): void => {
   nextQuestionBtn.innerHTML = "NEXT QUESTION"
-  startPage.style.zIndex = ("1")
-  quizResult.style.zIndex = ("0")
-  startPage.classList.remove("hide")
-  requestAnimationFrame(() => {
-    startPage.classList.remove("offset")
-  })
-  setTimeout(() => {
-    quizResult.classList.add("hide")
-    quizResult.classList.add("offset")
-  }, 800
-  )
+  transition(quizResult, startPage, null)
   currentStep = -1
   score = 0
 }
-
-
-
 
 //#endregion
 
