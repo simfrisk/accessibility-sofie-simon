@@ -155,21 +155,35 @@ const transition = (
   showElement: HTMLElement | null,
   hideElementExtra: HTMLElement | null
 ): void => {
-  hideElement.style.zIndex = ("0")
-  showElement.style.zIndex = ("1")
-  showElement.classList.remove("hide")
-  requestAnimationFrame(() => {
-    showElement.classList.remove("offset")
-  })
-  setTimeout(() => {
+
+  const mediaQuery = window.matchMedia("(min-width: 768px)")
+
+  if (mediaQuery.matches) {
+    hideElement.style.zIndex = ("0")
+    showElement.style.zIndex = ("1")
+    showElement.classList.remove("hide")
     hideElement.classList.add("hide")
-    hideElement.classList.add("offset")
     if (hideElementExtra)
       hideElementExtra.classList.add("hide")
-    hideElementExtra.classList.add("offset")
-  }, 800
-  )
+  } else {
+    hideElement.style.zIndex = ("0")
+    showElement.style.zIndex = ("1")
+    showElement.classList.remove("hide")
+    requestAnimationFrame(() => {
+      showElement.classList.remove("offset")
+    })
+    setTimeout(() => {
+      hideElement.classList.add("hide")
+      hideElement.classList.add("offset")
+      if (hideElementExtra)
+        hideElementExtra.classList.add("hide")
+      hideElementExtra.classList.add("offset")
+    }, 700
+    )
+  }
 }
+
+
 
 //#endregion
 
