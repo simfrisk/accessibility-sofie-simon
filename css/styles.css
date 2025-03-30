@@ -160,7 +160,7 @@ main {
   padding: 16px;
   width: 100dvw;
   height: 100dvh;
-  transition: transform .7s ease-in-out;
+  transition: transform .7s ease-out;
 }
 
 
