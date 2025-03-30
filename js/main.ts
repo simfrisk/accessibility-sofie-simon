@@ -71,16 +71,7 @@ const loadNextQuestion = () => {
   if (currentStep >= questions.length) {
     quizResultTitle.innerHTML = "Quiz is over"
     quizResultText.innerHTML = `Your score is: ${score} / ${questions.length}`
-    resultContainer.style.zIndex = ("0")
-    quizResult.style.zIndex = ("1")
-    quizResult.classList.remove("hide")
-    requestAnimationFrame(() => {
-      quizResult.classList.remove("offset")
-    })
-    setTimeout(() => {
-      resultContainer.classList.add("hide")
-      resultContainer.classList.add("offset")
-    }, 800);
+    transition(resultContainer, quizResult, null)
   } else {
     currentQuestion = questions[currentStep]
     questionTitle.innerHTML = (`Question ${currentStep + 1}/${questions.length}`)
@@ -90,18 +81,7 @@ const loadNextQuestion = () => {
     optionC.innerHTML = (currentQuestion.options[2])
     optionD.innerHTML = (currentQuestion.options[3])
 
-    resultContainer.style.zIndex = ("0")
-    quizContainer.style.zIndex = ("1")
-    quizContainer.classList.remove("hide")
-    requestAnimationFrame(() => {
-      quizContainer.classList.remove("offset")
-    })
-    setTimeout(() => {
-      startPage.classList.add("hide")
-      resultContainer.classList.add("hide")
-      resultContainer.classList.add("offset")
-      startPage.classList.add("offset")
-    }, 800)
+    transition(resultContainer, quizContainer, startPage)
 
   }
 }
@@ -126,18 +106,7 @@ const loadNextAnswer = (event: Event): void => {
     resultExplanation.innerHTML = currentQuestion.resultExplanationLose
   }
 
-  quizContainer.style.zIndex = ("0")
-  resultContainer.style.zIndex = ("1")
-  resultContainer.classList.remove("hide")
-  quizContainer.classList.remove("hide")
-  requestAnimationFrame(() => {
-    resultContainer.classList.remove("offset")
-  })
-  setTimeout(() => {
-    quizContainer.classList.add("hide")
-    quizContainer.classList.add("offset")
-  }, 800
-  )
+  transition(quizContainer, resultContainer, null)
 
   if (currentStep % questions.length === questions.length - 1) {
     nextQuestionBtn.innerHTML = "SEE RESULTS"
@@ -189,6 +158,31 @@ const enterKeySelect = (event: KeyboardEvent): void => {
 };
 
 
+
+//#endregion
+
+//#region --- transition ----
+
+const transition = (
+  hideElement: HTMLElement | null,
+  showElement: HTMLElement | null,
+  hideElementExtra: HTMLElement | null
+): void => {
+  hideElement.style.zIndex = ("0")
+  showElement.style.zIndex = ("1")
+  showElement.classList.remove("hide")
+  requestAnimationFrame(() => {
+    showElement.classList.remove("offset")
+  })
+  setTimeout(() => {
+    hideElement.classList.add("hide")
+    hideElement.classList.add("offset")
+    if (hideElementExtra)
+      hideElementExtra.classList.add("hide")
+    hideElementExtra.classList.add("offset")
+  }, 800
+  )
+}
 
 //#endregion
 
