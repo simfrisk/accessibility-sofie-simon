@@ -128,7 +128,24 @@ const startAgain = (): void => {
 
 
 const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
-  if (event.key === "Enter" || ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"].includes(event.key)) {
+  if (event.key === "Home") {
+    const home = document.querySelector('[tabindex="1"]');
+    if (home) {
+      home.focus();
+    }
+  }
+
+  else if (event.key === "End") {
+
+    const focusableElements = Array.from(document.querySelectorAll('[tabindex]:not([tabindex="-1"])'))
+      .filter(el => el.offsetWidth > 0 && el.offsetHeight > 0)
+    const lastElement = focusableElements[focusableElements.length - 1]
+    if (lastElement) {
+      lastElement.focus()
+    }
+
+
+  } else if (event.key === "Enter" || ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"].includes(event.key)) {
     if (document.activeElement !== button) {
       event.preventDefault();
       button.focus();
@@ -216,14 +233,16 @@ const darkmode = () => {
 
 //#endregion
 
+//#endregion
+
 //#region --- Event listeners -----
 menuIcon.addEventListener("click", burgerMenu)
 startQuizBtn.addEventListener("click", loadNextQuestion)
 submitAnswerBtn.addEventListener("click", loadNextAnswer)
 nextQuestionBtn.addEventListener("click", loadNextQuestion)
 startAgainBtn.addEventListener("click", startAgain)
-// document.addEventListener("keydown", enterKeySelect);
 darkmodetoggle.addEventListener("click", darkmode)
+document.addEventListener("keydown", enterKeySelect);
 
 
 
