@@ -140,6 +140,13 @@ const enterKeySelect = (event) => {
     handleKeyEvent(event, startAgainBtn);
 };
 //#endregion
+//#region --- reset tab ---
+const resetTabIndex = () => {
+    const focusableElements = Array.from(document.querySelectorAll('[tabindex]:not([tabindex="-1"])'))
+        .filter(el => el.offsetWidth > 0 && el.offsetHeight > 0);
+    firstElement = focusableElements[5];
+};
+//#endregion
 //#region --- transition ----
 const transition = (hideElement, showElement, hideElementExtra) => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
@@ -193,10 +200,22 @@ const darkmode = () => {
 //#endregion
 //#region --- Event listeners -----
 menuIcon.addEventListener("click", burgerMenu);
-startQuizBtn.addEventListener("click", loadNextQuestion);
-submitAnswerBtn.addEventListener("click", loadNextAnswer);
-nextQuestionBtn.addEventListener("click", loadNextQuestion);
-startAgainBtn.addEventListener("click", startAgain);
 darkmodetoggle.addEventListener("click", darkmode);
 document.addEventListener("keydown", enterKeySelect);
+startQuizBtn.addEventListener("click", () => {
+    loadNextQuestion();
+    resetTabIndex();
+});
+submitAnswerBtn.addEventListener("click", () => {
+    loadNextAnswer();
+    resetTabIndex();
+});
+nextQuestionBtn.addEventListener("click", () => {
+    loadNextQuestion();
+    resetTabIndex();
+});
+startAgainBtn.addEventListener("click", () => {
+    startAgain();
+    resetTabIndex();
+});
 //#endregion
