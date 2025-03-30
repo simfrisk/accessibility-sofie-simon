@@ -162,9 +162,13 @@ const transition = (
     hideElement.style.zIndex = ("0")
     showElement.style.zIndex = ("1")
     showElement.classList.remove("hide")
+    showElement.classList.remove("offset")
     hideElement.classList.add("hide")
+    hideElement.classList.add("offset")
     if (hideElementExtra)
       hideElementExtra.classList.add("hide")
+    hideElementExtra.classList.add("offset")
+
   } else {
     hideElement.style.zIndex = ("0")
     showElement.style.zIndex = ("1")
