@@ -267,6 +267,18 @@ fieldset {
   min-width: 0;
 }
 
+legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .radio-button-group {
   display: flex;
   flex-direction: column;
@@ -274,8 +286,15 @@ fieldset {
 }
 
 input[type="radio"] {
-  /* visibility: hidden; */
-  height: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .options {
@@ -319,6 +338,7 @@ footer {
 
 /* Desktop  */
 @media screen and (min-width: 768px) {
+
   #menu-icon {
     display: none;
   }
@@ -327,6 +347,15 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
+  }
+
+  .page-description {
+    max-width: 60%;
+  }
+
+  button {
+    font-size: 20px;
+    padding: 1rem 2rem;
   }
 
   .card {
@@ -341,6 +370,22 @@ footer {
     transform: translateX(0dvh);
   }
 
+  .radio-button-group {
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    column-gap: 2rem;
+    row-gap: 1rem;
+  }
+
+  .options {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    min-width: 300px;
+  }
 }
 
 @media screen and (max-width: 360px) {}
