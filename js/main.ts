@@ -24,6 +24,10 @@ const selectionForm = document.querySelector("#selection-from") as HTMLFormEleme
 const radioButtonGroup = document.querySelector(".radio-button-group") as HTMLDivElement
 const radioButtonCheck = document.querySelectorAll('input[name="question1"]') as NodeListOf<HTMLInputElement>
 const backBtn = document.querySelector("#back-btn") as HTMLButtonElement
+const theBody = document.querySelector("body") as HTMLBodyElement
+const darkmodetoggle = document.querySelector("#dark-mode-icon") as HTMLButtonElement
+const darkModeContainer = document.querySelector("#dark-mode-container") as HTMLButtonElement
+const answerBtnContainer = document.querySelector("#answer-btn-container") as HTMLButtonElement
 
 
 let currentStep: number = -1
@@ -82,7 +86,6 @@ const loadNextQuestion = () => {
     optionD.innerHTML = (currentQuestion.options[3])
 
     transition(resultContainer, quizContainer, startPage)
-
   }
 }
 
@@ -123,7 +126,6 @@ const startAgain = (): void => {
   currentStep = -1
   score = 0
   transition(quizResult, startPage, null)
-
 }
 
 //#endregion
@@ -131,38 +133,47 @@ const startAgain = (): void => {
 //#region --- Keyboard Navigation ----
 
 
-const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
-
+const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement, menuIcon: HTMLElement, darkModeContainer: HTMLElement): void => {
   switch (event.key) {
-    case "Home":
-      const home = document.querySelector('[tabindex="1"]');
-      if (home) {
-        home.focus();
+    case "Enter":
+      if (document.activeElement !== button && document.activeElement !== menuIcon && document.activeElement !== darkmodetoggle && document.activeElement !== optionA && document.activeElement !== optionB && document.activeElement !== optionC && document.activeElement !== optionD && document.activeElement !== answerBtnContainer) {
+        event.preventDefault()
+        button.focus()
+      } else if (document.activeElement === button) {
+        button.click()
+      } else if (document.activeElement === menuIcon) {
+        menuIcon.click()
+      } else if (document.activeElement === darkModeContainer) {
+        darkmode()
+      } else if (document.activeElement === optionA) {
+        optionA.click()
+        optionA.focus()
+      } else if (document.activeElement === optionB) {
+        optionB.click()
+        optionB.focus()
+      } else if (document.activeElement === optionC) {
+        optionC.click()
+        optionC.focus()
+      } else if (document.activeElement === optionD) {
+        optionD.click()
+        optionD.focus()
+      } else if (document.activeElement === answerBtnContainer) {
+        loadNextAnswer()
+        setTimeout(() => {
+          resultTitle.focus()
+        }, 700)
+
       }
+
       break
-    case "End":
-      const focusableElements = Array.from(document.querySelectorAll('[tabindex]:not([tabindex="-1"])'))
-        .filter(el => el.offsetWidth > 0 && el.offsetHeight > 0)
-      const lastElement = focusableElements[focusableElements.length - 1]
-      if (lastElement) {
-        lastElement.focus()
-      }
-    case "Enter" || ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"].includes(event.key):
-      if (document.activeElement !== button) {
-        event.preventDefault();
-        button.focus();
-      } else if (event.key === "Enter") {
-        button.click();
-      }
   }
 }
 
 const enterKeySelect = (event: KeyboardEvent): void => {
-  handleKeyEvent(event, startQuizBtn);
-  handleKeyEvent(event, nextQuestionBtn);
-  handleKeyEvent(event, startAgainBtn);
-};
-
+  handleKeyEvent(event, startQuizBtn, menuIcon, darkModeContainer)
+  handleKeyEvent(event, nextQuestionBtn, menuIcon, darkModeContainer)
+  handleKeyEvent(event, startAgainBtn, menuIcon, darkModeContainer)
+}
 
 
 //#endregion
@@ -212,9 +223,6 @@ const transition = (
 
 //#region --- Dark mode ----
 
-const theBody = document.querySelector("body") as HTMLBodyElement
-const darkmodetoggle = document.querySelector("#dark-mode-icon") as HTMLButtonElement
-
 
 if (localStorage.getItem("dark-mode") === "enabled") {
   theBody.classList.add("dark-mode");
@@ -249,3 +257,4 @@ document.addEventListener("keydown", enterKeySelect);
 
 
 //#endregion
+
