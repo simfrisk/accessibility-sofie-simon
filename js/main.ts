@@ -73,8 +73,8 @@ const loadNextQuestion = () => {
   console.log(currentStep);
 
   if (currentStep >= questions.length) {
-    quizResultTitle.innerHTML = "Quiz is over"
-    quizResultText.innerHTML = `Your score is: ${score} / ${questions.length}`
+    quizResultTitle.innerHTML = "The quiz is over!"
+    quizResultText.innerHTML = `Your result is: ${score} / ${questions.length}.`
     transition(resultContainer, quizResult, null)
   } else {
     currentQuestion = questions[currentStep]
@@ -115,7 +115,7 @@ const loadNextAnswer = (event: Event): void => {
   transition(quizContainer, resultContainer, null)
 
   if (currentStep % questions.length === questions.length - 1) {
-    nextQuestionBtn.innerHTML = "SEE RESULTS"
+    nextQuestionBtn.innerHTML = "SEE RESULT"
   }
 }
 //#endregion
