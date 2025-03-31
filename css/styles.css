@@ -85,8 +85,8 @@ body {
 /* Styling for nav in header and footer */
 
 header {
-  margin: 5px;
-  /* position: fixed; */
+  border: 2px solid var(--secondary);
+  margin: 0;
   z-index: 10;
 }
 
@@ -115,7 +115,8 @@ nav {
   padding: 0px 12px;
 }
 
-ul {
+ul,
+ol {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -135,7 +136,31 @@ a {
   border-bottom: 4px solid var(--secondary);
 }
 
-main {}
+
+ol {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: auto;
+  gap: 16px;
+  padding: 16px;
+}
+
+ol li {
+  margin-bottom: 18px;
+  position: relative;
+  padding-left: 40px;
+  text-align: left;
+}
+
+ol li::before {
+
+  content: "\f058";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  font-size: 22px;
+}
 
 .hide {
   display: none;
@@ -221,6 +246,7 @@ h3 {
 }
 
 button {
+
   font-family: 'Futura', Helvetica, sans-serif;
   font-size: 16px;
   border: 2px solid var(--secondary);
@@ -272,9 +298,9 @@ legend {
 }
 
 .radio-button-group {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+
 }
 
 input[type="radio"] {
@@ -328,21 +354,20 @@ footer {
   border: 4px solid var(--secondary);
   bottom: 0;
   width: 100%;
-  height: 6vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 8px;
   z-index: 10;
 }
 
-/* Desktop  */
+footer nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Tablet  */
 @media screen and (min-width: 768px) {
 
-
-  header {
-    text-align: center;
-  }
+  header {}
 
   #menu-icon {
     display: none;
@@ -350,7 +375,6 @@ footer {
 
   #nav-links {
     display: flex;
-    justify-content: center;
   }
 
   ul {
@@ -364,7 +388,7 @@ footer {
 
   button {
     font-size: 20px;
-    padding: 1rem 2rem;
+    padding: 16px 28px;
   }
 
   .card {
@@ -380,21 +404,35 @@ footer {
   }
 
   .radio-button-group {
-    margin: 50px 0;
+    padding: 20px;
     display: grid;
     grid-template-columns: repeat(2, 2fr);
-    column-gap: 2rem;
-    row-gap: 1rem;
+    column-gap: 32px;
+    row-gap: 16px;
   }
 
   .options {
-    padding: 1.5rem 2rem;
+    padding: 20px 28px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 20px;
     min-width: 300px;
   }
+
+  ol {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+
+  ol {
+
+    grid-template-columns: repeat(3, 1fr);
+  }
+
 }
 
 @media screen and (max-width: 360px) {}
