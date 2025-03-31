@@ -131,8 +131,6 @@ const startAgain = (): void => {
 //#endregion
 
 //#region --- Keyboard Navigation ----
-
-
 const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement, menuIcon: HTMLElement, darkModeContainer: HTMLElement): void => {
   switch (event.key) {
     case "Enter":
@@ -147,25 +145,36 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement, menuIcon: HTM
         darkmode()
       } else if (document.activeElement === optionA) {
         optionA.click()
-        optionA.focus()
       } else if (document.activeElement === optionB) {
         optionB.click()
-        optionB.focus()
       } else if (document.activeElement === optionC) {
         optionC.click()
-        optionC.focus()
       } else if (document.activeElement === optionD) {
         optionD.click()
-        optionD.focus()
       } else if (document.activeElement === answerBtnContainer) {
         loadNextAnswer()
         setTimeout(() => {
           resultTitle.focus()
         }, 700)
-
       }
-
       break
+
+    case "Escape":
+      if (document.activeElement !== button && document.activeElement !== menuIcon && document.activeElement !== darkmodetoggle && document.activeElement !== optionA && document.activeElement !== optionB && document.activeElement !== optionC && document.activeElement !== optionD && document.activeElement !== answerBtnContainer) {
+        event.preventDefault()
+      }
+      else {
+        event.preventDefault()
+        optionA.focus()
+      }
+      break
+
+    case "ArrowDown":
+      if (document.activeElement === optionD) {
+        event.preventDefault()
+        answerBtnContainer.focus()
+        console.log("keydown")
+      }
   }
 }
 
@@ -177,6 +186,7 @@ const enterKeySelect = (event: KeyboardEvent): void => {
 
 
 //#endregion
+
 
 //#region --- transition ----
 
