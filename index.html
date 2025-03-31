@@ -3,61 +3,133 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
   <title>Web Accessibility Quiz</title>
-  <link rel="stylesheet" href="css/color-palette.css" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link
+    rel="stylesheet"
+    href="css/color-palette.css"
+  />
+  <link
+    rel="stylesheet"
+    href="css/styles.css"
+  />
   <!-- font awesome icons -->
-  <script src="https://kit.fontawesome.com/beb1bc6f21.js" crossorigin="anonymous"></script>
-  <script src="./dist/questions.js" defer></script>
-  <script src="./dist/main.js" defer></script>
+  <script
+    src="https://kit.fontawesome.com/beb1bc6f21.js"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="./dist/questions.js"
+    defer
+  ></script>
+  <script
+    src="./dist/main.js"
+    defer
+  ></script>
   <!-- <script src="./js/temp-script.js" defer></script> -->
 </head>
 
 <body id="body">
 
-  <a tabindex="1" href="#main-content" class="skip-link">Skip to main content</a>
+  <a
+    tabindex="1"
+    href="#main-content"
+    class="skip-link"
+  >Skip to main content</a>
 
   <!-- #region --- Header  ----->
   <header>
-    <div id="menu-icon" class="fas fa-bars"></div>
-    <nav role="navigation" aria-label="Main Menu" id="nav-links">
+    <div
+      id="menu-icon"
+      class="fas fa-bars"
+    ></div>
+    <button
+      id="dark-mode-icon"
+      class="dark-mode-icon"
+      type="button"
+    >dark</button>
+    <nav
+      role="navigation"
+      aria-label="Main Menu"
+      id="nav-links"
+    >
       <ul>
-        <li><a href="index.html" tabindex="2">Home</a></li>
-        <li><a href="about.html" tabindex="3">About</a></li>
+        <li><a
+            href="index.html"
+            tabindex="2"
+          >Home</a></li>
+        <li><a
+            href="about.html"
+            tabindex="3"
+          >About</a></li>
       </ul>
+
     </nav>
-    <button id="dark-mode-icon" class="dark-mode-icon" type="button">dark</button>
+
   </header>
 
   <!-- #endregion -->
 
   <main id="main-content">
     <!-- #region --- Start page  ----->
-    <section id="start-page" class="card">
-      <div class="speech-bubble" id="question-container">
+    <section
+      id="start-page"
+      class="card"
+    >
+      <div
+        class="speech-bubble"
+        id="question-container"
+      >
         <div class="title-text">
 
-          <h1 class="bubble-text" tabindex="4">Web Accessibility Quiz</h1>
+          <h1
+            class="bubble-text"
+            tabindex="4"
+          >Web Accessibility Quiz</h1>
         </div>
       </div>
 
-      <p class="page-description" tabindex="5">This quiz will test your knowledge of web accessibility principles and
+      <p
+        class="page-description"
+        tabindex="5"
+      >This quiz will test your knowledge of web accessibility principles and
         best practices</p>
 
 
-      <button tabindex="6" type="button" id="start-quiz-btn" class="submit-btn">Start Quiz</button>
+      <button
+        tabindex="6"
+        type="button"
+        id="start-quiz-btn"
+        class="submit-btn"
+      >Start Quiz</button>
 
     </section>
     <!-- #endregion -->
 
     <!-- #region --- Quiz Container  ----->
-    <section id="quiz-container" class="card hide offset">
-      <h2 tabindex="6" id="question-title" class=""></h2>
+    <section
+      id="quiz-container"
+      class="card hide offset"
+    >
+      <h2
+        tabindex="6"
+        id="question-title"
+        class=""
+      ></h2>
 
-      <div class="speech-bubble" id="question-container">
+      <div
+        class="speech-bubble"
+        id="question-container"
+      >
         <div class="title-text">
-          <h3 tabindex="7" id="question-text" class="title-text bubble-text"></h3>
+          <h3
+            tabindex="7"
+            id="question-text"
+            class="title-text bubble-text"
+          ></h3>
         </div>
       </div>
 
@@ -67,51 +139,130 @@
           <!-- Lable fix -->
           <div class="radio-button-group">
             <legend tabindex="8">Ledgend text</legend>
-            <input class="" id="option-a" name="question1" type="radio" value="A">
-            <label tabindex="9" for="option-a" class="options"></label>
+            <input
+              class=""
+              id="option-a"
+              name="question1"
+              type="radio"
+              value="A"
+            >
+            <label
+              tabindex="9"
+              for="option-a"
+              class="options"
+            ></label>
 
-            <input id="option-b" name="question1" type="radio" value="B">
-            <label tabindex="10" for="option-b" class="options"></label>
+            <input
+              id="option-b"
+              name="question1"
+              type="radio"
+              value="B"
+            >
+            <label
+              tabindex="10"
+              for="option-b"
+              class="options"
+            ></label>
 
-            <input id="option-c" name="question1" type="radio" value="C">
-            <label tabindex="11" for="option-c" class="options"></label>
+            <input
+              id="option-c"
+              name="question1"
+              type="radio"
+              value="C"
+            >
+            <label
+              tabindex="11"
+              for="option-c"
+              class="options"
+            ></label>
 
-            <input id="option-d" name="question1" type="radio" value="D">
-            <label tabindex="12" for="option-d" class="options"></label>
+            <input
+              id="option-d"
+              name="question1"
+              type="radio"
+              value="D"
+            >
+            <label
+              tabindex="12"
+              for="option-d"
+              class="options"
+            ></label>
           </div>
 
         </fieldset>
         <!-- <button class="back-btn" type="button">Back</button> -->
-        <button tabindex="13" type="submit" id="answer-btn" class="submit-btn">Submit</button>
+        <button
+          tabindex="13"
+          type="submit"
+          id="answer-btn"
+          class="submit-btn"
+        >Submit</button>
       </form>
 
     </section>
     <!-- #endregion -->
 
     <!-- #region --- Result Container  ----->
-    <section id="result-container" class="card hide offset">
-      <div class="speech-bubble" id="answer-container">
+    <section
+      id="result-container"
+      class="card hide offset"
+    >
+      <div
+        class="speech-bubble"
+        id="answer-container"
+      >
         <div class="title-text">
-          <h2 id="result-title" tabindex="14" class="bubble-text"></h2>
-          <p id="result-explanation" tabindex="15" class="bubble-text"></p>
+          <h2
+            id="result-title"
+            tabindex="14"
+            class="bubble-text"
+          ></h2>
+          <p
+            id="result-explanation"
+            tabindex="15"
+            class="bubble-text"
+          ></p>
         </div>
       </div>
       <!-- <button class="back-btn" type="button">Back</button> -->
-      <button id="next-question-btn" class="submit-btn" type="button">Next question</button>
+      <button
+        id="next-question-btn"
+        class="submit-btn"
+        type="button"
+      >Next question</button>
 
     </section>
     <!-- #endregion -->
 
     <!-- #region --- Quiz Result ----->
-    <section id="quiz-result" class="card hide offset">
-      <div class="speech-bubble" id="">
+    <section
+      id="quiz-result"
+      class="card hide offset"
+    >
+      <div
+        class="speech-bubble"
+        id=""
+      >
         <div class="title-text">
-          <h3 id="quiz-result-title" class="bubble-text" tabindex="16"></h3>
-          <p id="quiz-result-text" class="bubble-text" tabindex="17"></p>
+          <h3
+            id="quiz-result-title"
+            class="bubble-text"
+            tabindex="16"
+          ></h3>
+          <p
+            id="quiz-result-text"
+            class="bubble-text"
+            tabindex="17"
+          ></p>
         </div>
       </div>
 
-      <button id="start-again-btn" class="submit-btn" tabindex="18" type="button">Start again</button>
+      <button
+        id="start-again-btn"
+        class="submit-btn"
+        tabindex="18"
+        type="button"
+      >Start again</button>
     </section>
     <!-- #endregion -->
 
@@ -119,9 +270,13 @@
   </main>
 
   <footer role="contentinfo">
-    <nav role="navigation" aria-label="Footer menu">
+    <nav
+      role="navigation"
+      aria-label="Footer menu"
+    >
       <p>Project by: Simon & Sofie <a href="https://github.com/simfrisk/accessibility-sofie-simon"><i
-            class="fa-brands fa-github"></i></a></p>
+            class="fa-brands fa-github"
+          ></i></a></p>
     </nav>
   </footer>
 
