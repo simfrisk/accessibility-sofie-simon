@@ -85,7 +85,7 @@ body {
 
 header {
   margin: 5px;
-  position: fixed;
+  /* position: fixed; */
   z-index: 10;
 }
 
@@ -324,14 +324,15 @@ i {
 }
 
 
-footer {
-  display: none;
-  flex-direction: row;
-  justify-items: center;
-}
+footer {}
 
 /* Desktop  */
 @media screen and (min-width: 768px) {
+
+
+  header {
+    text-align: center;
+  }
 
   #menu-icon {
     display: none;
@@ -339,8 +340,12 @@ footer {
 
   #nav-links {
     display: flex;
-    flex-direction: row;
     justify-content: center;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
   }
 
   .page-description {
