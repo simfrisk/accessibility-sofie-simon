@@ -92,6 +92,7 @@ header {
 
 nav {
   padding: 16px;
+  letter-spacing: 0.5px;
 }
 
 #menu-icon {
@@ -216,7 +217,7 @@ section {
 
 .speech-bubble img {
   display: block;
-  max-width: 300px;
+  max-width: 320px;
   height: auto;
 }
 
@@ -225,7 +226,7 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 8px;
+  padding: 6px;
   text-align: center;
   width: 250px;
 }
@@ -327,7 +328,6 @@ input[type="radio"] {
 .options {
   cursor: pointer;
   user-select: none;
-  /* Sofies changes */
   margin: 8px 0px;
   padding: 8px;
   color: var(--font-primary-fixed);
@@ -341,11 +341,12 @@ input[type="radio"] {
 input[type="radio"]:checked+.options {
   box-shadow: inset 4px 4px 0px black;
   transform: translateY(3px) scale(0.98);
-  font-weight: bold;
+  /* font-weight: bold; */
+  background-color: var(--primary);
 }
 
 .options:hover {
-  box-shadow: inset 2px 2px 0px black;
+  box-shadow: 0px 0px 0px black;
   transform: translateY(2px);
 }
 
@@ -405,6 +406,12 @@ footer nav {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+
+  .speech-bubble img {
+
+    max-width: 400px;
+
   }
 
   .offset {
