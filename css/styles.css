@@ -136,6 +136,15 @@ a {
   border-bottom: 4px solid var(--secondary);
 }
 
+#about {
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+#quiz-container {
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
 
 ol {
   display: grid;
@@ -186,7 +195,6 @@ section {
 }
 
 .card {
-  padding-top: 40px;
   background-color: var(--primary);
   outline: 4px solid var(--secondary);
   position: absolute;
