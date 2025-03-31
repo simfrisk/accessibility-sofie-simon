@@ -86,7 +86,6 @@ const loadNextQuestion = () => {
     optionD.innerHTML = (currentQuestion.options[3])
 
     transition(resultContainer, quizContainer, startPage)
-
   }
 }
 
@@ -127,7 +126,6 @@ const startAgain = (): void => {
   currentStep = -1
   score = 0
   transition(quizResult, startPage, null)
-
 }
 
 //#endregion
@@ -139,38 +137,42 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement, menuIcon: HTM
   switch (event.key) {
     case "Enter":
       if (document.activeElement !== button && document.activeElement !== menuIcon && document.activeElement !== darkmodetoggle && document.activeElement !== optionA && document.activeElement !== optionB && document.activeElement !== optionC && document.activeElement !== optionD && document.activeElement !== answerBtnContainer) {
-        event.preventDefault();
-        button.focus();
+        event.preventDefault()
+        button.focus()
       } else if (document.activeElement === button) {
-        button.click();
+        button.click()
       } else if (document.activeElement === menuIcon) {
-        menuIcon.click();
+        menuIcon.click()
       } else if (document.activeElement === darkModeContainer) {
-        darkmode();
+        darkmode()
       } else if (document.activeElement === optionA) {
-        optionA.click();
+        optionA.click()
+        optionA.focus()
       } else if (document.activeElement === optionB) {
-        optionB.click();
+        optionB.click()
+        optionB.focus()
       } else if (document.activeElement === optionC) {
-        optionC.click();
+        optionC.click()
+        optionC.focus()
       } else if (document.activeElement === optionD) {
-        optionD.click();
+        optionD.click()
+        optionD.focus()
       } else if (document.activeElement === answerBtnContainer) {
-        loadNextAnswer();
+        loadNextAnswer()
         setTimeout(() => {
           resultTitle.focus()
         }, 700)
 
       }
 
-      break;
+      break
   }
 }
 
 const enterKeySelect = (event: KeyboardEvent): void => {
-  handleKeyEvent(event, startQuizBtn, menuIcon, darkModeContainer);
-  handleKeyEvent(event, nextQuestionBtn, menuIcon, darkModeContainer);
-  handleKeyEvent(event, startAgainBtn, menuIcon, darkModeContainer);
+  handleKeyEvent(event, startQuizBtn, menuIcon, darkModeContainer)
+  handleKeyEvent(event, nextQuestionBtn, menuIcon, darkModeContainer)
+  handleKeyEvent(event, startAgainBtn, menuIcon, darkModeContainer)
 }
 
 

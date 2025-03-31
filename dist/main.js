@@ -132,15 +132,19 @@ const handleKeyEvent = (event, button, menuIcon, darkModeContainer) => {
             }
             else if (document.activeElement === optionA) {
                 optionA.click();
+                optionA.focus();
             }
             else if (document.activeElement === optionB) {
                 optionB.click();
+                optionB.focus();
             }
             else if (document.activeElement === optionC) {
                 optionC.click();
+                optionC.focus();
             }
             else if (document.activeElement === optionD) {
                 optionD.click();
+                optionD.focus();
             }
             else if (document.activeElement === answerBtnContainer) {
                 loadNextAnswer();
