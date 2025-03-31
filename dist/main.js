@@ -25,6 +25,10 @@ const selectionForm = document.querySelector("#selection-from");
 const radioButtonGroup = document.querySelector(".radio-button-group");
 const radioButtonCheck = document.querySelectorAll('input[name="question1"]');
 const backBtn = document.querySelector("#back-btn");
+const theBody = document.querySelector("body");
+const darkmodetoggle = document.querySelector("#dark-mode-icon");
+const darkModeContainer = document.querySelector("#dark-mode-container");
+const answerBtnContainer = document.querySelector("#answer-btn-container");
 let currentStep = -1;
 let userChoice = "";
 let currentQuestion = null;
@@ -110,25 +114,47 @@ const startAgain = () => {
 };
 //#endregion
 //#region --- Keyboard Navigation ----
-const handleKeyEvent = (event, button) => {
+const handleKeyEvent = (event, button, menuIcon, darkModeContainer) => {
     switch (event.key) {
         case "Enter":
-            if (document.activeElement !== button || document.activeElement !== menuIcon) {
+            if (document.activeElement !== button && document.activeElement !== menuIcon && document.activeElement !== darkmodetoggle && document.activeElement !== optionA && document.activeElement !== optionB && document.activeElement !== optionC && document.activeElement !== optionD && document.activeElement !== answerBtnContainer) {
                 event.preventDefault();
                 button.focus();
             }
-            else if (event.key === "Enter" && document.activeElement === button) {
+            else if (document.activeElement === button) {
                 button.click();
             }
-            else if (event.key === "Enter" && document.activeElement === menuIcon) {
+            else if (document.activeElement === menuIcon) {
                 menuIcon.click();
             }
+            else if (document.activeElement === darkModeContainer) {
+                darkmode();
+            }
+            else if (document.activeElement === optionA) {
+                optionA.click();
+            }
+            else if (document.activeElement === optionB) {
+                optionB.click();
+            }
+            else if (document.activeElement === optionC) {
+                optionC.click();
+            }
+            else if (document.activeElement === optionD) {
+                optionD.click();
+            }
+            else if (document.activeElement === answerBtnContainer) {
+                loadNextAnswer();
+                setTimeout(() => {
+                    resultTitle.focus();
+                }, 700);
+            }
+            break;
     }
 };
 const enterKeySelect = (event) => {
-    handleKeyEvent(startQuizBtn);
-    handleKeyEvent(nextQuestionBtn);
-    handleKeyEvent(startAgainBtn);
+    handleKeyEvent(event, startQuizBtn, menuIcon, darkModeContainer);
+    handleKeyEvent(event, nextQuestionBtn, menuIcon, darkModeContainer);
+    handleKeyEvent(event, startAgainBtn, menuIcon, darkModeContainer);
 };
 //#endregion
 //#region --- transition ----
@@ -163,8 +189,6 @@ const transition = (hideElement, showElement, hideElementExtra) => {
 };
 //#endregion
 //#region --- Dark mode ----
-const theBody = document.querySelector("body");
-const darkmodetoggle = document.querySelector("#dark-mode-icon");
 if (localStorage.getItem("dark-mode") === "enabled") {
     theBody.classList.add("dark-mode");
 }

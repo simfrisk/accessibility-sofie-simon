@@ -27,7 +27,9 @@
         <li><a href="about.html">About</a></li>
       </ul>
     </nav>
-    <button id="dark-mode-icon" class="dark-mode-icon" type="button">dark</button>
+    <div id="dark-mode-container">
+      <button id="dark-mode-icon" class="dark-mode-icon" type="button" tabindex="0">dark</button>
+    </div>
   </header>
 
   <!-- #endregion -->
@@ -82,7 +84,9 @@
 
         </fieldset>
         <!-- <button class="back-btn" type="button">Back</button> -->
-        <button type="submit" id="answer-btn" class="submit-btn">Submit</button>
+        <div id="answer-btn-container" tabindex="0">
+          <button type="submit" id="answer-btn" class="submit-btn" tabindex="-1">Submit</button>
+        </div>
       </form>
 
     </section>
