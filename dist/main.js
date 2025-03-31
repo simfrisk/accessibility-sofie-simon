@@ -29,6 +29,8 @@ const theBody = document.querySelector("body");
 const darkmodetoggle = document.querySelector("#dark-mode-icon");
 const darkModeContainer = document.querySelector("#dark-mode-container");
 const answerBtnContainer = document.querySelector("#answer-btn-container");
+const indexPage = document.querySelector("#index-page");
+const aboutPage = document.querySelector("#about-page");
 let currentStep = -1;
 let userChoice = "";
 let currentQuestion = null;
@@ -117,7 +119,8 @@ const startAgain = () => {
 const handleKeyEvent = (event, button, menuIcon, darkModeContainer) => {
     switch (event.key) {
         case "Enter":
-            if (document.activeElement !== button && document.activeElement !== menuIcon && document.activeElement !== darkmodetoggle && document.activeElement !== optionA && document.activeElement !== optionB && document.activeElement !== optionC && document.activeElement !== optionD && document.activeElement !== answerBtnContainer) {
+            console.log(document.activeElement);
+            if (document.activeElement !== button && document.activeElement !== menuIcon && document.activeElement !== indexPage && document.activeElement !== aboutPage && document.activeElement !== darkmodetoggle && document.activeElement !== optionA && document.activeElement !== optionB && document.activeElement !== optionC && document.activeElement !== optionD && document.activeElement !== answerBtnContainer) {
                 event.preventDefault();
                 button.focus();
             }
@@ -126,6 +129,12 @@ const handleKeyEvent = (event, button, menuIcon, darkModeContainer) => {
             }
             else if (document.activeElement === menuIcon) {
                 menuIcon.click();
+            }
+            else if (document.activeElement === indexPage) {
+                indexPage.click();
+            }
+            else if (document.activeElement === aboutPage) {
+                aboutPage.click();
             }
             else if (document.activeElement === darkModeContainer) {
                 darkmode();

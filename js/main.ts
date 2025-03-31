@@ -28,6 +28,9 @@ const theBody = document.querySelector("body") as HTMLBodyElement
 const darkmodetoggle = document.querySelector("#dark-mode-icon") as HTMLButtonElement
 const darkModeContainer = document.querySelector("#dark-mode-container") as HTMLButtonElement
 const answerBtnContainer = document.querySelector("#answer-btn-container") as HTMLButtonElement
+const indexPage = document.querySelector("#index-page") as HTMLAnchorElement
+const aboutPage = document.querySelector("#about-page") as HTMLAnchorElement
+
 
 
 let currentStep: number = -1
@@ -134,13 +137,18 @@ const startAgain = (): void => {
 const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement, menuIcon: HTMLElement, darkModeContainer: HTMLElement): void => {
   switch (event.key) {
     case "Enter":
-      if (document.activeElement !== button && document.activeElement !== menuIcon && document.activeElement !== darkmodetoggle && document.activeElement !== optionA && document.activeElement !== optionB && document.activeElement !== optionC && document.activeElement !== optionD && document.activeElement !== answerBtnContainer) {
+      console.log(document.activeElement)
+      if (document.activeElement !== button && document.activeElement !== menuIcon && document.activeElement !== indexPage && document.activeElement !== aboutPage && document.activeElement !== darkmodetoggle && document.activeElement !== optionA && document.activeElement !== optionB && document.activeElement !== optionC && document.activeElement !== optionD && document.activeElement !== answerBtnContainer) {
         event.preventDefault()
         button.focus()
       } else if (document.activeElement === button) {
         button.click()
       } else if (document.activeElement === menuIcon) {
         menuIcon.click()
+      } else if (document.activeElement === indexPage) {
+        indexPage.click()
+      } else if (document.activeElement === aboutPage) {
+        aboutPage.click()
       } else if (document.activeElement === darkModeContainer) {
         darkmode()
       } else if (document.activeElement === optionA) {
@@ -186,7 +194,6 @@ const enterKeySelect = (event: KeyboardEvent): void => {
 
 
 //#endregion
-
 
 //#region --- transition ----
 
