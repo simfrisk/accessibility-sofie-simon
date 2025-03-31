@@ -79,15 +79,16 @@ const loadNextQuestion = () => {
 const loadNextAnswer = (event) => {
     if (event)
         event.preventDefault();
+    if (userChoice === "") {
+        alert("Please select an answer.");
+        return; // <-- Stop execution if no option is selected
+    }
     if (userChoice === currentQuestion.correctAnswer) {
         console.log("You are correct!");
         resultTitle.innerHTML = currentQuestion.resultTitleWin;
         resultExplanation.innerHTML = currentQuestion.resultExplanationWin;
         score++;
         console.log(score);
-    }
-    else if (userChoice === "") {
-        alert("Please select an answer.");
     }
     else {
         console.log("Sorry, wrong answer.");
