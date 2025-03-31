@@ -134,33 +134,23 @@ const startAgain = (): void => {
 const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
 
   switch (event.key) {
-    case "Home":
-      const home = document.querySelector('[tabindex="1"]');
-      if (home) {
-        home.focus();
-      }
-      break
-    case "End":
-      const focusableElements = Array.from(document.querySelectorAll('[tabindex]:not([tabindex="-1"])'))
-        .filter(el => el.offsetWidth > 0 && el.offsetHeight > 0)
-      const lastElement = focusableElements[focusableElements.length - 1]
-      if (lastElement) {
-        lastElement.focus()
-      }
-    case "Enter" || ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"].includes(event.key):
-      if (document.activeElement !== button) {
+
+    case "Enter":
+      if (document.activeElement !== button || document.activeElement !== menuIcon) {
         event.preventDefault();
         button.focus();
-      } else if (event.key === "Enter") {
+      } else if (event.key === "Enter" && document.activeElement === button) {
         button.click();
+      } else if (event.key === "Enter" && document.activeElement === menuIcon) {
+        menuIcon.click();
       }
   }
 }
 
 const enterKeySelect = (event: KeyboardEvent): void => {
-  handleKeyEvent(event, startQuizBtn);
-  handleKeyEvent(event, nextQuestionBtn);
-  handleKeyEvent(event, startAgainBtn);
+  handleKeyEvent(startQuizBtn);
+  handleKeyEvent(nextQuestionBtn);
+  handleKeyEvent(startAgainBtn);
 };
 
 
