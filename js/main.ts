@@ -108,7 +108,7 @@ const loadNextAnswer = (event: Event): void => {
     submitAnswerBtn.classList.add("error-btn")
     submitAnswerBtn.classList.add("error-btn")
     radioButtonGroup.classList.add("error-frame")
-    window.location.hash = "#testing"
+    window.location.hash = "#main"
 
 
 

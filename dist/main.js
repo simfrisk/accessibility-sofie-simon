@@ -93,7 +93,7 @@ const loadNextAnswer = (event) => {
         submitAnswerBtn.classList.add("error-btn");
         submitAnswerBtn.classList.add("error-btn");
         radioButtonGroup.classList.add("error-frame");
-        window.location.hash = "#testing";
+        window.location.hash = "#main";
         // alert("Please select an answer.");
         return; // <-- Stop execution if no option is selected
     }
