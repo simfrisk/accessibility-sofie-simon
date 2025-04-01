@@ -78,7 +78,6 @@ function updateParentSize(parent, child) {
 
 //#endregion
 
-
 //#region --- User Idetifier -----
 const userChoiseIdentifier = (): void => {
   const options = document.querySelectorAll('input[name="question1"]') as NodeListOf<HTMLInputElement>
