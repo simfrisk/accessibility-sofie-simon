@@ -343,10 +343,16 @@ fieldset {
   border: 2px solid red
 }
 
+.error-frame {
+  padding: 10px;
+  border-radius: 20px;
+  outline: 4px dotted red;
+}
+
 .radio-button-group {
   display: grid;
   grid-template-columns: repeat(1, 2fr);
-
+  margin: 10px;
 }
 
 input[type="radio"] {

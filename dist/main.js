@@ -32,6 +32,7 @@ const answerBtnContainer = document.querySelector("#answer-btn-container");
 const indexPage = document.querySelector("#index-page");
 const aboutPage = document.querySelector("#about-page");
 const legend = document.querySelector("#legend");
+const testing = document.querySelector("#testing");
 let currentStep = -1;
 let userChoice = "";
 let currentQuestion = null;
@@ -91,6 +92,8 @@ const loadNextAnswer = (event) => {
         legend.classList.add("error-text");
         submitAnswerBtn.classList.add("error-btn");
         submitAnswerBtn.classList.add("error-btn");
+        radioButtonGroup.classList.add("error-frame");
+        window.location.hash = "#testing";
         // alert("Please select an answer.");
         return; // <-- Stop execution if no option is selected
     }
@@ -115,6 +118,7 @@ const resetErrorStyle = () => {
     legend.innerHTML = "Choose the correct answer:";
     legend.classList.remove("error-text");
     submitAnswerBtn.classList.remove("error-btn");
+    radioButtonGroup.classList.remove("error-frame");
 };
 //#endregion
 //#region --- Start over ----

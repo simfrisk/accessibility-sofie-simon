@@ -31,6 +31,8 @@ const answerBtnContainer = document.querySelector("#answer-btn-container") as HT
 const indexPage = document.querySelector("#index-page") as HTMLAnchorElement
 const aboutPage = document.querySelector("#about-page") as HTMLAnchorElement
 const legend = document.querySelector("#legend") as HTMLAnchorElement
+const testing = document.querySelector("#testing") as HTMLAnchorElement
+
 
 
 
@@ -105,6 +107,9 @@ const loadNextAnswer = (event: Event): void => {
     legend.classList.add("error-text")
     submitAnswerBtn.classList.add("error-btn")
     submitAnswerBtn.classList.add("error-btn")
+    radioButtonGroup.classList.add("error-frame")
+    window.location.hash = "#testing"
+
 
 
     // alert("Please select an answer.");
@@ -134,6 +139,7 @@ const resetErrorStyle = () => {
   legend.innerHTML = "Choose the correct answer:"
   legend.classList.remove("error-text")
   submitAnswerBtn.classList.remove("error-btn")
+  radioButtonGroup.classList.remove("error-frame")
 }
 
 //#endregion
