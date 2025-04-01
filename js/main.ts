@@ -250,9 +250,11 @@ const darkmode = () => {
   if (theBody.classList.contains("dark-mode")) {
     theBody.classList.remove("dark-mode")
     localStorage.setItem("dark-mode", "disabled")
+    darkmodetoggle.innerHTML = "DARK"
   } else {
     theBody.classList.add("dark-mode")
     localStorage.setItem("dark-mode", "enabled")
+    darkmodetoggle.innerHTML = "LIGHT"
   }
 }
 
