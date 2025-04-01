@@ -83,6 +83,8 @@ const loadNextQuestion = () => {
     quizResultTitle.innerHTML = "The quiz is over!"
     quizResultText.innerHTML = `Your result is: ${score} / ${questions.length}.`
     transition(resultContainer, quizResult, null)
+    updateParentSize(main, quizResult);
+    currentPage = quizResult
   } else {
     currentQuestion = questions[currentStep]
     questionTitle.innerHTML = (`Question ${currentStep + 1}/${questions.length}`)
@@ -92,7 +94,10 @@ const loadNextQuestion = () => {
     optionC.innerHTML = (currentQuestion.options[2])
     optionD.innerHTML = (currentQuestion.options[3])
 
+
     transition(resultContainer, quizContainer, startPage)
+    updateParentSize(main, quizContainer);
+    currentPage = quizContainer
   }
 }
 
@@ -129,6 +134,9 @@ const loadNextAnswer = (event: Event): void => {
   }
 
   transition(quizContainer, resultContainer, null)
+  updateParentSize(main, resultContainer);
+  currentPage = resultContainer
+
 
   if (currentStep % questions.length === questions.length - 1) {
     nextQuestionBtn.innerHTML = "SEE RESULT"
@@ -150,6 +158,8 @@ const startAgain = (): void => {
   currentStep = -1
   score = 0
   transition(quizResult, startPage, null)
+  updateParentSize(main, startPage);
+  currentPage = startPage
 }
 
 //#endregion
@@ -306,3 +316,23 @@ document.addEventListener("keydown", enterKeySelect);
 
 //#endregion
 
+
+
+
+function updateParentSize(parent, child) {
+  if (parent && child) {
+    console.log("Test: Function is running");
+    parent.style.minHeight = child.scrollHeight * 1 + 'px';
+    parent.style.maxHeight = child.scrollHeight * 1 + 'px';
+  }
+}
+
+// Run on load and resize
+let currentPage = startPage
+window.addEventListener("load", () => updateParentSize(main, currentPage));
+window.addEventListener("resize", () => updateParentSize(main, currentPage));
+
+
+
+const main = document.querySelector('#main-content'); as HTMLElement
+// const child = document.querySelector('.card:not(.hide)'); as HTMLElement

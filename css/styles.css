@@ -87,6 +87,7 @@ body {
 
 header {
   outline: 4px solid var(--secondary);
+  height: 8dvh;
   margin: 0;
   z-index: 10;
 }
@@ -168,11 +169,6 @@ p:focus-visible {
   margin-bottom: 60px;
 }
 
-#quiz-container {
-  padding-top: 200px;
-  padding-bottom: 100px;
-}
-
 ol {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -198,6 +194,47 @@ ol li::before {
   font-size: 22px;
 }
 
+
+
+
+
+.front {
+  z-index: 0;
+}
+
+
+
+/* #start-page {
+  position: relative;
+  height: 85dvh;
+  width: 100dvw;
+} */
+
+/* styling for each section */
+
+#main-content {
+  position: relative;
+  height: 84dvh;
+  width: 100dvw;
+  /* overflow: none; */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 18px;
+  overflow: hidden;
+  background-color: var(--primary);
+  outline: 4px solid var(--secondary);
+  position: absolute;
+  padding: 16px;
+  width: 100dvw;
+  transition: transform .7s ease-out;
+  height: 100%;
+}
+
 .hide {
   display: none;
   /* transition: transform 1s ease; */
@@ -205,30 +242,6 @@ ol li::before {
 
 .offset {
   transform: translateX(100dvh);
-}
-
-.front {
-  z-index: 0;
-}
-
-/* styling for each section */
-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  gap: 18px;
-  overflow: auto;
-}
-
-.card {
-  background-color: var(--primary);
-  outline: 4px solid var(--secondary);
-  position: absolute;
-  padding: 16px;
-  width: 100dvw;
-  height: 90dvh;
-  transition: transform .7s ease-out;
 }
 
 .speech-bubble {
@@ -405,10 +418,11 @@ i {
 
 footer {
   outline: 4px solid var(--secondary);
-  position: fixed;
+  /* position: fixed; */
   background-color: var(--primary);
   bottom: 0;
   width: 100%;
+  height: 8dvh;
   z-index: 10;
   padding: 8px;
 }
