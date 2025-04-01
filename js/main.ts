@@ -30,6 +30,8 @@ const darkModeContainer = document.querySelector("#dark-mode-container") as HTML
 const answerBtnContainer = document.querySelector("#answer-btn-container") as HTMLButtonElement
 const indexPage = document.querySelector("#index-page") as HTMLAnchorElement
 const aboutPage = document.querySelector("#about-page") as HTMLAnchorElement
+const legend = document.querySelector("#legend") as HTMLAnchorElement
+
 
 
 
@@ -99,7 +101,13 @@ const loadNextAnswer = (event: Event): void => {
   if (event) event.preventDefault()
 
   if (userChoice === "") {
-    alert("Please select an answer.");
+    legend.innerHTML = "You have not selected an option"
+    legend.classList.add("error-text")
+    submitAnswerBtn.classList.add("error-btn")
+    submitAnswerBtn.classList.add("error-btn")
+
+
+    // alert("Please select an answer.");
     return;  // <-- Stop execution if no option is selected
   }
 
@@ -121,6 +129,13 @@ const loadNextAnswer = (event: Event): void => {
     nextQuestionBtn.innerHTML = "SEE RESULT"
   }
 }
+
+const resetErrorStyle = () => {
+  legend.innerHTML = "Choose the correct answer:"
+  legend.classList.remove("error-text")
+  submitAnswerBtn.classList.remove("error-btn")
+}
+
 //#endregion
 
 //#region --- Start over ----
@@ -276,9 +291,11 @@ startQuizBtn.addEventListener("click", loadNextQuestion)
 submitAnswerBtn.addEventListener("click", loadNextAnswer)
 nextQuestionBtn.addEventListener("click", loadNextQuestion)
 startAgainBtn.addEventListener("click", startAgain)
+radioButtonCheck.forEach(btn => {
+  btn.addEventListener("click", resetErrorStyle);
+})
 darkmodetoggle.addEventListener("click", darkmode)
 document.addEventListener("keydown", enterKeySelect);
-
 
 
 //#endregion

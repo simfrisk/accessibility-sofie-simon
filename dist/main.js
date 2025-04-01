@@ -31,6 +31,7 @@ const darkModeContainer = document.querySelector("#dark-mode-container");
 const answerBtnContainer = document.querySelector("#answer-btn-container");
 const indexPage = document.querySelector("#index-page");
 const aboutPage = document.querySelector("#about-page");
+const legend = document.querySelector("#legend");
 let currentStep = -1;
 let userChoice = "";
 let currentQuestion = null;
@@ -86,7 +87,11 @@ const loadNextAnswer = (event) => {
     if (event)
         event.preventDefault();
     if (userChoice === "") {
-        alert("Please select an answer.");
+        legend.innerHTML = "You have not selected an option";
+        legend.classList.add("error-text");
+        submitAnswerBtn.classList.add("error-btn");
+        submitAnswerBtn.classList.add("error-btn");
+        // alert("Please select an answer.");
         return; // <-- Stop execution if no option is selected
     }
     if (userChoice === currentQuestion.correctAnswer) {
@@ -105,6 +110,11 @@ const loadNextAnswer = (event) => {
     if (currentStep % questions.length === questions.length - 1) {
         nextQuestionBtn.innerHTML = "SEE RESULT";
     }
+};
+const resetErrorStyle = () => {
+    legend.innerHTML = "Choose the correct answer:";
+    legend.classList.remove("error-text");
+    submitAnswerBtn.classList.remove("error-btn");
 };
 //#endregion
 //#region --- Start over ----
@@ -244,6 +254,9 @@ startQuizBtn.addEventListener("click", loadNextQuestion);
 submitAnswerBtn.addEventListener("click", loadNextAnswer);
 nextQuestionBtn.addEventListener("click", loadNextQuestion);
 startAgainBtn.addEventListener("click", startAgain);
+radioButtonCheck.forEach(btn => {
+    btn.addEventListener("click", resetErrorStyle);
+});
 darkmodetoggle.addEventListener("click", darkmode);
 document.addEventListener("keydown", enterKeySelect);
 //#endregion

@@ -16,7 +16,7 @@
 
 <body id="body">
 
-  <a tabindex="1" href="#main-content" class="skip-link">Skip to main content</a>
+  <a tabindex="0" href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- #region --- Header  ----->
   <header>
@@ -69,7 +69,7 @@
         <fieldset>
 
           <!-- Lable fix -->
-          <legend tabindex="0">Choose the correct answer:</legend>
+          <legend id="legend" tabindex="0">Choose the correct answer:</legend>
           <div class="radio-button-group">
             <input class="" id="option-a" name="question1" type="radio" value="A" tabindex="-1">
             <label tabindex="0" for="option-a" class="options"></label>
@@ -87,7 +87,7 @@
         </fieldset>
         <!-- <button class="back-btn" type="button">Back</button> -->
         <div id="answer-btn-container" tabindex="0">
-          <button type="submit" id="answer-btn" class="submit-btn">Submit</button>
+          <button type="button" id="answer-btn" class="submit-btn">Submit</button>
         </div>
       </form>
 
