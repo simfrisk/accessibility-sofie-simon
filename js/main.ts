@@ -46,6 +46,7 @@ let score: number = 0
 
 //#region --- Functions -----
 
+//#region --- Sizing ----
 window.addEventListener("load", () => {
   if (main && currentPage) {
     updateParentSize(main, currentPage);
@@ -74,12 +75,8 @@ function updateParentSize(parent, child) {
   }
 }
 
-// Run on load and resize
 
-window.addEventListener("load", () => updateParentSize(main, currentPage));
-window.addEventListener("resize", () => updateParentSize(main, currentPage));
-
-
+//#endregion
 
 
 //#region --- User Idetifier -----

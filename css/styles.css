@@ -224,6 +224,7 @@ ol li::before {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  padding: 20px 0;
   gap: 18px;
   overflow: hidden;
   background-color: var(--primary);

@@ -41,6 +41,7 @@ let currentQuestion = null;
 let score = 0;
 //#endregion
 //#region --- Functions -----
+//#region --- Sizing ----
 window.addEventListener("load", () => {
     if (main && currentPage) {
         updateParentSize(main, currentPage);
@@ -65,9 +66,7 @@ function updateParentSize(parent, child) {
         parent.style.maxHeight = child.scrollHeight * 1 + 'px';
     }
 }
-// Run on load and resize
-window.addEventListener("load", () => updateParentSize(main, currentPage));
-window.addEventListener("resize", () => updateParentSize(main, currentPage));
+//#endregion
 //#region --- User Idetifier -----
 const userChoiseIdentifier = () => {
     const options = document.querySelectorAll('input[name="question1"]');
