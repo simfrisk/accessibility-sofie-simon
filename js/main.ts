@@ -152,12 +152,16 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement, menuIcon: HTM
       } else if (document.activeElement === darkModeContainer) {
         darkmode()
       } else if (document.activeElement === optionA) {
+        event.preventDefault();
         optionA.click()
       } else if (document.activeElement === optionB) {
+        event.preventDefault();
         optionB.click()
       } else if (document.activeElement === optionC) {
+        event.preventDefault();
         optionC.click()
       } else if (document.activeElement === optionD) {
+        event.preventDefault();
         optionD.click()
       } else if (document.activeElement === answerBtnContainer) {
         loadNextAnswer()
@@ -167,15 +171,16 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement, menuIcon: HTM
       }
       break
 
-    case "Escape":
-      if (document.activeElement !== button && document.activeElement !== menuIcon && document.activeElement !== darkmodetoggle && document.activeElement !== optionA && document.activeElement !== optionB && document.activeElement !== optionC && document.activeElement !== optionD && document.activeElement !== answerBtnContainer) {
-        event.preventDefault()
-      }
-      else {
-        event.preventDefault()
-        optionA.focus()
-      }
-      break
+    // case "Escape":
+    //   if (document.activeElement !== button && document.activeElement !== menuIcon && document.activeElement !== indexPage && document.activeElement !== aboutPage && document.activeElement !== darkmodetoggle && document.activeElement !== optionA && document.activeElement !== optionB && document.activeElement !== optionC && document.activeElement !== optionD && document.activeElement !== answerBtnContainer) {
+    //     event.preventDefault()
+    //   }
+    //   else {
+    //     event.preventDefault()
+    //     darkmode()
+    //     optionA.focus()
+    //   }
+    //   break
 
     case "ArrowDown":
       if (document.activeElement === optionD) {
@@ -187,6 +192,7 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement, menuIcon: HTM
 }
 
 const enterKeySelect = (event: KeyboardEvent): void => {
+  handleKeyEvent(event, submitAnswerBtn, menuIcon, darkModeContainer)
   handleKeyEvent(event, startQuizBtn, menuIcon, darkModeContainer)
   handleKeyEvent(event, nextQuestionBtn, menuIcon, darkModeContainer)
   handleKeyEvent(event, startAgainBtn, menuIcon, darkModeContainer)
