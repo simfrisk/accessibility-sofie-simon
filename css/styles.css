@@ -88,13 +88,17 @@ body {
 header {
   outline: 4px solid var(--secondary);
   height: 8dvh;
+  min-height: 70px;
   margin: 0;
   z-index: 10;
+
 }
 
 nav {
   padding: 16px;
   letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
 }
 
 #menu-icon {
@@ -243,6 +247,10 @@ ol li::before {
   transform: translateX(100dvh);
 }
 
+#question-title {
+  padding-top: 20px;
+}
+
 .speech-bubble {
   position: relative;
   display: flex;
@@ -308,6 +316,7 @@ button {
   letter-spacing: 0.5px;
   transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
+
 
 button:hover {
   box-shadow: none;
@@ -508,4 +517,23 @@ footer nav {
 
 }
 
-@media screen and (max-width: 360px) {}
+@media screen and (max-width: 380px) {
+
+  header {
+    outline: 4px solid var(--secondary);
+    height: 10dvh;
+    margin: 0;
+    z-index: 10;
+  }
+
+  #main-content {
+    position: relative;
+    height: 80dvh;
+    width: 100dvw;
+    /* overflow: none; */
+  }
+
+  footer {
+    height: 10dvh;
+  }
+}
