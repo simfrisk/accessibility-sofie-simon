@@ -126,10 +126,7 @@ const loadNextAnswer = (event: Event): void => {
     resultTitle.innerHTML = currentQuestion.resultTitleLose
     resultExplanation.innerHTML = currentQuestion.resultExplanationLose
   }
-
   transition(quizContainer, resultContainer, null,)
-
-
 
   if (currentStep % questions.length === questions.length - 1) {
     nextQuestionBtn.innerHTML = "SEE RESULT"
