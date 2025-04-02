@@ -178,7 +178,7 @@ const handleKeyEvent = (event, button, menuIcon, darkModeContainer) => {
                 loadNextAnswer();
                 setTimeout(() => {
                     resultTitle.focus();
-                }, 700);
+                }, 600);
             }
             break;
         // case "Escape":

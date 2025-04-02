@@ -186,7 +186,7 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement, menuIcon: HTM
         loadNextAnswer()
         setTimeout(() => {
           resultTitle.focus()
-        }, 700)
+        }, 600)
       }
       break
 

@@ -228,6 +228,7 @@ ol li::before {
 }
 
 footer {
+  display: none;
   display: flex;
   outline: 4px solid var(--secondary);
   background-color: var(--primary);
@@ -428,6 +429,7 @@ i {
 
 
 footer {
+  display: none;
   outline: 4px solid var(--secondary);
   background-color: var(--primary);
   width: 100%;
