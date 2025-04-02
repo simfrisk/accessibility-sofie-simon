@@ -87,20 +87,13 @@ body {
 
 header {
   outline: 4px solid var(--secondary);
-  height: 8dvh;
-  min-height: 70px;
   margin: 0;
   z-index: 10;
-  display: flex;
-  justify-content: center;
-
 }
 
 nav {
   padding: 16px;
   letter-spacing: 0.5px;
-  display: flex;
-  align-items: center;
 }
 
 #menu-icon {
@@ -112,8 +105,6 @@ nav {
 
 #nav-links {
   display: none;
-  position: relative;
-  z-index: 20;
   width: 100%;
   background: transparent;
   font-size: 24px;
@@ -121,8 +112,6 @@ nav {
 }
 
 #nav-links.active {
-  position: relative;
-  z-index: 20;
   display: flex;
   flex-direction: column;
   padding: 0px 12px;
