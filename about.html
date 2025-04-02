@@ -32,31 +32,36 @@
       <div class="speech-bubble" id="question-container"> <img src="./img/speech-bubble.webp" alt=""
           aria-hidden="true" />
         <div class="title-text">
-          <h1 id="question-text" class="">How this Quiz is accessible</h1>
+          <h1 id="question-text" class="" tabindex="0">How this Quiz is accessible</h1>
         </div>
       </div>
 
       <ol>
-        <li><strong>A "Skip to Content"</strong> link lets users bypass navigation and go directly to the quiz.</li>
-        <li>The quiz is fully <strong>keyboard-accessible</strong>, allowing users to navigate and select answers
+        <li tabindex="0"><strong>A "Skip to Content"</strong> link lets users bypass navigation and go directly to the
+          quiz.</li>
+        <li tabindex="0">The quiz is fully <strong>keyboard-accessible</strong>, allowing users to navigate and select
+          answers
           without a mouse.</li>
-        <li>A <strong>clean and simple layout</strong> ensures an easy-to-read experience with minimal distractions.
+        <li tabindex="0">A <strong>clean and simple layout</strong> ensures an easy-to-read experience with minimal
+          distractions.
         </li>
-        <li><strong>ARIA labels</strong> enhance accessibility for screen readers.</li>
+        <li tabindex="0"><strong>ARIA labels</strong> enhance accessibility for screen readers.</li>
         <li><strong>Semantic HTML</strong> improves structure and readability for both users and assistive technologies.
         </li>
-        <li>A <strong>dark mode option</strong> provides a more comfortable viewing experience in low-light settings.
+        <li tabindex="0">A <strong>dark mode option</strong> provides a more comfortable viewing experience in low-light
+          settings.
         </li>
       </ol>
 
-      <img class="accessibility-img" src="./img/accessibility-image.png" alt="A discriptive image" role="img" />
+      <img class="accessibility-img" src="./img/accessibility-image.png" alt="A discriptive image" role="img"
+        tabindex="0" />
       <!-- Ska ändra denna bild sen -->
     </section>
 
   </main>
   <footer role="contentinfo">
     <nav role="navigation" aria-label="Footer menu">
-      <p>Project by: Simon & Sofie <a href="https://github.com/simfrisk/accessibility-sofie-simon"><i
+      <p tabindex="0">Project by: Simon & Sofie <a href="https://github.com/simfrisk/accessibility-sofie-simon"><i
             class="fa-brands fa-github"></i></a></p>
       <button id="dark-mode-icon" class="dark-mode-icon" type="button">dark</button>
     </nav>
