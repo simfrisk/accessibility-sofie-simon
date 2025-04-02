@@ -34,6 +34,8 @@ const aboutPage = document.querySelector("#about-page");
 const legend = document.querySelector("#legend");
 const testing = document.querySelector("#testing");
 const main = document.querySelector('#main-content');
+const motionModeIcon = document.querySelector('#motion-mode-icon');
+let reduceMotion = false;
 const cards = document.querySelectorAll('.card');
 const scrollLeft = main.scrollLeft;
 const cardWidth = cards[0].offsetWidth; // Assuming all cards have the same width
@@ -211,7 +213,7 @@ const enterKeySelect = (event) => {
 const transition = (hideElement, showElement, hideElementExtra) => {
     const mediaQueryIpad = window.matchMedia("(min-width: 768px)");
     const mediaQuerySmall = window.matchMedia("(max-width: 360px)");
-    if (mediaQueryIpad.matches || mediaQuerySmall.matches) {
+    if (mediaQueryIpad.matches || mediaQuerySmall.matches || reduceMotion === true) {
         showElement.classList.remove("hide");
         hideElement.classList.add("hide");
         if (hideElementExtra) {
@@ -265,9 +267,18 @@ startQuizBtn.addEventListener("click", loadNextQuestion);
 submitAnswerBtn.addEventListener("click", loadNextAnswer);
 nextQuestionBtn.addEventListener("click", loadNextQuestion);
 startAgainBtn.addEventListener("click", startAgain);
+darkmodetoggle.addEventListener("click", darkmode);
+document.addEventListener("keydown", enterKeySelect);
 radioButtonCheck.forEach(btn => {
     btn.addEventListener("click", resetErrorStyle);
 });
-darkmodetoggle.addEventListener("click", darkmode);
-document.addEventListener("keydown", enterKeySelect);
+motionModeIcon.addEventListener("click", () => {
+    reduceMotion = !reduceMotion;
+    if (reduceMotion === true) {
+        motionModeIcon.classList.add("dark-button");
+    }
+    else {
+        motionModeIcon.classList.remove("dark-button");
+    }
+});
 //#endregion

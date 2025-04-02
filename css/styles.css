@@ -361,19 +361,25 @@ fieldset {
 } */
 
 .error-text {
-  color: red;
+  color: rgb(240, 6, 240);
   font-weight: bold;
 }
 
 .error-btn {
-  color: red;
-  border: 2px solid red
+  color: rgb(240, 6, 240);
+  border: 2px solid rgb(240, 6, 240);
 }
 
 .error-frame {
   padding: 10px;
   border-radius: 20px;
-  outline: 4px dotted red;
+  outline: 4px dotted rgb(240, 6, 240);
+}
+
+.dark-button {
+  background-color: var(--secondary);
+  color: var(--complementary);
+  border: solid 2px var(--complementary);
 }
 
 .radio-button-group {
