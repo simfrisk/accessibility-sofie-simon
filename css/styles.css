@@ -3,7 +3,7 @@
   --primary-hover: ;
   --primary-fixed: ;
 
-  --secondary: #000000;
+  --secondary: #121212;
   --secondary-hover: ;
   --secondary-fixed: ;
 
@@ -15,9 +15,9 @@
   --aditional-hover: ;
   --aditional-fixed: ;
 
-  --font-primary: #000000;
+  --font-primary: #121212;
   --font-primary-hover: ;
-  --font-primary-fixed: #000000;
+  --font-primary-fixed: #121212;
 
   --font-secondary: ;
   --font-secondary-hover: ;
@@ -87,7 +87,9 @@ body {
 
 header {
   min-height: 8dvh;
-  outline: 4px solid var(--secondary);
+  border-top: 4px solid var(--secondary);
+  border-left: 4px solid var(--secondary);
+  border-right: 4px solid var(--secondary);
   margin: 0;
   z-index: 10;
   display: flex;
@@ -158,19 +160,21 @@ a:focus-visible,
   /* Vi kan ändra färg */
 }
 
-/* For text elements */
+/* For other elements */
 h1:focus-visible,
 h2:focus-visible,
 h3:focus-visible,
 h4:focus-visible,
-p:focus-visible {
+p:focus-visible,
+li:focus-visible,
+img:focus-visible {
   outline: 4px solid #ff4500;
-  /*Vi kan ändra färg*/
+
 }
 
 #about {
-  margin-top: 50px;
-  margin-bottom: 60px;
+  padding-top: 20px;
+  border: 4px solid var(--secondary);
 }
 
 ol {
@@ -222,7 +226,8 @@ ol li::before {
   padding: 20px 0;
   gap: 18px;
   background-color: var(--primary);
-  outline: 4px 4px 0 solid var(--secondary);
+  /* outline: 4px 4px 0 solid var(--secondary); */
+  border: 4px solid black;
   padding: 16px;
   transition: transform .7s ease-out;
   min-height: 80dvh;
@@ -231,17 +236,17 @@ ol li::before {
   flex-shrink: 0;
 }
 
+/* 
 footer {
-  /* display: none; */
-  /* display: flex; */
+  display: none;
+  display: flex;
   outline: 4px solid var(--secondary);
   background-color: var(--primary);
   width: 100%;
   height: 8dvh;
   z-index: 10;
   padding: 8px;
-}
-
+} */
 
 .hide {
   display: none;
@@ -361,19 +366,19 @@ fieldset {
 } */
 
 .error-text {
-  color: rgb(240, 6, 240);
+  color: #ff4500;
   font-weight: bold;
 }
 
 .error-btn {
-  color: rgb(240, 6, 240);
-  border: 2px solid rgb(240, 6, 240);
+  color: #ff4500;
+  border: 2px solid #ff4500;
 }
 
 .error-frame {
   padding: 10px;
   border-radius: 20px;
-  outline: 4px dotted rgb(240, 6, 240);
+  outline: 4px dotted #ff4500;
 }
 
 .dark-button {
@@ -438,19 +443,29 @@ i {
 
 footer {
   /* display: none; */
-  outline: 4px solid var(--secondary);
+  border-bottom: 4px solid var(--secondary);
+  border-right: 4px solid var(--secondary);
+  border-left: 4px solid var(--secondary);
   background-color: var(--primary);
   width: 100%;
-  height: 8dvh;
+  /* height: 8dvh; */
   z-index: 10;
   padding: 8px;
 }
 
 footer nav {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: auto auto;
+  gap: 16px;
+  justify-content: center;
   align-items: center;
-  padding: 6px;
+  padding: 12px;
+}
+
+footer nav p {
+  grid-column: span 2;
+  text-align: center;
 }
 
 .accessibility-img {
@@ -540,7 +555,7 @@ footer nav {
 @media screen and (max-width: 360px) {
 
   header {
-    outline: 4px solid var(--secondary);
+    /* outline: 4px solid var(--secondary); */
     margin: 0;
     z-index: 10;
   }
