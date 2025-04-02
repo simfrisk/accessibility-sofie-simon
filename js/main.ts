@@ -34,7 +34,9 @@ const legend = document.querySelector("#legend") as HTMLAnchorElement
 const testing = document.querySelector("#testing") as HTMLAnchorElement
 const main = document.querySelector('#main-content') as HTMLElement
 
-
+const cards = document.querySelectorAll('.card');
+const scrollLeft = main.scrollLeft;
+const cardWidth = cards[0].offsetWidth; // Assuming all cards have the same width
 
 let currentStep: number = -1
 let currentPage = startPage
@@ -44,39 +46,7 @@ let score: number = 0
 
 //#endregion
 
-//#region --- Functions -----
-
-//#region --- Sizing ----
-window.addEventListener("load", () => {
-  if (main && currentPage) {
-    updateParentSize(main, currentPage);
-  }
-});
-
-window.addEventListener("resize", () => {
-  if (main && currentPage) {
-    updateParentSize(main, currentPage);
-  }
-});
-
-// Ensure updateParentSize runs whenever currentPage changes
-function updatePage(newPage: HTMLElement) {
-  currentPage = newPage;
-  if (main && currentPage) {
-    updateParentSize(main, currentPage);
-  }
-}
-
-function updateParentSize(parent, child) {
-  if (parent && child) {
-    console.log("Test: Function is running");
-    parent.style.minHeight = child.scrollHeight * 1 + 'px';
-    parent.style.maxHeight = child.scrollHeight * 1 + 'px';
-  }
-}
-
-
-//#endregion
+//#region --- Functions -----z
 
 //#region --- User Idetifier -----
 const userChoiseIdentifier = (): void => {
@@ -115,7 +85,6 @@ const loadNextQuestion = () => {
     quizResultTitle.innerHTML = "The quiz is over!"
     quizResultText.innerHTML = `Your result is: ${score} / ${questions.length}.`
     transition(resultContainer, quizResult, null)
-    updatePage(quizResult);
   } else {
     currentQuestion = questions[currentStep]
     questionTitle.innerHTML = (`Question ${currentStep + 1}/${questions.length}`)
@@ -124,10 +93,7 @@ const loadNextQuestion = () => {
     optionB.innerHTML = (currentQuestion.options[1])
     optionC.innerHTML = (currentQuestion.options[2])
     optionD.innerHTML = (currentQuestion.options[3])
-
-
     transition(resultContainer, quizContainer, startPage)
-    updatePage(quizContainer);
   }
 }
 
@@ -145,8 +111,6 @@ const loadNextAnswer = (event: Event): void => {
     radioButtonGroup.classList.add("error-frame")
     window.location.hash = "#main"
 
-
-
     // alert("Please select an answer.");
     return;  // <-- Stop execution if no option is selected
   }
@@ -163,8 +127,7 @@ const loadNextAnswer = (event: Event): void => {
     resultExplanation.innerHTML = currentQuestion.resultExplanationLose
   }
 
-  transition(quizContainer, resultContainer, null)
-  updatePage(resultContainer);
+  transition(quizContainer, resultContainer, null,)
 
 
 
@@ -188,7 +151,6 @@ const startAgain = (): void => {
   currentStep = -1
   score = 0
   transition(quizResult, startPage, null)
-  updatePage(startPage);
 }
 
 //#endregion
@@ -266,39 +228,44 @@ const enterKeySelect = (event: KeyboardEvent): void => {
 const transition = (
   hideElement: HTMLElement | null,
   showElement: HTMLElement | null,
-  hideElementExtra: HTMLElement | null
+  hideElementExtra: HTMLElement | null,
 ): void => {
-
-  const mediaQuery = window.matchMedia("(min-width: 768px)")
+  const mediaQuery = window.matchMedia("(min-width: 768px)");
 
   if (mediaQuery.matches) {
-    hideElement.style.zIndex = ("0")
-    showElement.style.zIndex = ("1")
-    showElement.classList.remove("hide")
-    showElement.classList.remove("offset")
-    hideElement.classList.add("hide")
-    hideElement.classList.add("offset")
-    if (hideElementExtra)
-      hideElementExtra.classList.add("hide")
-    hideElementExtra.classList.add("offset")
-
+    showElement.classList.remove("hide");
+    showElement.classList.remove("offset");
+    hideElement.classList.add("hide");
+    hideElement.classList.add("offset");
+    if (hideElementExtra) {
+      hideElementExtra.classList.add("hide");
+      hideElementExtra.classList.add("offset");
+    }
   } else {
-    hideElement.style.zIndex = ("0")
-    showElement.style.zIndex = ("1")
-    showElement.classList.remove("hide")
+    showElement.classList.remove("hide");
     requestAnimationFrame(() => {
-      showElement.classList.remove("offset")
-    })
+      main.scrollTo({
+        left: main.scrollLeft + cardWidth,
+        behavior: 'smooth',
+      });
+    });
     setTimeout(() => {
-      hideElement.classList.add("hide")
-      hideElement.classList.add("offset")
-      if (hideElementExtra)
-        hideElementExtra.classList.add("hide")
-      hideElementExtra.classList.add("offset")
-    }, 700
-    )
+      hideElement.classList.add("hide");
+      if (hideElementExtra) {
+        hideElementExtra.classList.add("hide");
+      }
+      const parent = hideElement.parentNode;
+      if (parent) {
+        parent.insertBefore(showElement, hideElement);
+      }
+    }, 500);
+
+
   }
-}
+};
+
+
+
 
 
 
