@@ -135,7 +135,7 @@ const startAgain = () => {
 };
 //#endregion
 //#region --- Keyboard Navigation ----
-const handleKeyEvent = (event, button, menuIcon, darkModeContainer) => {
+const handleKeyEvent = (event, button, darkModeContainer) => {
     switch (event.key) {
         case "Enter":
             console.log(document.activeElement);
@@ -147,7 +147,8 @@ const handleKeyEvent = (event, button, menuIcon, darkModeContainer) => {
                 button.click();
             }
             else if (document.activeElement === menuIcon) {
-                menuIcon.click();
+                // burgerMenu()
+                darkmode();
             }
             else if (document.activeElement === indexPage) {
                 indexPage.click();
@@ -200,23 +201,21 @@ const handleKeyEvent = (event, button, menuIcon, darkModeContainer) => {
     }
 };
 const enterKeySelect = (event) => {
-    handleKeyEvent(event, submitAnswerBtn, menuIcon, darkModeContainer);
-    handleKeyEvent(event, startQuizBtn, menuIcon, darkModeContainer);
-    handleKeyEvent(event, nextQuestionBtn, menuIcon, darkModeContainer);
-    handleKeyEvent(event, startAgainBtn, menuIcon, darkModeContainer);
+    handleKeyEvent(event, submitAnswerBtn, darkModeContainer);
+    handleKeyEvent(event, startQuizBtn, darkModeContainer);
+    handleKeyEvent(event, nextQuestionBtn, darkModeContainer);
+    handleKeyEvent(event, startAgainBtn, darkModeContainer);
 };
 //#endregion
 //#region --- transition ----
 const transition = (hideElement, showElement, hideElementExtra) => {
-    const mediaQuery = window.matchMedia("(min-width: 768px)");
-    if (mediaQuery.matches) {
+    const mediaQueryIpad = window.matchMedia("(min-width: 768px)");
+    const mediaQuerySmall = window.matchMedia("(max-width: 360px)");
+    if (mediaQueryIpad.matches || mediaQuerySmall.matches) {
         showElement.classList.remove("hide");
-        showElement.classList.remove("offset");
         hideElement.classList.add("hide");
-        hideElement.classList.add("offset");
         if (hideElementExtra) {
             hideElementExtra.classList.add("hide");
-            hideElementExtra.classList.add("offset");
         }
     }
     else {

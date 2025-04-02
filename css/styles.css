@@ -86,9 +86,12 @@ body {
 /* Styling for nav in header and footer */
 
 header {
+  height: 8dvh;
   outline: 4px solid var(--secondary);
   margin: 0;
   z-index: 10;
+  display: flex;
+  align-items: center;
 }
 
 nav {
@@ -97,9 +100,10 @@ nav {
 }
 
 #menu-icon {
-  font-size: 40px;
+  z-index: 1000;
+  position: relative;
+  font-size: clamp(30px, 5vh, 50px);
   cursor: pointer;
-  display: block;
   padding: 12px;
 }
 
@@ -203,10 +207,9 @@ ol li::before {
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  min-height: 80dvh;
+  min-height: 84dvh;
   width: 100dvw;
   overflow-y: auto;
-
 }
 
 .card {
@@ -228,7 +231,7 @@ ol li::before {
 }
 
 footer {
-  display: none;
+  /* display: none; */
   display: flex;
   outline: 4px solid var(--secondary);
   background-color: var(--primary);
@@ -243,8 +246,6 @@ footer {
   display: none;
   /* transition: transform 1s ease; */
 }
-
-.offset {}
 
 *::-webkit-scrollbar {
   display: none;
@@ -429,7 +430,7 @@ i {
 
 
 footer {
-  display: none;
+  /* display: none; */
   outline: 4px solid var(--secondary);
   background-color: var(--primary);
   width: 100%;
