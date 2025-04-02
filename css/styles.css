@@ -206,6 +206,7 @@ ol li::before {
   min-height: 80dvh;
   width: 100dvw;
   overflow-y: auto;
+
 }
 
 .card {
@@ -217,7 +218,7 @@ ol li::before {
   padding: 20px 0;
   gap: 18px;
   background-color: var(--primary);
-  outline: 4px solid var(--secondary);
+  outline: 4px 4px 0 solid var(--secondary);
   padding: 16px;
   transition: transform .7s ease-out;
   min-height: 80dvh;
@@ -242,9 +243,7 @@ footer {
   /* transition: transform 1s ease; */
 }
 
-.offset {
-  background-color: red;
-}
+.offset {}
 
 *::-webkit-scrollbar {
   display: none;
@@ -524,23 +523,20 @@ footer nav {
 
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 360px) {
 
   header {
     outline: 4px solid var(--secondary);
-    height: 10dvh;
     margin: 0;
     z-index: 10;
   }
 
   #main-content {
     position: relative;
-    height: 80dvh;
     width: 100dvw;
+    padding: 4px;
     /* overflow: none; */
   }
 
-  footer {
-    height: 10dvh;
-  }
+
 }
