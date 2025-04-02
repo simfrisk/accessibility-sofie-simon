@@ -34,6 +34,7 @@ const legend = document.querySelector("#legend") as HTMLAnchorElement
 const testing = document.querySelector("#testing") as HTMLAnchorElement
 const main = document.querySelector('#main-content') as HTMLElement
 const motionModeContainer = document.querySelector('#motion-mode-container') as HTMLElement
+const motionModeIcon = document.querySelector('#motion-mode-icon') as HTMLElement
 
 let reduceMotion = false
 const cards = document.querySelectorAll('.card');
@@ -306,13 +307,13 @@ const darkmode = () => {
   console.log("pressed")
   if (theBody.classList.contains("dark-mode")) {
     theBody.classList.remove("dark-mode")
-    darkModeContainer.classList.remove("dark-button")
     localStorage.setItem("dark-mode", "disabled")
+    darkmodetoggle.classList.remove("dark-button")
     darkmodetoggle.innerHTML = "DARK"
   } else {
     theBody.classList.add("dark-mode")
-    darkModeContainer.classList.add("dark-button")
     localStorage.setItem("dark-mode", "enabled")
+    darkmodetoggle.classList.add("dark-button")
     darkmodetoggle.innerHTML = "LIGHT"
   }
 }
@@ -320,9 +321,9 @@ const darkmode = () => {
 const toggleReduceMotion = () => {
   reduceMotion = !reduceMotion;
   if (reduceMotion) {
-    motionModeContainer.classList.add("dark-button");
+    motionModeIcon.classList.add("dark-button");
   } else {
-    motionModeContainer.classList.remove("dark-button");
+    motionModeIcon.classList.remove("dark-button");
   }
 }
 
