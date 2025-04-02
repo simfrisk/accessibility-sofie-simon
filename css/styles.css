@@ -521,6 +521,10 @@ footer nav {
   ol {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  #motion-mode-icon {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -546,6 +550,10 @@ footer nav {
     width: 100dvw;
     padding: 4px;
     /* overflow: none; */
+  }
+
+  #motion-mode-icon {
+    display: none;
   }
 
 
