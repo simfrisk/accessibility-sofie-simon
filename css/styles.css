@@ -415,7 +415,7 @@ input[type="radio"] {
 
 input[type="radio"]:checked+.options {
   box-shadow: inset 4px 4px 0px black;
-  transform: translateY(3px) scale(0.98);
+  transform: translateY(3px) scale(0.96);
   /* font-weight: bold; */
   background-color: var(--secondary);
   /*Vi kan diskutera färgvalet*/

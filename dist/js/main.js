@@ -34,7 +34,7 @@ const aboutPage = document.querySelector("#about-page");
 const legend = document.querySelector("#legend");
 const testing = document.querySelector("#testing");
 const main = document.querySelector('#main-content');
-const motionModeIcon = document.querySelector('#motion-mode-icon');
+const motionModeContainer = document.querySelector('#motion-mode-container');
 let reduceMotion = false;
 const cards = document.querySelectorAll('.card');
 const scrollLeft = main.scrollLeft;
@@ -137,51 +137,68 @@ const startAgain = () => {
 };
 //#endregion
 //#region --- Keyboard Navigation ----
-const handleKeyEvent = (event, button, darkModeContainer) => {
+const handleKeyEvent = (event, button) => {
     switch (event.key) {
         case "Enter":
             console.log(document.activeElement);
-            if (document.activeElement !== button && document.activeElement !== menuIcon && document.activeElement !== indexPage && document.activeElement !== aboutPage && document.activeElement !== darkmodetoggle && document.activeElement !== optionA && document.activeElement !== optionB && document.activeElement !== optionC && document.activeElement !== optionD && document.activeElement !== answerBtnContainer) {
-                event.preventDefault();
-                button.focus();
-            }
-            else if (document.activeElement === button) {
-                button.click();
-            }
-            else if (document.activeElement === menuIcon) {
-                // burgerMenu()
-                darkmode();
-            }
-            else if (document.activeElement === indexPage) {
-                indexPage.click();
-            }
-            else if (document.activeElement === aboutPage) {
-                aboutPage.click();
-            }
-            else if (document.activeElement === darkModeContainer) {
-                darkmode();
-            }
-            else if (document.activeElement === optionA) {
-                event.preventDefault();
-                optionA.click();
-            }
-            else if (document.activeElement === optionB) {
-                event.preventDefault();
-                optionB.click();
-            }
-            else if (document.activeElement === optionC) {
-                event.preventDefault();
-                optionC.click();
-            }
-            else if (document.activeElement === optionD) {
-                event.preventDefault();
-                optionD.click();
-            }
-            else if (document.activeElement === answerBtnContainer) {
-                loadNextAnswer();
-                setTimeout(() => {
-                    resultTitle.focus();
-                }, 600);
+            switch (document.activeElement) {
+                case button:
+                    button.click();
+                    break;
+                case menuIcon:
+                    // burgerMenu();
+                    darkmode();
+                    break;
+                case indexPage:
+                    indexPage.click();
+                    break;
+                case aboutPage:
+                    aboutPage.click();
+                    break;
+                case darkModeContainer:
+                    darkmode();
+                    break;
+                case motionModeContainer:
+                    toggleReduceMotion(); // Add this line!
+                    break;
+                case optionA:
+                    event.preventDefault();
+                    optionA.click();
+                    break;
+                case optionB:
+                    event.preventDefault();
+                    optionB.click();
+                    break;
+                case optionC:
+                    event.preventDefault();
+                    optionC.click();
+                    break;
+                case optionD:
+                    event.preventDefault();
+                    optionD.click();
+                    break;
+                case answerBtnContainer:
+                    loadNextAnswer();
+                    setTimeout(() => {
+                        resultTitle.focus();
+                    }, 600);
+                    break;
+                default:
+                    if (document.activeElement !== button &&
+                        document.activeElement !== menuIcon &&
+                        document.activeElement !== indexPage &&
+                        document.activeElement !== aboutPage &&
+                        document.activeElement !== darkmodetoggle &&
+                        document.activeElement !== motionModeContainer &&
+                        document.activeElement !== optionA &&
+                        document.activeElement !== optionB &&
+                        document.activeElement !== optionC &&
+                        document.activeElement !== optionD &&
+                        document.activeElement !== answerBtnContainer) {
+                        event.preventDefault();
+                        button.focus();
+                    }
+                    break;
             }
             break;
         // case "Escape":
@@ -203,10 +220,10 @@ const handleKeyEvent = (event, button, darkModeContainer) => {
     }
 };
 const enterKeySelect = (event) => {
-    handleKeyEvent(event, submitAnswerBtn, darkModeContainer);
-    handleKeyEvent(event, startQuizBtn, darkModeContainer);
-    handleKeyEvent(event, nextQuestionBtn, darkModeContainer);
-    handleKeyEvent(event, startAgainBtn, darkModeContainer);
+    handleKeyEvent(event, submitAnswerBtn);
+    handleKeyEvent(event, startQuizBtn);
+    handleKeyEvent(event, nextQuestionBtn);
+    handleKeyEvent(event, startAgainBtn);
 };
 //#endregion
 //#region --- transition ----
@@ -241,7 +258,7 @@ const transition = (hideElement, showElement, hideElementExtra) => {
     }
 };
 //#endregion
-//#region --- Dark mode ----
+//#region --- Dark mode & Reduce motion----
 if (localStorage.getItem("dark-mode") === "enabled") {
     theBody.classList.add("dark-mode");
 }
@@ -249,13 +266,24 @@ const darkmode = () => {
     console.log("pressed");
     if (theBody.classList.contains("dark-mode")) {
         theBody.classList.remove("dark-mode");
+        darkModeContainer.classList.remove("dark-button");
         localStorage.setItem("dark-mode", "disabled");
         darkmodetoggle.innerHTML = "DARK";
     }
     else {
         theBody.classList.add("dark-mode");
+        darkModeContainer.classList.add("dark-button");
         localStorage.setItem("dark-mode", "enabled");
         darkmodetoggle.innerHTML = "LIGHT";
+    }
+};
+const toggleReduceMotion = () => {
+    reduceMotion = !reduceMotion;
+    if (reduceMotion) {
+        motionModeContainer.classList.add("dark-button");
+    }
+    else {
+        motionModeContainer.classList.remove("dark-button");
     }
 };
 //#endrigion
@@ -272,13 +300,5 @@ document.addEventListener("keydown", enterKeySelect);
 radioButtonCheck.forEach(btn => {
     btn.addEventListener("click", resetErrorStyle);
 });
-motionModeIcon.addEventListener("click", () => {
-    reduceMotion = !reduceMotion;
-    if (reduceMotion === true) {
-        motionModeIcon.classList.add("dark-button");
-    }
-    else {
-        motionModeIcon.classList.remove("dark-button");
-    }
-});
+motionModeContainer.addEventListener("click", toggleReduceMotion);
 //#endregion
