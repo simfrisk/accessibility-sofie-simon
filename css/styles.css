@@ -91,6 +91,8 @@ header {
   min-height: 70px;
   margin: 0;
   z-index: 10;
+  display: flex;
+  justify-content: center;
 
 }
 
@@ -236,6 +238,7 @@ ol li::before {
 }
 
 footer {
+  display: flex;
   outline: 4px solid var(--secondary);
   background-color: var(--primary);
   width: 100%;
@@ -450,6 +453,11 @@ footer nav {
   justify-content: space-between;
   align-items: center;
   padding: 6px;
+}
+
+.accessibility-img {
+  width: 100%;
+  height: auto;
 }
 
 /* Tablet  */
