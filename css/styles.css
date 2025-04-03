@@ -490,6 +490,13 @@ footer button {
   #motion-mode-icon {
     display: none;
   }
+
+  .nav-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
 }
 
 @media screen and (min-width: 1024px) {
