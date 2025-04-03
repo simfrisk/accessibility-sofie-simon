@@ -101,13 +101,6 @@ nav {
   letter-spacing: 0.5px;
 }
 
-#menu-icon {
-  z-index: 1000;
-  position: relative;
-  font-size: clamp(30px, 5vh, 50px);
-  cursor: pointer;
-  padding: 12px;
-}
 
 #nav-links {
   display: none;
@@ -471,6 +464,17 @@ footer nav p {
 .accessibility-img {
   width: 100%;
   height: auto;
+}
+
+#menu-icon {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  z-index: 1000;
+  position: relative;
+  font-size: clamp(30px, 5vh, 50px);
+  cursor: pointer;
+  padding: 12px;
 }
 
 /* Tablet  */

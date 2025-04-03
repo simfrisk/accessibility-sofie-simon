@@ -1,7 +1,7 @@
 "use strict";
 //#region --- DOM Elements ----- 
 const navLinks = document.querySelector("#nav-links");
-const menuContainer = document.querySelector("#menu-container");
+// const menuContainer = document.querySelector("#menu-container") as HTMLElement
 const menuIcon = document.querySelector("#menu-icon");
 const startQuizBtn = document.querySelector("#start-quiz-btn");
 const questionTitle = document.querySelector("#question-title");
@@ -147,8 +147,9 @@ const handleKeyEvent = (event, button) => {
                 case button:
                     button.click();
                     break;
-                case menuContainer:
-                    menuContainer.click();
+                case menuIcon:
+                    console.log("menu test");
+                    burgerMenu();
                     break;
                 case indexPage:
                     indexPage.click();
@@ -186,7 +187,7 @@ const handleKeyEvent = (event, button) => {
                     break;
                 default:
                     if (document.activeElement !== button &&
-                        document.activeElement !== menuContainer &&
+                        document.activeElement !== menuIcon &&
                         document.activeElement !== indexPage &&
                         document.activeElement !== aboutPage &&
                         document.activeElement !== darkmodetoggle &&
@@ -204,7 +205,7 @@ const handleKeyEvent = (event, button) => {
             break;
         case "Escape":
             if (document.activeElement !== button &&
-                document.activeElement !== menuContainer &&
+                document.activeElement !== menuIcon &&
                 document.activeElement !== indexPage &&
                 document.activeElement !== aboutPage &&
                 document.activeElement !== darkmodetoggle &&

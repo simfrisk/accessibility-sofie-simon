@@ -1,6 +1,6 @@
 //#region --- DOM Elements ----- 
 const navLinks = document.querySelector("#nav-links") as HTMLElement
-const menuContainer = document.querySelector("#menu-container") as HTMLElement
+// const menuContainer = document.querySelector("#menu-container") as HTMLElement
 const menuIcon = document.querySelector("#menu-icon") as HTMLElement
 const startQuizBtn = document.querySelector("#start-quiz-btn") as HTMLElement
 const questionTitle = document.querySelector("#question-title") as HTMLElement
@@ -166,8 +166,9 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
         case button:
           button.click();
           break;
-        case menuContainer:
-          menuContainer.click()
+        case menuIcon:
+          console.log("menu test")
+          burgerMenu()
           break;
         case indexPage:
           indexPage.click();
@@ -205,7 +206,7 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
           break;
         default:
           if (document.activeElement !== button &&
-            document.activeElement !== menuContainer &&
+            document.activeElement !== menuIcon &&
             document.activeElement !== indexPage &&
             document.activeElement !== aboutPage &&
             document.activeElement !== darkmodetoggle &&
@@ -225,7 +226,7 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
 
     case "Escape":
       if (document.activeElement !== button &&
-        document.activeElement !== menuContainer &&
+        document.activeElement !== menuIcon &&
         document.activeElement !== indexPage &&
         document.activeElement !== aboutPage &&
         document.activeElement !== darkmodetoggle &&
@@ -366,7 +367,3 @@ radioButtonCheck.forEach(btn => {
 
 
 //#endregion
-
-
-
-
