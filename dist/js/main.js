@@ -1,5 +1,5 @@
 "use strict";
-//#region --- DOM Elements ----- 
+//#region --- DOM Elements -----
 const navLinks = document.querySelector("#nav-links");
 // const menuContainer = document.querySelector("#menu-container") as HTMLElement
 const menuIcon = document.querySelector("#menu-icon");
@@ -34,11 +34,11 @@ const indexPage = document.querySelector("#index-page");
 const aboutPage = document.querySelector("#about-page");
 const legend = document.querySelector("#legend");
 const testing = document.querySelector("#testing");
-const main = document.querySelector('#main-content');
+const main = document.querySelector("#main-content");
 // const motionModeContainer = document.querySelector('#motion-mode-container') as HTMLElement
-const motionModeIcon = document.querySelector('#motion-mode-icon');
+const motionModeIcon = document.querySelector("#motion-mode-icon");
 let reduceMotion = false;
-const cards = document.querySelectorAll('.card');
+const cards = document.querySelectorAll(".card");
 const scrollLeft = main.scrollLeft;
 const cardWidth = cards[0].offsetWidth; // Assuming all cards have the same width
 let currentStep = -1;
@@ -47,11 +47,11 @@ let userChoice = "";
 let currentQuestion = null;
 let score = 0;
 //#endregion
-//#region --- Functions -----z
+//#region --- Functions -----
 //#region --- User Idetifier -----
 const userChoiseIdentifier = () => {
     const options = document.querySelectorAll('input[name="question1"]');
-    options.forEach(button => {
+    options.forEach((button) => {
         button.addEventListener("change", (event) => {
             userChoice = event.target.value;
             console.log(`User selected: ${userChoice} and correct is ${currentQuestion.correctAnswer}`);
@@ -65,6 +65,10 @@ const burgerMenu = () => {
     navLinks.classList.toggle("active");
     menuIcon.classList.toggle("fa-bars");
     menuIcon.classList.toggle("fa-times");
+    const isExpanded = menuIcon.getAttribute("aria-expanded") === "true";
+    menuIcon.setAttribute("aria-expanded", isExpanded ? "false" : "true");
+    const currentLabel = isExpanded ? "Open main menu" : "Close main menu";
+    menuIcon.setAttribute("aria-label", currentLabel);
 };
 //#endregion
 //#region --- Load Next Question -----
@@ -82,12 +86,12 @@ const loadNextQuestion = () => {
     }
     else {
         currentQuestion = questions[currentStep];
-        questionTitle.innerHTML = (`Question ${currentStep + 1}/${questions.length}`);
-        questionText.innerHTML = (currentQuestion.questionText);
-        optionA.innerHTML = (currentQuestion.options[0]);
-        optionB.innerHTML = (currentQuestion.options[1]);
-        optionC.innerHTML = (currentQuestion.options[2]);
-        optionD.innerHTML = (currentQuestion.options[3]);
+        questionTitle.innerHTML = `Question ${currentStep + 1}/${questions.length}`;
+        questionText.innerHTML = currentQuestion.questionText;
+        optionA.innerHTML = currentQuestion.options[0];
+        optionB.innerHTML = currentQuestion.options[1];
+        optionC.innerHTML = currentQuestion.options[2];
+        optionD.innerHTML = currentQuestion.options[3];
         transition(resultContainer, quizContainer, startPage);
     }
 };
@@ -100,11 +104,11 @@ const loadNextAnswer = (event) => {
         legend.innerHTML = "You have not selected an option";
         legend.classList.add("error-text");
         submitAnswerBtn.classList.add("error-btn");
-        submitAnswerBtn.classList.add("error-btn");
         radioButtonGroup.classList.add("error-frame");
-        window.location.hash = "#main";
-        // alert("Please select an answer.");
-        return; // <-- Stop execution if no option is selected
+        legend.setAttribute("aria-live", "assertive");
+        legend.setAttribute("role", "alert");
+        legend.focus();
+        return;
     }
     if (userChoice === currentQuestion.correctAnswer) {
         console.log("You are correct!");
@@ -128,6 +132,8 @@ const resetErrorStyle = () => {
     legend.classList.remove("error-text");
     submitAnswerBtn.classList.remove("error-btn");
     radioButtonGroup.classList.remove("error-frame");
+    legend.removeAttribute("aria-live");
+    legend.removeAttribute("role");
 };
 //#endregion
 //#region --- Start over ----
@@ -243,7 +249,9 @@ const enterKeySelect = (event) => {
 const transition = (hideElement, showElement, hideElementExtra) => {
     const mediaQueryIpad = window.matchMedia("(min-width: 768px)");
     const mediaQuerySmall = window.matchMedia("(max-width: 360px)");
-    if (mediaQueryIpad.matches || mediaQuerySmall.matches || reduceMotion === true) {
+    if (mediaQueryIpad.matches ||
+        mediaQuerySmall.matches ||
+        reduceMotion === true) {
         showElement.classList.remove("hide");
         hideElement.classList.add("hide");
         if (hideElementExtra) {
@@ -255,7 +263,7 @@ const transition = (hideElement, showElement, hideElementExtra) => {
         requestAnimationFrame(() => {
             main.scrollTo({
                 left: main.scrollLeft + cardWidth,
-                behavior: 'smooth',
+                behavior: "smooth",
             });
         });
         setTimeout(() => {
@@ -289,6 +297,8 @@ const darkmode = () => {
         darkmodetoggle.classList.add("dark-button");
         darkmodetoggle.innerHTML = "LIGHT MODE";
     }
+    const isExpanded = darkmodetoggle.getAttribute("aria-expanded") === "true";
+    darkmodetoggle.setAttribute("aria-expanded", isExpanded ? "false" : "true");
 };
 const toggleReduceMotion = () => {
     console.log("its running");
@@ -299,6 +309,8 @@ const toggleReduceMotion = () => {
     else {
         motionModeIcon.classList.remove("dark-button");
     }
+    const isExpanded = motionModeIcon.getAttribute("aria-expanded") === "true";
+    motionModeIcon.setAttribute("aria-expanded", isExpanded ? "false" : "true");
 };
 //#endrigion
 //#endregion
@@ -312,7 +324,7 @@ startAgainBtn.addEventListener("click", startAgain);
 darkmodetoggle.addEventListener("click", darkmode);
 motionModeIcon.addEventListener("click", toggleReduceMotion);
 document.addEventListener("keydown", enterKeySelect);
-radioButtonCheck.forEach(btn => {
+radioButtonCheck.forEach((btn) => {
     btn.addEventListener("click", resetErrorStyle);
 });
 //#endregion
