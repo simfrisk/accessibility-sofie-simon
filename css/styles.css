@@ -25,10 +25,10 @@
 }
 
 .dark-mode {
-  --primary: #511f1f;
+  --primary: #121212;
   --primary-hover: ;
 
-  --secondary: #000000;
+  --secondary: #FFFFFF;
   --secondary-hover: ;
 
   --complementary: #FFFFFF;
@@ -37,7 +37,7 @@
   --aditional: ;
   --aditional-hover: ;
 
-  --font-primary: #d2d2d2;
+  --font-primary: #FFFFFF;
   --font-primary-hover: ;
 
   --font-secondary: ;
@@ -148,8 +148,9 @@ a {
 /* For interactive elements */
 button:focus-visible,
 a:focus-visible,
-.options:focus-visible {
-  outline: 4px solid #0056b3;
+.options:focus-visible,
+#menu-icon:focus-visible {
+  outline: 4px solid var(--secondary);
   /* Vi kan ändra färg */
 }
 
@@ -161,7 +162,7 @@ h4:focus-visible,
 p:focus-visible,
 li:focus-visible,
 img:focus-visible {
-  outline: 4px solid #ff4500;
+  outline: 4px solid var(--secondary);
 
 }
 
@@ -229,17 +230,6 @@ ol li::before {
   flex-shrink: 0;
 }
 
-/* 
-footer {
-  display: none;
-  display: flex;
-  outline: 4px solid var(--secondary);
-  background-color: var(--primary);
-  width: 100%;
-  height: 8dvh;
-  z-index: 10;
-  padding: 8px;
-} */
 
 .hide {
   display: none;
@@ -359,19 +349,20 @@ fieldset {
 } */
 
 .error-text {
-  color: #ff4500;
+  color: var(--font-primary);
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .error-btn {
-  color: #ff4500;
-  border: 2px solid #ff4500;
+  color: var(--font-primary);
+  border: 2px solid var(--font-primary);
 }
 
 .error-frame {
   padding: 10px;
-  border-radius: 20px;
-  outline: 4px dotted #ff4500;
+  border-radius: 10px;
+  outline: 2px dashed var(--font-primary);
 }
 
 .dark-button {
@@ -461,6 +452,11 @@ footer nav p {
   text-align: center;
 }
 
+footer button {
+  padding: 8px 12px;
+  letter-spacing: 0;
+}
+
 .accessibility-img {
   width: 100%;
   height: auto;
@@ -468,6 +464,7 @@ footer nav p {
 
 #menu-icon {
   background-color: transparent;
+  box-shadow: none;
   border: none;
   outline: none;
   z-index: 1000;
@@ -511,9 +508,7 @@ footer nav p {
   }
 
   .speech-bubble img {
-
     max-width: 400px;
-
   }
 
   .offset {
