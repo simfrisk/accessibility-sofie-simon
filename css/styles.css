@@ -117,6 +117,14 @@ a {
   border-bottom: 4px solid var(--secondary);
 }
 
+#index-page {
+  border-bottom: 4px dotted var(--secondary);
+}
+
+#about-style {
+  border-bottom: 4px dotted var(--secondary);
+}
+
 :focus-visible {
   outline-offset: 2px;
   border-radius: 4px;
@@ -489,13 +497,6 @@ footer button {
 
   #motion-mode-icon {
     display: none;
-  }
-
-  .nav-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
   }
 }
 
