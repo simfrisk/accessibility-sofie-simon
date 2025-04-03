@@ -3,6 +3,7 @@ const navLinks = document.querySelector("#nav-links") as HTMLElement;
 // const menuContainer = document.querySelector("#menu-container") as HTMLElement
 const menuIcon = document.querySelector("#menu-icon") as HTMLElement;
 const startQuizBtn = document.querySelector("#start-quiz-btn") as HTMLElement;
+const titleText = document.querySelector(".title-text") as HTMLElement;
 const questionTitle = document.querySelector("#question-title") as HTMLElement;
 const questionText = document.querySelector(
   "#question-text"
@@ -96,9 +97,6 @@ const userChoiseIdentifier = (): void => {
   options.forEach((button) => {
     button.addEventListener("change", (event) => {
       userChoice = (event.target as HTMLInputElement).value;
-      console.log(
-        `User selected: ${userChoice} and correct is ${currentQuestion.correctAnswer}`
-      );
     });
   });
 };
@@ -128,8 +126,6 @@ const loadNextQuestion = () => {
   radioButtonCheck.forEach((radio): void => {
     radio.checked = false;
   });
-
-  console.log(currentStep);
 
   if (currentStep >= questions.length) {
     quizResultTitle.innerHTML = "The quiz is over!";
@@ -168,13 +164,10 @@ const loadNextAnswer = (event: Event): void => {
   }
 
   if (userChoice === currentQuestion.correctAnswer) {
-    console.log("You are correct!");
     resultTitle.innerHTML = currentQuestion.resultTitleWin;
     resultExplanation.innerHTML = currentQuestion.resultExplanationWin;
     score++;
-    console.log(score);
   } else {
-    console.log("Sorry, wrong answer.");
     resultTitle.innerHTML = currentQuestion.resultTitleLose;
     resultExplanation.innerHTML = currentQuestion.resultExplanationLose;
   }
@@ -210,14 +203,11 @@ const startAgain = (): void => {
 const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
   switch (event.key) {
     case "Enter":
-      console.log(document.activeElement);
-
       switch (document.activeElement) {
         case button:
           button.click();
           break;
         case menuIcon:
-          console.log("menu test");
           burgerMenu();
           break;
         case indexPage:
@@ -254,6 +244,16 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
             resultTitle.focus();
           }, 600);
           break;
+        case nextQuestionBtn:
+          setTimeout(() => {
+            questionTitle.focus();
+          }, 600);
+          break;
+        case startAgainBtn:
+          setTimeout(() => {
+            titleText.focus();
+          }, 600);
+          break;
         default:
           if (
             document.activeElement !== button &&
@@ -266,7 +266,9 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
             document.activeElement !== optionB &&
             document.activeElement !== optionC &&
             document.activeElement !== optionD &&
-            document.activeElement !== answerBtnContainer
+            document.activeElement !== answerBtnContainer &&
+            document.activeElement !== nextQuestionBtn &&
+            document.activeElement !== startAgainBtn
           ) {
             event.preventDefault();
             button.focus();
@@ -287,10 +289,11 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
         document.activeElement !== optionB &&
         document.activeElement !== optionC &&
         document.activeElement !== optionD &&
-        document.activeElement !== answerBtnContainer
+        document.activeElement !== answerBtnContainer &&
+        document.activeElement !== nextQuestionBtn &&
+        document.activeElement !== startAgainBtn
       ) {
         event.preventDefault();
-        console.log("test");
         optionA.focus();
       } else {
         return;
@@ -302,7 +305,6 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
       if (document.activeElement === optionD) {
         event.preventDefault();
         answerBtnContainer.focus();
-        console.log("keydown");
       }
   }
 };
@@ -310,8 +312,8 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
 const enterKeySelect = (event: KeyboardEvent): void => {
   handleKeyEvent(event, submitAnswerBtn);
   handleKeyEvent(event, startQuizBtn);
-  handleKeyEvent(event, nextQuestionBtn);
-  handleKeyEvent(event, startAgainBtn);
+  // handleKeyEvent(event, nextQuestionBtn);
+  // handleKeyEvent(event, startAgainBtn);
 };
 
 //#endregion
@@ -366,7 +368,6 @@ if (localStorage.getItem("dark-mode") === "enabled") {
 }
 
 const darkmode = () => {
-  console.log("pressed");
   if (theBody.classList.contains("dark-mode")) {
     theBody.classList.remove("dark-mode");
     localStorage.setItem("dark-mode", "disabled");
@@ -384,7 +385,6 @@ const darkmode = () => {
 };
 
 const toggleReduceMotion = () => {
-  console.log("its running");
   reduceMotion = !reduceMotion;
   if (reduceMotion) {
     motionModeIcon.classList.add("dark-button");

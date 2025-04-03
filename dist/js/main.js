@@ -4,6 +4,7 @@ const navLinks = document.querySelector("#nav-links");
 // const menuContainer = document.querySelector("#menu-container") as HTMLElement
 const menuIcon = document.querySelector("#menu-icon");
 const startQuizBtn = document.querySelector("#start-quiz-btn");
+const titleText = document.querySelector(".title-text");
 const questionTitle = document.querySelector("#question-title");
 const questionText = document.querySelector("#question-text");
 // const optionA2 = document.querySelector('label[for="question1"]')
@@ -54,7 +55,6 @@ const userChoiseIdentifier = () => {
     options.forEach((button) => {
         button.addEventListener("change", (event) => {
             userChoice = event.target.value;
-            console.log(`User selected: ${userChoice} and correct is ${currentQuestion.correctAnswer}`);
         });
     });
 };
@@ -78,7 +78,6 @@ const loadNextQuestion = () => {
     radioButtonCheck.forEach((radio) => {
         radio.checked = false;
     });
-    console.log(currentStep);
     if (currentStep >= questions.length) {
         quizResultTitle.innerHTML = "The quiz is over!";
         quizResultText.innerHTML = `Your result is: ${score} / ${questions.length}.`;
@@ -111,14 +110,11 @@ const loadNextAnswer = (event) => {
         return;
     }
     if (userChoice === currentQuestion.correctAnswer) {
-        console.log("You are correct!");
         resultTitle.innerHTML = currentQuestion.resultTitleWin;
         resultExplanation.innerHTML = currentQuestion.resultExplanationWin;
         score++;
-        console.log(score);
     }
     else {
-        console.log("Sorry, wrong answer.");
         resultTitle.innerHTML = currentQuestion.resultTitleLose;
         resultExplanation.innerHTML = currentQuestion.resultExplanationLose;
     }
@@ -148,13 +144,11 @@ const startAgain = () => {
 const handleKeyEvent = (event, button) => {
     switch (event.key) {
         case "Enter":
-            console.log(document.activeElement);
             switch (document.activeElement) {
                 case button:
                     button.click();
                     break;
                 case menuIcon:
-                    console.log("menu test");
                     burgerMenu();
                     break;
                 case indexPage:
@@ -191,6 +185,16 @@ const handleKeyEvent = (event, button) => {
                         resultTitle.focus();
                     }, 600);
                     break;
+                case nextQuestionBtn:
+                    setTimeout(() => {
+                        questionTitle.focus();
+                    }, 600);
+                    break;
+                case startAgainBtn:
+                    setTimeout(() => {
+                        titleText.focus();
+                    }, 600);
+                    break;
                 default:
                     if (document.activeElement !== button &&
                         document.activeElement !== menuIcon &&
@@ -202,7 +206,9 @@ const handleKeyEvent = (event, button) => {
                         document.activeElement !== optionB &&
                         document.activeElement !== optionC &&
                         document.activeElement !== optionD &&
-                        document.activeElement !== answerBtnContainer) {
+                        document.activeElement !== answerBtnContainer &&
+                        document.activeElement !== nextQuestionBtn &&
+                        document.activeElement !== startAgainBtn) {
                         event.preventDefault();
                         button.focus();
                     }
@@ -220,9 +226,10 @@ const handleKeyEvent = (event, button) => {
                 document.activeElement !== optionB &&
                 document.activeElement !== optionC &&
                 document.activeElement !== optionD &&
-                document.activeElement !== answerBtnContainer) {
+                document.activeElement !== answerBtnContainer &&
+                document.activeElement !== nextQuestionBtn &&
+                document.activeElement !== startAgainBtn) {
                 event.preventDefault();
-                console.log("test");
                 optionA.focus();
             }
             else {
@@ -234,15 +241,14 @@ const handleKeyEvent = (event, button) => {
             if (document.activeElement === optionD) {
                 event.preventDefault();
                 answerBtnContainer.focus();
-                console.log("keydown");
             }
     }
 };
 const enterKeySelect = (event) => {
     handleKeyEvent(event, submitAnswerBtn);
     handleKeyEvent(event, startQuizBtn);
-    handleKeyEvent(event, nextQuestionBtn);
-    handleKeyEvent(event, startAgainBtn);
+    // handleKeyEvent(event, nextQuestionBtn);
+    // handleKeyEvent(event, startAgainBtn);
 };
 //#endregion
 //#region --- transition ----
@@ -284,7 +290,6 @@ if (localStorage.getItem("dark-mode") === "enabled") {
     theBody.classList.add("dark-mode");
 }
 const darkmode = () => {
-    console.log("pressed");
     if (theBody.classList.contains("dark-mode")) {
         theBody.classList.remove("dark-mode");
         localStorage.setItem("dark-mode", "disabled");
@@ -301,7 +306,6 @@ const darkmode = () => {
     darkmodetoggle.setAttribute("aria-expanded", isExpanded ? "false" : "true");
 };
 const toggleReduceMotion = () => {
-    console.log("its running");
     reduceMotion = !reduceMotion;
     if (reduceMotion) {
         motionModeIcon.classList.add("dark-button");
