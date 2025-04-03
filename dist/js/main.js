@@ -1,6 +1,7 @@
 "use strict";
 //#region --- DOM Elements ----- 
 const navLinks = document.querySelector("#nav-links");
+const menuContainer = document.querySelector("#menu-container");
 const menuIcon = document.querySelector("#menu-icon");
 const startQuizBtn = document.querySelector("#start-quiz-btn");
 const questionTitle = document.querySelector("#question-title");
@@ -146,9 +147,8 @@ const handleKeyEvent = (event, button) => {
                 case button:
                     button.click();
                     break;
-                case menuIcon:
-                    // burgerMenu();
-                    darkmode();
+                case menuContainer:
+                    menuContainer.click();
                     break;
                 case indexPage:
                     indexPage.click();
@@ -186,7 +186,7 @@ const handleKeyEvent = (event, button) => {
                     break;
                 default:
                     if (document.activeElement !== button &&
-                        document.activeElement !== menuIcon &&
+                        document.activeElement !== menuContainer &&
                         document.activeElement !== indexPage &&
                         document.activeElement !== aboutPage &&
                         document.activeElement !== darkmodetoggle &&
@@ -202,16 +202,27 @@ const handleKeyEvent = (event, button) => {
                     break;
             }
             break;
-        // case "Escape":
-        //   if (document.activeElement !== button && document.activeElement !== menuIcon && document.activeElement !== indexPage && document.activeElement !== aboutPage && document.activeElement !== darkmodetoggle && document.activeElement !== optionA && document.activeElement !== optionB && document.activeElement !== optionC && document.activeElement !== optionD && document.activeElement !== answerBtnContainer) {
-        //     event.preventDefault()
-        //   }
-        //   else {
-        //     event.preventDefault()
-        //     darkmode()
-        //     optionA.focus()
-        //   }
-        //   break
+        case "Escape":
+            if (document.activeElement !== button &&
+                document.activeElement !== menuContainer &&
+                document.activeElement !== indexPage &&
+                document.activeElement !== aboutPage &&
+                document.activeElement !== darkmodetoggle &&
+                document.activeElement !== motionModeContainer &&
+                document.activeElement !== optionA &&
+                document.activeElement !== optionB &&
+                document.activeElement !== optionC &&
+                document.activeElement !== optionD &&
+                document.activeElement !== answerBtnContainer) {
+                event.preventDefault();
+                console.log("test");
+                optionA.focus();
+            }
+            else {
+                return;
+                // optionA.focus()
+            }
+            break;
         case "ArrowDown":
             if (document.activeElement === optionD) {
                 event.preventDefault();
@@ -269,16 +280,17 @@ const darkmode = () => {
         theBody.classList.remove("dark-mode");
         localStorage.setItem("dark-mode", "disabled");
         darkmodetoggle.classList.remove("dark-button");
-        darkmodetoggle.innerHTML = "DARK";
+        darkmodetoggle.innerHTML = "DARK MODE";
     }
     else {
         theBody.classList.add("dark-mode");
         localStorage.setItem("dark-mode", "enabled");
         darkmodetoggle.classList.add("dark-button");
-        darkmodetoggle.innerHTML = "LIGHT";
+        darkmodetoggle.innerHTML = "LIGHT MODE";
     }
 };
 const toggleReduceMotion = () => {
+    console.log("its running");
     reduceMotion = !reduceMotion;
     if (reduceMotion) {
         motionModeIcon.classList.add("dark-button");
@@ -297,9 +309,9 @@ submitAnswerBtn.addEventListener("click", loadNextAnswer);
 nextQuestionBtn.addEventListener("click", loadNextQuestion);
 startAgainBtn.addEventListener("click", startAgain);
 darkmodetoggle.addEventListener("click", darkmode);
+motionModeContainer.addEventListener("click", toggleReduceMotion);
 document.addEventListener("keydown", enterKeySelect);
 radioButtonCheck.forEach(btn => {
     btn.addEventListener("click", resetErrorStyle);
 });
-motionModeContainer.addEventListener("click", toggleReduceMotion);
 //#endregion
