@@ -30,37 +30,49 @@
     tabindex="0"
   >Skip to main content</a>
 
-  <header>
+  <header role="banner">
     <div
       tabindex="0"
       id="menu-icon"
       class="fas fa-bars"
+      role="button"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
     ></div>
     <nav
       role="navigation"
       aria-label="Main Menu"
       id="nav-links"
     >
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+      <ul role="list">
+        <li role="listitem"><a href="index.html">Home</a></li>
+        <li role="listitem"><a href="about.html">About</a></li>
       </ul>
     </nav>
   </header>
 
 
 
-  <main id="about-content">
+
+  <main
+    id="about-content"
+    role="main"
+  >
     <section
       id="about"
       class=""
+      role="region"
+      aria-labelledby="about-text"
     >
 
       <div
         class="speech-bubble"
-        id="question-container"
-      > <img
-          src="./img/speech-bubble.webp"
+        role="img"
+        aria-labelledby="about-text"
+      >
+        <!-- A non descriptive image -->
+        <img
+          src="./img/speech-bubble.png"
           alt=""
           aria-hidden="true"
         />
@@ -73,32 +85,35 @@
         </div>
       </div>
 
-      <ol>
-        <li tabindex="0"><strong>A "Skip to Content"</strong> link lets users bypass navigation and go directly to the
-          quiz.</li>
-        <li tabindex="0">The quiz is fully <strong>keyboard-accessible</strong>, allowing users to navigate and select
-          answers
-          without a mouse.</li>
-        <li tabindex="0">A <strong>clean and simple layout</strong> ensures an easy-to-read experience with minimal
-          distractions.
+      <ol role="list">
+        <li role="listitem"><strong>A "Skip to main content"</strong> link lets users bypass navigation and go directly
+          to
+          the quiz.</li>
+        <li role="listitem">The quiz is fully <strong>keyboard-accessible</strong>, allowing users to navigate and
+          select answers without a
+          mouse.</li>
+        <li role="listitem">A <strong>clean and simple layout</strong> ensures an easy-to-read experience with minimal
+          distractions.</li>
+        <li role="listitem"><strong>ARIA labels</strong> enhance accessibility for screen readers.</li>
+        <li role="listitem"><strong>Semantic HTML</strong> improves structure and readability for both users and
+          assistive technologies.
         </li>
-        <li tabindex="0"><strong>ARIA labels</strong> enhance accessibility for screen readers.</li>
-        <li tabindex="0"><strong>Semantic HTML</strong> improves structure and readability for both users and assistive
-          technologies.
+        <li role="listitem">
+          A <strong>dark mode option</strong> provides a high-contrast black background with white text for a more
+          comfortable viewing experience.
         </li>
-        <li tabindex="0">A <strong>dark mode option</strong> provides a more comfortable viewing experience in low-light
-          settings.
-        </li>
-      </ol>
+        <li role="listitem">A <strong>reduce motion option</strong> allows users to disable animations and sliding
+          effects in the quiz, providing a more comfortable experience for anyone sensitive to motion.</li>
 
+      </ol>
+      <!-- A descriptive image -->
       <img
         class="accessibility-img"
-        src="./img/accessibility-image.png"
-        alt="A discriptive image"
+        src="./img/web-accessibility-features.png"
+        alt="Illustration of web accessibility features for this quiz"
         role="img"
-        tabindex="0"
       />
-      <!-- Ska ändra denna bild sen -->
+
     </section>
 
   </main>
@@ -107,14 +122,24 @@
       role="navigation"
       aria-label="Footer menu"
     >
-      <p tabindex="0">Project by: Simon & Sofie <a href="https://github.com/simfrisk/accessibility-sofie-simon"><i
-            class="fa-brands fa-github"
-          ></i></a></p>
       <button
         id="dark-mode-icon"
         class="dark-mode-icon"
         type="button"
+        aria-label="Toggle dark mode"
       >dark</button>
+      <p tabindex="0">
+        Project by: Simon & Sofie
+        <a
+          href="https://github.com/simfrisk/accessibility-sofie-simon"
+          aria-label="GitHub repository for Accessibility Project by Simon & Sofie"
+        >
+          <i
+            class="fa-brands fa-github"
+            aria-hidden="true"
+          ></i>
+        </a>
+      </p>
     </nav>
   </footer>
 
