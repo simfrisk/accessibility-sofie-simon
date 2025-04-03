@@ -498,6 +498,12 @@ footer button {
   #motion-mode-icon {
     display: none;
   }
+
+  footer nav {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+  }
 }
 
 @media screen and (min-width: 1024px) {
