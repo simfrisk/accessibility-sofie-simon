@@ -34,7 +34,7 @@ const aboutPage = document.querySelector("#about-page") as HTMLAnchorElement
 const legend = document.querySelector("#legend") as HTMLAnchorElement
 const testing = document.querySelector("#testing") as HTMLAnchorElement
 const main = document.querySelector('#main-content') as HTMLElement
-const motionModeContainer = document.querySelector('#motion-mode-container') as HTMLElement
+// const motionModeContainer = document.querySelector('#motion-mode-container') as HTMLElement
 const motionModeIcon = document.querySelector('#motion-mode-icon') as HTMLElement
 
 let reduceMotion = false
@@ -178,7 +178,7 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
         case darkModeContainer:
           darkmode();
           break;
-        case motionModeContainer:
+        case motionModeIcon:
           toggleReduceMotion(); // Add this line!
           break;
         case optionA:
@@ -209,7 +209,7 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
             document.activeElement !== indexPage &&
             document.activeElement !== aboutPage &&
             document.activeElement !== darkmodetoggle &&
-            document.activeElement !== motionModeContainer &&
+            document.activeElement !== motionModeIcon &&
             document.activeElement !== optionA &&
             document.activeElement !== optionB &&
             document.activeElement !== optionC &&
@@ -229,7 +229,7 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
         document.activeElement !== indexPage &&
         document.activeElement !== aboutPage &&
         document.activeElement !== darkmodetoggle &&
-        document.activeElement !== motionModeContainer &&
+        document.activeElement !== motionModeIcon &&
         document.activeElement !== optionA &&
         document.activeElement !== optionB &&
         document.activeElement !== optionC &&
@@ -354,7 +354,7 @@ submitAnswerBtn.addEventListener("click", loadNextAnswer)
 nextQuestionBtn.addEventListener("click", loadNextQuestion)
 startAgainBtn.addEventListener("click", startAgain)
 darkmodetoggle.addEventListener("click", darkmode)
-motionModeContainer.addEventListener("click", toggleReduceMotion)
+motionModeIcon.addEventListener("click", toggleReduceMotion)
 document.addEventListener("keydown", enterKeySelect);
 
 radioButtonCheck.forEach(btn => {
