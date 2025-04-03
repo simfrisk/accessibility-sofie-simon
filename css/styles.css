@@ -155,7 +155,7 @@ legend:focus-visible {
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  min-height: 84dvh;
+  min-height: 80dvh;
   width: 100dvw;
   overflow-y: auto;
 }
