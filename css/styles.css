@@ -1,48 +1,16 @@
 :root {
   --primary: #fdeb3f;
-  --primary-hover: ;
-  --primary-fixed: ;
-
   --secondary: #121212;
-  --secondary-hover: ;
-  --secondary-fixed: ;
-
   --complementary: #FFFFFF;
-  --complementary-hover: ;
-  --complementary-fixed: #FFFFFF;
-
-  --aditional: ;
-  --aditional-hover: ;
-  --aditional-fixed: ;
-
   --font-primary: #121212;
-  --font-primary-hover: ;
   --font-primary-fixed: #121212;
-
-  --font-secondary: ;
-  --font-secondary-hover: ;
-  --font-secondary-fixed: ;
 }
 
 .dark-mode {
   --primary: #121212;
-  --primary-hover: ;
-
   --secondary: #FFFFFF;
-  --secondary-hover: ;
-
   --complementary: #121212;
-  --complementary-hover: ;
-
-  --aditional: ;
-  --aditional-hover: ;
-
   --font-primary: #FFFFFF;
-  --font-primary-hover: ;
-
-  --font-secondary: ;
-  --font-secondary-hover: ;
-
 }
 
 * {
@@ -59,7 +27,8 @@ body {
   overflow-x: hidden;
 }
 
-/* Skip link styling */
+/* Skip link button styling */
+
 .skip-link {
   position: absolute;
   top: -40px;
@@ -82,8 +51,19 @@ body {
   top: 0;
 }
 
-
 /* Styling for nav in header and footer */
+
+#menu-icon {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  z-index: 1000;
+  position: relative;
+  font-size: clamp(30px, 5vh, 50px);
+  cursor: pointer;
+  padding: 12px;
+}
 
 header {
   min-height: 8dvh;
@@ -100,7 +80,6 @@ nav {
   padding: 16px;
   letter-spacing: 0.5px;
 }
-
 
 #nav-links {
   display: none;
@@ -146,16 +125,17 @@ a {
 }
 
 /* For interactive elements */
+
 button:focus-visible,
 a:focus-visible,
 .options:focus-visible,
 #menu-icon:focus-visible,
 div:focus-visible {
   outline: 4px solid var(--secondary);
-  /* Vi kan ändra färg */
 }
 
 /* For other elements */
+
 h1:focus-visible,
 h2:focus-visible,
 h3:focus-visible,
@@ -165,42 +145,9 @@ li:focus-visible,
 img:focus-visible,
 legend:focus-visible {
   outline: 4px solid var(--secondary);
-
 }
 
-#about {
-  padding-top: 20px;
-  border: 4px solid var(--secondary);
-}
 
-ol {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-auto-rows: auto;
-  gap: 16px;
-  padding: 16px;
-}
-
-ol li {
-  margin-bottom: 18px;
-  position: relative;
-  padding-left: 40px;
-  text-align: left;
-}
-
-ol li::before {
-
-  content: "\f058";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  position: absolute;
-  left: 0;
-  font-size: 22px;
-}
-
-.front {
-  z-index: 0;
-}
 
 /* styling for each section */
 
@@ -219,10 +166,9 @@ ol li::before {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 20px 0;
+
   gap: 18px;
   background-color: var(--primary);
-  /* outline: 4px 4px 0 solid var(--secondary); */
   border: 4px solid var(--secondary);
   padding: 16px;
   transition: transform .7s ease-out;
@@ -235,12 +181,11 @@ ol li::before {
 
 .hide {
   display: none;
-  /* transition: transform 1s ease; */
 }
 
+/* Hides scrollbar in Chrome, Safari, and newer Edge */
 *::-webkit-scrollbar {
   display: none;
-  /* Hides scrollbar in Chrome, Safari, and newer Edge */
 }
 
 #question-title {
@@ -273,6 +218,8 @@ ol li::before {
   width: 250px;
 }
 
+/* Styling for text */
+
 h1,
 h2,
 h3,
@@ -298,31 +245,6 @@ h3 {
   color: var(--font-primary-fixed);
 }
 
-button {
-  font-family: 'Futura', Helvetica, sans-serif;
-  color: var(--font-primary);
-  font-size: 16px;
-  border: 2px solid var(--secondary);
-  border-radius: 8px;
-  background-color: var(--complementary);
-  box-shadow: 2px 3px 0px var(--secondary);
-  padding: 8px 22px;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
-}
-
-
-button:hover {
-  box-shadow: none;
-  transform: translateY(2px);
-}
-
-button:active {
-  box-shadow: inset 1.5px 2px 0px var(--secondary);
-  transform: translateY(2px) scale(0.98);
-}
 
 /* Quiz questions form layout */
 
@@ -337,18 +259,6 @@ fieldset {
   margin: 0;
   min-width: 0;
 }
-
-/* legend {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  overflow: hidden;
-  white-space: nowrap;
-} */
 
 .error-text {
   color: var(--font-primary);
@@ -408,18 +318,75 @@ input[type="radio"] {
 input[type="radio"]:checked+.options {
   box-shadow: inset 4px 4px 0px var(--secondary);
   transform: translateY(3px) scale(0.96);
-  /* font-weight: bold; */
   background-color: var(--secondary);
-  /*Vi kan diskutera färgvalet*/
   color: var(--complementary)
 }
-
 
 .options:hover {
   box-shadow: 0px 0px 0px var(--secondary);
   transform: translateY(2px);
 }
 
+button {
+  font-family: 'Futura', Helvetica, sans-serif;
+  color: var(--font-primary);
+  font-size: 16px;
+  border: 2px solid var(--secondary);
+  border-radius: 8px;
+  background-color: var(--complementary);
+  box-shadow: 2px 3px 0px var(--secondary);
+  padding: 8px 22px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
+}
+
+button:hover {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+button:active {
+  box-shadow: inset 1.5px 2px 0px var(--secondary);
+  transform: translateY(2px) scale(0.98);
+}
+
+/* Styling for the about page content */
+
+#about {
+  padding-top: 20px;
+  border: 4px solid var(--secondary);
+}
+
+ol {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-rows: auto;
+  gap: 16px;
+  padding: 16px;
+}
+
+ol li {
+  margin-bottom: 18px;
+  position: relative;
+  padding-left: 40px;
+  text-align: left;
+}
+
+ol li::before {
+  content: "\f058";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  font-size: 22px;
+}
+
+.accessibility-img {
+  width: 100%;
+  height: auto;
+}
 
 /* styling of icons */
 i {
@@ -427,15 +394,12 @@ i {
   color: var(--font-primary);
 }
 
-
 footer {
-  /* display: none; */
   border-bottom: 4px solid var(--secondary);
   border-right: 4px solid var(--secondary);
   border-left: 4px solid var(--secondary);
   background-color: var(--primary);
   width: 100%;
-  /* height: 8dvh; */
   z-index: 10;
   padding: 8px;
 }
@@ -460,31 +424,11 @@ footer button {
   letter-spacing: 0;
 }
 
-.accessibility-img {
-  width: 100%;
-  height: auto;
-}
 
-img {
-  margin: 0;
-}
 
-#menu-icon {
-  background-color: transparent;
-  box-shadow: none;
-  border: none;
-  outline: none;
-  z-index: 1000;
-  position: relative;
-  font-size: clamp(30px, 5vh, 50px);
-  cursor: pointer;
-  padding: 12px;
-}
 
 /* Tablet  */
 @media screen and (min-width: 768px) {
-
-  header {}
 
   #menu-icon {
     display: none;
@@ -550,9 +494,7 @@ img {
 
 @media screen and (min-width: 1024px) {
 
-
   ol {
-
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -561,7 +503,6 @@ img {
 @media screen and (max-width: 360px) {
 
   header {
-    /* outline: 4px solid var(--secondary); */
     margin: 0;
     z-index: 10;
   }
@@ -570,12 +511,9 @@ img {
     position: relative;
     width: 100dvw;
     padding: 4px;
-    /* overflow: none; */
   }
 
   #motion-mode-icon {
     display: none;
   }
-
-
 }
