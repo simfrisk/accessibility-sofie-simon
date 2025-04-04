@@ -1,12 +1,10 @@
 //#region --- DOM Elements -----
 const navLinks = document.querySelector("#nav-links") as HTMLDivElement;
-// const menuContainer = document.querySelector("#menu-container") as HTMLElement
 const menuIcon = document.querySelector("#menu-icon") as HTMLButtonElement;
 const startQuizBtn = document.querySelector("#start-quiz-btn") as HTMLElement;
 const titleText = document.querySelector(".title-text") as HTMLElement;
 const questionTitle = document.querySelector("#question-title") as HTMLHeadingElement;
 const questionText = document.querySelector("#question-text") as HTMLParagraphElement;
-// const optionA2 = document.querySelector('label[for="question1"]')
 const optionA = document.querySelector('label[for="option-a"]') as HTMLLabelElement;
 const optionB = document.querySelector('label[for="option-b"]') as HTMLLabelElement;
 const optionC = document.querySelector('label[for="option-c"]') as HTMLLabelElement;
@@ -78,6 +76,9 @@ const burgerMenu = (): void => {
 
   const currentLabel = isExpanded ? "Open main menu" : "Close main menu";
   menuIcon.setAttribute("aria-label", currentLabel);
+
+  const isMenuOpen = navLinks.classList.contains("active");
+  navLinks.setAttribute("aria-hidden", isMenuOpen ? "false" : "true");
 };
 //#endregion
 

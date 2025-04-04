@@ -1,13 +1,11 @@
 "use strict";
 //#region --- DOM Elements -----
 const navLinks = document.querySelector("#nav-links");
-// const menuContainer = document.querySelector("#menu-container") as HTMLElement
 const menuIcon = document.querySelector("#menu-icon");
 const startQuizBtn = document.querySelector("#start-quiz-btn");
 const titleText = document.querySelector(".title-text");
 const questionTitle = document.querySelector("#question-title");
 const questionText = document.querySelector("#question-text");
-// const optionA2 = document.querySelector('label[for="question1"]')
 const optionA = document.querySelector('label[for="option-a"]');
 const optionB = document.querySelector('label[for="option-b"]');
 const optionC = document.querySelector('label[for="option-c"]');
@@ -69,6 +67,8 @@ const burgerMenu = () => {
     menuIcon.setAttribute("aria-expanded", isExpanded ? "false" : "true");
     const currentLabel = isExpanded ? "Open main menu" : "Close main menu";
     menuIcon.setAttribute("aria-label", currentLabel);
+    const isMenuOpen = navLinks.classList.contains("active");
+    navLinks.setAttribute("aria-hidden", isMenuOpen ? "false" : "true");
 };
 //#endregion
 //#region --- Load Next Question -----
