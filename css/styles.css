@@ -432,8 +432,9 @@ footer button {
   letter-spacing: 0;
 }
 
-
-
+.question-text-about {
+  color: var(--font-primary-fixed);
+}
 
 /* Tablet  */
 @media screen and (min-width: 768px) {

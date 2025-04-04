@@ -1,3 +1,5 @@
+// Menu
+
 const navLinks = document.querySelector("#nav-links")
 const menuIcon = document.querySelector("#menu-icon")
 
@@ -8,6 +10,8 @@ const burgerMenu = () => {
 }
 
 menuIcon.addEventListener("click", burgerMenu)
+
+// Darkmode
 
 const theBody = document.querySelector("body")
 
@@ -37,3 +41,6 @@ const darkmode = () => {
 };
 
 darkmodetoggle.addEventListener("click", darkmode);
+
+
+
