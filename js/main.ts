@@ -29,7 +29,6 @@ const resultContainer = document.querySelector("#result-container") as HTMLEleme
 const radioButtonGroup = document.querySelector(".radio-button-group") as HTMLDivElement;
 const darkModeContainer = document.querySelector("#dark-mode-container") as HTMLButtonElement;
 
-
 //texts
 const titleText = document.querySelector(".title-text") as HTMLElement;
 const questionTitle = document.querySelector("#question-title") as HTMLHeadingElement;
