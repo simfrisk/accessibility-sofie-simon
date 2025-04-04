@@ -1,10 +1,10 @@
 //#region --- DOM Elements -----
-const navLinks = document.querySelector("#nav-links") as HTMLElement;
+const navLinks = document.querySelector("#nav-links") as HTMLDivElement;
 // const menuContainer = document.querySelector("#menu-container") as HTMLElement
-const menuIcon = document.querySelector("#menu-icon") as HTMLElement;
+const menuIcon = document.querySelector("#menu-icon") as HTMLButtonElement;
 const startQuizBtn = document.querySelector("#start-quiz-btn") as HTMLElement;
 const titleText = document.querySelector(".title-text") as HTMLElement;
-const questionTitle = document.querySelector("#question-title") as HTMLElement;
+const questionTitle = document.querySelector("#question-title") as HTMLHeadingElement;
 const questionText = document.querySelector("#question-text") as HTMLParagraphElement;
 // const optionA2 = document.querySelector('label[for="question1"]')
 const optionA = document.querySelector('label[for="option-a"]') as HTMLLabelElement;
@@ -22,7 +22,7 @@ const quizResult = document.querySelector("#quiz-result") as HTMLElement;
 const quizResultTitle = document.querySelector("#quiz-result-title") as HTMLElement;
 const quizResultText = document.querySelector("#quiz-result-text") as HTMLParagraphElement;
 const startAgainBtn = document.querySelector("#start-again-btn") as HTMLButtonElement;
-const selectionForm = document.querySelector("#selection-from") as HTMLFormElement;
+const selectionForm = document.querySelector("#selection-form") as HTMLFormElement;
 const radioButtonGroup = document.querySelector(".radio-button-group") as HTMLDivElement;
 const radioButtonCheck = document.querySelectorAll('input[name="question1"]') as NodeListOf<HTMLInputElement>;
 const backBtn = document.querySelector("#back-btn") as HTMLButtonElement;
@@ -39,7 +39,7 @@ const main = document.querySelector("#main-content") as HTMLElement;
 const motionModeIcon = document.querySelector("#motion-mode-icon") as HTMLElement;
 
 let reduceMotion = false;
-const cards = document.querySelectorAll(".card");
+const cards = document.querySelectorAll(".card") as NodeListOf<HTMLElement>;
 const scrollLeft = main.scrollLeft;
 const cardWidth = cards[0].offsetWidth; // Assuming all cards have the same width
 
@@ -82,7 +82,7 @@ const burgerMenu = (): void => {
 //#endregion
 
 //#region --- Load Next Question -----
-const loadNextQuestion = () => {
+const loadNextQuestion = (): void => {
   userChoice = "";
   currentStep++;
   radioButtonCheck.forEach((radio): void => {
@@ -283,9 +283,9 @@ const enterKeySelect = (event: KeyboardEvent): void => {
 //#region --- transition ----
 
 const transition = (
-  hideElement: HTMLElement | null,
-  showElement: HTMLElement | null,
-  hideElementExtra: HTMLElement | null
+  hideElement: HTMLElement,
+  showElement: HTMLElement,
+  hideElementExtra?: HTMLElement
 ): void => {
   const mediaQueryIpad = window.matchMedia("(min-width: 768px)");
   const mediaQuerySmall = window.matchMedia("(max-width: 360px)");

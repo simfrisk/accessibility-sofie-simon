@@ -23,7 +23,7 @@ const quizResult = document.querySelector("#quiz-result");
 const quizResultTitle = document.querySelector("#quiz-result-title");
 const quizResultText = document.querySelector("#quiz-result-text");
 const startAgainBtn = document.querySelector("#start-again-btn");
-const selectionForm = document.querySelector("#selection-from");
+const selectionForm = document.querySelector("#selection-form");
 const radioButtonGroup = document.querySelector(".radio-button-group");
 const radioButtonCheck = document.querySelectorAll('input[name="question1"]');
 const backBtn = document.querySelector("#back-btn");
