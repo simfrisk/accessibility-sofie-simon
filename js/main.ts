@@ -1,46 +1,61 @@
 //#region --- DOM Elements -----
+
+//Buttons
+const skipToMain = document.querySelector("#skip-to-main") as HTMLDivElement;
 const navLinks = document.querySelector("#nav-links") as HTMLDivElement;
 const menuIcon = document.querySelector("#menu-icon") as HTMLButtonElement;
 const startQuizBtn = document.querySelector("#start-quiz-btn") as HTMLElement;
+const submitAnswerBtn = document.querySelector("#answer-btn") as HTMLElement;
+const nextQuestionBtn = document.querySelector("#next-question-btn") as HTMLElement;
+const startAgainBtn = document.querySelector("#start-again-btn") as HTMLButtonElement;
+const radioButtonCheck = document.querySelectorAll('input[name="question1"]') as NodeListOf<HTMLInputElement>;
+const motionModeIcon = document.querySelector("#motion-mode-icon") as HTMLElement;
+const darkmodetoggle = document.querySelector("#dark-mode-icon") as HTMLButtonElement;
+
+//Links
+const indexPage = document.querySelector("#index-page") as HTMLAnchorElement;
+const aboutPage = document.querySelector("#about-page") as HTMLAnchorElement;
+
+//Containers & sections
+const theBody = document.querySelector("body") as HTMLBodyElement;
+const main = document.querySelector("#main-content") as HTMLElement;
+const selectionForm = document.querySelector("#selection-form") as HTMLFormElement;
+const legend = document.querySelector("#legend") as HTMLAnchorElement;
+const testing = document.querySelector("#testing") as HTMLAnchorElement;
+const startPage = document.querySelector("#start-page") as HTMLElement;
+const quizContainer = document.querySelector("#quiz-container") as HTMLElement;
+const answerBtnContainer = document.querySelector("#answer-btn-container") as HTMLButtonElement;
+const resultContainer = document.querySelector("#result-container") as HTMLElement;
+const radioButtonGroup = document.querySelector(".radio-button-group") as HTMLDivElement;
+const darkModeContainer = document.querySelector("#dark-mode-container") as HTMLButtonElement;
+
+
+//texts
 const titleText = document.querySelector(".title-text") as HTMLElement;
 const questionTitle = document.querySelector("#question-title") as HTMLHeadingElement;
 const questionText = document.querySelector("#question-text") as HTMLParagraphElement;
+const resultTitle = document.querySelector("#result-title") as HTMLElement;
+const resultExplanation = document.querySelector("#result-explanation") as HTMLParagraphElement;
+const quizResult = document.querySelector("#quiz-result") as HTMLElement;
+const quizResultTitle = document.querySelector("#quiz-result-title") as HTMLElement;
+const quizResultText = document.querySelector("#quiz-result-text") as HTMLParagraphElement;
+
+
+//Options
 const optionA = document.querySelector('label[for="option-a"]') as HTMLLabelElement;
 const optionB = document.querySelector('label[for="option-b"]') as HTMLLabelElement;
 const optionC = document.querySelector('label[for="option-c"]') as HTMLLabelElement;
 const optionD = document.querySelector('label[for="option-d"]') as HTMLLabelElement;
-const resultTitle = document.querySelector("#result-title") as HTMLElement;
-const resultExplanation = document.querySelector("#result-explanation") as HTMLParagraphElement;
-const submitAnswerBtn = document.querySelector("#answer-btn") as HTMLElement;
-const nextQuestionBtn = document.querySelector("#next-question-btn") as HTMLElement;
-const startPage = document.querySelector("#start-page") as HTMLElement;
-const quizContainer = document.querySelector("#quiz-container") as HTMLElement;
-const resultContainer = document.querySelector("#result-container") as HTMLElement;
-const quizResult = document.querySelector("#quiz-result") as HTMLElement;
-const quizResultTitle = document.querySelector("#quiz-result-title") as HTMLElement;
-const quizResultText = document.querySelector("#quiz-result-text") as HTMLParagraphElement;
-const startAgainBtn = document.querySelector("#start-again-btn") as HTMLButtonElement;
-const selectionForm = document.querySelector("#selection-form") as HTMLFormElement;
-const radioButtonGroup = document.querySelector(".radio-button-group") as HTMLDivElement;
-const radioButtonCheck = document.querySelectorAll('input[name="question1"]') as NodeListOf<HTMLInputElement>;
-const backBtn = document.querySelector("#back-btn") as HTMLButtonElement;
-const theBody = document.querySelector("body") as HTMLBodyElement;
-const darkmodetoggle = document.querySelector("#dark-mode-icon") as HTMLButtonElement;
-const darkModeContainer = document.querySelector("#dark-mode-container") as HTMLButtonElement;
-const answerBtnContainer = document.querySelector("#answer-btn-container") as HTMLButtonElement;
-const indexPage = document.querySelector("#index-page") as HTMLAnchorElement;
-const aboutPage = document.querySelector("#about-page") as HTMLAnchorElement;
-const legend = document.querySelector("#legend") as HTMLAnchorElement;
-const testing = document.querySelector("#testing") as HTMLAnchorElement;
-const main = document.querySelector("#main-content") as HTMLElement;
-// const motionModeContainer = document.querySelector('#motion-mode-container') as HTMLElement
-const motionModeIcon = document.querySelector("#motion-mode-icon") as HTMLElement;
 
-let reduceMotion = false;
+//Extra
 const cards = document.querySelectorAll(".card") as NodeListOf<HTMLElement>;
 const scrollLeft = main.scrollLeft;
 const cardWidth = cards[0].offsetWidth; // Assuming all cards have the same width
 
+
+//Objects & Arrays
+
+let reduceMotion = false;
 let currentStep: number = -1;
 let currentPage = startPage;
 let userChoice: string = "";
@@ -170,6 +185,9 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
         case button:
           button.click();
           break;
+        case skipToMain:
+          main.focus()
+          break;
         case menuIcon:
           burgerMenu();
           break;
@@ -219,6 +237,7 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
           break;
         default:
           if (
+            document.activeElement !== skipToMain &&
             document.activeElement !== button &&
             document.activeElement !== menuIcon &&
             document.activeElement !== indexPage &&
@@ -242,6 +261,7 @@ const handleKeyEvent = (event: KeyboardEvent, button: HTMLElement): void => {
 
     case "Escape":
       if (
+        document.activeElement !== skipToMain &&
         document.activeElement !== button &&
         document.activeElement !== menuIcon &&
         document.activeElement !== indexPage &&
@@ -281,7 +301,7 @@ const enterKeySelect = (event: KeyboardEvent): void => {
 
 //#endregion
 
-//#region --- transition ----
+//#region --- Transition ----
 
 const transition = (
   hideElement: HTMLElement,

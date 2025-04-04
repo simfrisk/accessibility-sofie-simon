@@ -1,45 +1,51 @@
 "use strict";
 //#region --- DOM Elements -----
+//Buttons
+const skipToMain = document.querySelector("#skip-to-main");
 const navLinks = document.querySelector("#nav-links");
 const menuIcon = document.querySelector("#menu-icon");
 const startQuizBtn = document.querySelector("#start-quiz-btn");
+const submitAnswerBtn = document.querySelector("#answer-btn");
+const nextQuestionBtn = document.querySelector("#next-question-btn");
+const startAgainBtn = document.querySelector("#start-again-btn");
+const radioButtonCheck = document.querySelectorAll('input[name="question1"]');
+const motionModeIcon = document.querySelector("#motion-mode-icon");
+const darkmodetoggle = document.querySelector("#dark-mode-icon");
+//Links
+const indexPage = document.querySelector("#index-page");
+const aboutPage = document.querySelector("#about-page");
+//Containers & sections
+const theBody = document.querySelector("body");
+const main = document.querySelector("#main-content");
+const selectionForm = document.querySelector("#selection-form");
+const legend = document.querySelector("#legend");
+const testing = document.querySelector("#testing");
+const startPage = document.querySelector("#start-page");
+const quizContainer = document.querySelector("#quiz-container");
+const answerBtnContainer = document.querySelector("#answer-btn-container");
+const resultContainer = document.querySelector("#result-container");
+const radioButtonGroup = document.querySelector(".radio-button-group");
+const darkModeContainer = document.querySelector("#dark-mode-container");
+//texts
 const titleText = document.querySelector(".title-text");
 const questionTitle = document.querySelector("#question-title");
 const questionText = document.querySelector("#question-text");
+const resultTitle = document.querySelector("#result-title");
+const resultExplanation = document.querySelector("#result-explanation");
+const quizResult = document.querySelector("#quiz-result");
+const quizResultTitle = document.querySelector("#quiz-result-title");
+const quizResultText = document.querySelector("#quiz-result-text");
+//Options
 const optionA = document.querySelector('label[for="option-a"]');
 const optionB = document.querySelector('label[for="option-b"]');
 const optionC = document.querySelector('label[for="option-c"]');
 const optionD = document.querySelector('label[for="option-d"]');
-const resultTitle = document.querySelector("#result-title");
-const resultExplanation = document.querySelector("#result-explanation");
-const submitAnswerBtn = document.querySelector("#answer-btn");
-const nextQuestionBtn = document.querySelector("#next-question-btn");
-const startPage = document.querySelector("#start-page");
-const quizContainer = document.querySelector("#quiz-container");
-const resultContainer = document.querySelector("#result-container");
-const quizResult = document.querySelector("#quiz-result");
-const quizResultTitle = document.querySelector("#quiz-result-title");
-const quizResultText = document.querySelector("#quiz-result-text");
-const startAgainBtn = document.querySelector("#start-again-btn");
-const selectionForm = document.querySelector("#selection-form");
-const radioButtonGroup = document.querySelector(".radio-button-group");
-const radioButtonCheck = document.querySelectorAll('input[name="question1"]');
-const backBtn = document.querySelector("#back-btn");
-const theBody = document.querySelector("body");
-const darkmodetoggle = document.querySelector("#dark-mode-icon");
-const darkModeContainer = document.querySelector("#dark-mode-container");
-const answerBtnContainer = document.querySelector("#answer-btn-container");
-const indexPage = document.querySelector("#index-page");
-const aboutPage = document.querySelector("#about-page");
-const legend = document.querySelector("#legend");
-const testing = document.querySelector("#testing");
-const main = document.querySelector("#main-content");
-// const motionModeContainer = document.querySelector('#motion-mode-container') as HTMLElement
-const motionModeIcon = document.querySelector("#motion-mode-icon");
-let reduceMotion = false;
+//Extra
 const cards = document.querySelectorAll(".card");
 const scrollLeft = main.scrollLeft;
 const cardWidth = cards[0].offsetWidth; // Assuming all cards have the same width
+//Objects & Arrays
+let reduceMotion = false;
 let currentStep = -1;
 let currentPage = startPage;
 let userChoice = "";
@@ -148,6 +154,9 @@ const handleKeyEvent = (event, button) => {
                 case button:
                     button.click();
                     break;
+                case skipToMain:
+                    main.focus();
+                    break;
                 case menuIcon:
                     burgerMenu();
                     break;
@@ -196,7 +205,8 @@ const handleKeyEvent = (event, button) => {
                     }, 600);
                     break;
                 default:
-                    if (document.activeElement !== button &&
+                    if (document.activeElement !== skipToMain &&
+                        document.activeElement !== button &&
                         document.activeElement !== menuIcon &&
                         document.activeElement !== indexPage &&
                         document.activeElement !== aboutPage &&
@@ -216,7 +226,8 @@ const handleKeyEvent = (event, button) => {
             }
             break;
         case "Escape":
-            if (document.activeElement !== button &&
+            if (document.activeElement !== skipToMain &&
+                document.activeElement !== button &&
                 document.activeElement !== menuIcon &&
                 document.activeElement !== indexPage &&
                 document.activeElement !== aboutPage &&
@@ -251,7 +262,7 @@ const enterKeySelect = (event) => {
     // handleKeyEvent(event, startAgainBtn);
 };
 //#endregion
-//#region --- transition ----
+//#region --- Transition ----
 const transition = (hideElement, showElement, hideElementExtra) => {
     const mediaQueryIpad = window.matchMedia("(min-width: 768px)");
     const mediaQuerySmall = window.matchMedia("(max-width: 360px)");
