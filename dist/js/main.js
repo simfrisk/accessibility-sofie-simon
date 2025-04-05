@@ -86,7 +86,7 @@ const loadNextQuestion = () => {
     });
     if (currentStep >= questions.length) {
         quizResultTitle.innerHTML = "The quiz is over!";
-        quizResultText.innerHTML = `Your result is: ${score} / ${questions.length}.`;
+        quizResultText.innerHTML = `Your result is ${score} / ${questions.length}`;
         transition(resultContainer, quizResult, null);
     }
     else {

@@ -51,7 +51,6 @@ const cards = document.querySelectorAll(".card") as NodeListOf<HTMLElement>;
 const scrollLeft = main.scrollLeft;
 const cardWidth = cards[0].offsetWidth; // Assuming all cards have the same width
 
-
 //Objects & Arrays
 
 let reduceMotion = false;
@@ -106,7 +105,7 @@ const loadNextQuestion = (): void => {
 
   if (currentStep >= questions.length) {
     quizResultTitle.innerHTML = "The quiz is over!";
-    quizResultText.innerHTML = `Your result is: ${score} / ${questions.length}.`;
+    quizResultText.innerHTML = `Your result is ${score} / ${questions.length}`;
     transition(resultContainer, quizResult, null);
   } else {
     currentQuestion = questions[currentStep];
